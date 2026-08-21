@@ -69,7 +69,7 @@ export default function AboutMe() {
                     animate={{ opacity: 1, scale: 1, x: 0 }}
                     transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
                 >
-                    <motion.img
+                    {/* <motion.img
                         src="https://placehold.co/400x400"
                         alt=""
                         width={400}
@@ -78,7 +78,7 @@ export default function AboutMe() {
                         initial={false}
                         whileHover={{ scale: 1.03, boxShadow: "0px 10px 40px rgba(0,0,0,0.08)" }}
                         transition={{ type: "spring", stiffness: 210, damping: 20 }}
-                    />
+                    /> */}
                 </motion.div>
             </motion.div>
 
