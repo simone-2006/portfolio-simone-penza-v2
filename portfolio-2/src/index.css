@@ -1,22 +1,8 @@
 @import "tailwindcss";
 
-:root {
-  --header-height: 3.5rem;
-}
-
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--header-height);
-  overflow-x: clip;
-}
-
-body {
-  overflow-x: clip;
-}
-
-.page-section {
-  min-height: calc(100svh - var(--header-height));
-  padding: 1rem;
+  scroll-padding-top: 3.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
