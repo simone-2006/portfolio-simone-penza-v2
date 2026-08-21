@@ -1,6 +1,7 @@
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import NavbarButton from "../ui/NavbarButton";
 import { pagesContext } from "../../context/appContext";
+import { motion, useInView } from 'framer-motion';
 
 export default function Navbar() {
     const navbarElements = useContext(pagesContext);
@@ -133,8 +134,15 @@ export default function Navbar() {
             aria-label="Primary"
             className="sticky top-0 z-50 border-b border-accent p-4 flex justify-between items-center backdrop-blur-sm bg-primary/80"
         >
-            <p className="text-sm tracking-wide uppercase font-semibold">Simone Penza</p>
-
+            <motion.a href="#about"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+            >
+                <p className="text-sm tracking-wide uppercase font-semibold">
+                    Simone Penza
+                </p>
+            </motion.a>
             <div className="flex items-center gap-4">
                 {navbarElements.map((navbarElement) => (
                     <NavbarButton

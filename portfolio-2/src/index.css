@@ -59,3 +59,7 @@ body {
   --color-surface: #fffefb;
   --color-overlay: rgba(35, 33, 30, 0.04);
 }
+
+*::selection {
+  background-color: #9999996e;
+}
