@@ -364,7 +364,7 @@ export default function Skills() {
                         viewport={viewportOnce}
                         transition={{ duration: 0.7, delay: 1.2 }}
                     >
-                        "Sempre curioso e aperto a imparare cose nuove: mi piace sperimentare, scoprire tecnologie diverse e crescere continuamente."
+                        Sempre curioso e aperto a imparare cose nuove: mi piace sperimentare, scoprire tecnologie diverse e crescere continuamente.
                     </motion.p>
                 </motion.div>
             </motion.div>

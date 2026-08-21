@@ -3,6 +3,9 @@ import { useContext } from "react";
 import { Download, Phone, Mail } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
+import ContactForm from "../ui/ContactForm";
+
+
 const viewportOnce = { once: true, amount: 0.25 };
 
 const listVariants = {
@@ -86,67 +89,7 @@ export default function Contatti() {
                         Contattami
                     </motion.h2>
 
-                    <motion.form
-                        className="flex flex-col gap-4 max-w-md w-full"
-                        name="contatto"
-                        autoComplete="off"
-                        onSubmit={(e) => {
-                            e.preventDefault();
-                            alert("Messaggio inviato!");
-                        }}
-                        variants={listVariants}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={viewportOnce}
-                    >
-                        <motion.label
-                            variants={itemVariants}
-                            className="flex flex-col text-text-secondary font-medium"
-                        >
-                            Nome
-                            <input
-                                type="text"
-                                name="nome"
-                                required
-                                className={fieldClass}
-                                placeholder="Il tuo nome"
-                            />
-                        </motion.label>
-                        <motion.label
-                            variants={itemVariants}
-                            className="flex flex-col text-text-secondary font-medium"
-                        >
-                            Email
-                            <input
-                                type="email"
-                                name="email"
-                                required
-                                className={fieldClass}
-                                placeholder="La tua email"
-                            />
-                        </motion.label>
-                        <motion.label
-                            variants={itemVariants}
-                            className="flex flex-col text-text-secondary font-medium"
-                        >
-                            Messaggio
-                            <textarea
-                                name="messaggio"
-                                required
-                                rows={5}
-                                className={`${fieldClass} resize-none`}
-                                placeholder="Il tuo messaggio"
-                            />
-                        </motion.label>
-                        <motion.button
-                            type="submit"
-                            variants={itemVariants}
-                            whileTap={reduceMotion ? undefined : { scale: 0.94 }}
-                            className="mt-2 inline-block self-start rounded bg-text px-5 py-2 font-semibold text-primary shadow hover:bg-muted-secondary transition cursor-pointer"
-                        >
-                            Invia
-                        </motion.button>
-                    </motion.form>
+                    <ContactForm />
 
                     {contact && (
                         <motion.div
@@ -239,14 +182,17 @@ export default function Contatti() {
                         Scarica il mio CV
                     </motion.h2>
                     <div className="w-full flex items-center gap-8">
-                        <motion.img
-                            src="https://placehold.co/310x438"
-                            alt="CV anteprima"
-                            className="transition-all"
-                            initial={false}
-                            whileHover={{ scale: 1.03, boxShadow: "0px 10px 40px rgba(0,0,0,0.08)" }}
-                            transition={{ type: "spring", stiffness: 210, damping: 20 }}
-                        />
+                        <a href="CV_penza_simone.pdf">
+                            <motion.img
+                                // src="https://placehold.co/310x438"
+                                src="CV_anteprima.png"
+                                alt="CV anteprima"
+                                className="transition-all"
+                                initial={false}
+                                whileHover={{ scale: 1.03, boxShadow: "0px 10px 40px rgba(0,0,0,0.08)" }}
+                                transition={{ type: "spring", stiffness: 210, damping: 20 }}
+                            />
+                        </a>
                         <motion.div
                             className="flex flex-col gap-2"
                             initial={{ opacity: 0, y: 12 }}
