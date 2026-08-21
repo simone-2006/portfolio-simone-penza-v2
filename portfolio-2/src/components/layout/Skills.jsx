@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ChevronLeft, ChevronRight, Database } from "lucide-react";
-import { navbarElements } from "./Navbar";
+import { pagesContext } from "../../context/appContext";
+import { useContext } from "react";
+
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaPhp, FaPython, FaDocker, FaGitAlt, FaGithub } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
 import { BsFiletypeJsx } from "react-icons/bs";
@@ -152,7 +154,7 @@ function ProjectCarousel() {
             aria-label="Progetti"
             tabIndex={0}
             onKeyDown={onKeyDown}
-            className="w-full max-w-xl outline-none"
+            className="w-full max-w-xl outline-none touch-pan-y"
         >
             <div className="mb-3 flex items-end justify-between gap-4">
                 <p className="font-semibold text-mute text-xs uppercase tracking-wide">
@@ -173,6 +175,7 @@ function ProjectCarousel() {
                         animate="center"
                         exit="exit"
                         drag={reduceMotion ? false : "x"}
+                        dragDirectionLock
                         dragConstraints={{ left: 0, right: 0 }}
                         dragElastic={0.18}
                         dragMomentum={false}
@@ -243,13 +246,16 @@ function ProjectCarousel() {
 }
 
 export default function Skills() {
+
+    const navbarElements = useContext(pagesContext)
+
     return (
         <motion.section
             key={navbarElements[1].id}
             id={navbarElements[1].id}
-            className="min-h-svh scroll-mt-14 p-4"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="page-section overflow-x-clip"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={viewportOnce}
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
@@ -302,12 +308,12 @@ export default function Skills() {
                         Curiosità
                     </motion.p>
                     {/* Parole che compaiono una per volta con effetto */}
-                    <div className="flex flex-row gap-4">
+                    <div className="flex min-w-0 flex-row flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-border-color pb-0.5">
                         {[
-                            { word: "Frontend.", colorClass: "text-text-primary" },
-                            { word: "Backend.", colorClass: "text-text-secondary" },
-                            { word: "Database.", colorClass: "text-text-tertiary" },
-                        ].map(({ word, colorClass }, idx) => (
+                            { word: "Frontend.", colClass: "text-text-primary text-[60px]" },
+                            { word: "Backend.", colClass: "text-text-secondary text-[50px]" },
+                            { word: "Database.", colClass: "text-text-tertiary text-[40px]" },
+                        ].map(({ word, colClass }, idx) => (
                             <motion.h2
                                 key={word}
                                 initial={{ opacity: 0, y: 10 }}
@@ -317,13 +323,13 @@ export default function Skills() {
                                     duration: 0.5,
                                     delay: 0.55 + idx * 0.5,
                                 }}
-                                className={`font-serif text-6xl whitespace-nowrap ${colorClass}`}
+                                className={`font-serif text-6xl whitespace-nowrap ${colClass}`}
                             >
                                 {word}
                             </motion.h2>
                         ))}
                     </div>
-               
+
 
                 </motion.div>
 
@@ -358,7 +364,7 @@ export default function Skills() {
                         viewport={viewportOnce}
                         transition={{ duration: 0.7, delay: 1.2 }}
                     >
-                        Mi piace mettere mano a cose nuove. A volte parto dal frontend, altre dal database. L'importante è arrivare a qualcosa che funziona davvero.
+                        "Sempre curioso e aperto a imparare cose nuove: mi piace sperimentare, scoprire tecnologie diverse e crescere continuamente."
                     </motion.p>
                 </motion.div>
             </motion.div>
