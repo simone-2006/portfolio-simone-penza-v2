@@ -17,7 +17,7 @@ export default function AboutMe() {
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
             <motion.h1
-                className="font-sans tracking-wide uppercase font-semibold"
+                className="font-sans tracking-wide uppercase font-semibold text-text"
                 initial={{ opacity: 0, x: -24 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
@@ -41,7 +41,7 @@ export default function AboutMe() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="font-semibold text-mute text-xs"
+                        className="font-semibold text-xs text-muted"
                     >
                         Ciao, sono
                     </motion.p>

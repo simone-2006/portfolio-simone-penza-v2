@@ -4,16 +4,19 @@ import Skills from "./components/layout/Skills";
 import Experience from "./components/layout/Experience";
 import Contatti from "./components/layout/Contatti";
 import Footer from "./components/layout/Footer";
+import { ThemeProvider } from "./hooks/theme";
 
 export default function App() {
   return (
-    <div className="bg-primary">
-      <Navbar />
-      <AboutMe />
-      <Skills />
-      <Experience />
-      <Contatti />
-      <Footer></Footer>
-    </div>
+    <ThemeProvider>
+      <div className="bg-primary">
+        <Navbar />
+        <AboutMe />
+        <Skills />
+        <Experience />
+        <Contatti />
+        <Footer></Footer>
+      </div>
+    </ThemeProvider>
   );
 }

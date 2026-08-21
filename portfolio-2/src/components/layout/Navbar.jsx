@@ -2,8 +2,14 @@ import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import NavbarButton from "../ui/NavbarButton";
 import { pagesContext } from "../../context/appContext";
 import { motion } from "motion/react";
+import { Sun } from "lucide-react";
+import { Moon } from "lucide-react";
+
+import { useTheme } from "../../hooks/theme";
+
 
 export default function Navbar() {
+    const { theme, toggleTheme } = useTheme();
     const navbarElements = useContext(pagesContext);
     const [activeId, setActiveId] = useState(
         () => window.location.hash.slice(1) || navbarElements[0].id,
@@ -139,7 +145,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
             >
-                <p className="text-sm tracking-wide uppercase font-semibold">
+                <p className="text-sm tracking-wide uppercase font-semibold text-text">
                     Simone Penza
                 </p>
             </motion.a>
@@ -154,7 +160,15 @@ export default function Navbar() {
                         {navbarElement.title}
                     </NavbarButton>
                 ))}
+                <button
+                    onClick={toggleTheme}
+                    className="font-sans text-sm font-medium  transition-colors text-muted hover:text-text "
+                >
+                    {theme === "light" ? <Sun size={18} /> : <Moon size={18} />}
+                </button>
             </div>
+
+
         </nav>
     );
 }

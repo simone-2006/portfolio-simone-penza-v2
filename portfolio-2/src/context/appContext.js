@@ -61,3 +61,9 @@ const contacts = [
 ]
 
 export const contactsContext = createContext(contacts)
+
+
+export const themeContext = createContext({
+    theme: "light",
+    toggleTheme: () => { },
+});

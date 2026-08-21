@@ -157,7 +157,7 @@ function ProjectCarousel() {
             className="w-full max-w-xl outline-none touch-pan-y"
         >
             <div className="mb-3 flex items-end justify-between gap-4">
-                <p className="font-semibold text-mute text-xs uppercase tracking-wide">
+                <p className="font-semibold text-muted text-xs uppercase tracking-wide">
                     Progetti
                 </p>
                 <p className="font-sans text-xs text-muted" aria-live="polite">
@@ -260,7 +260,7 @@ export default function Skills() {
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
             <motion.h1
-                className="font-sans tracking-wide uppercase font-semibold"
+                className="font-sans tracking-wide uppercase font-semibold text-text"
                 initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={viewportOnce}
@@ -303,16 +303,16 @@ export default function Skills() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={viewportOnce}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="font-semibold text-mute text-xs"
+                        className="font-semibold text-muted text-xs"
                     >
                         Curiosità
                     </motion.p>
                     {/* Parole che compaiono una per volta con effetto */}
                     <div className="flex min-w-0 flex-row flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-border-color pb-0.5">
                         {[
-                            { word: "Frontend.", colClass: "text-text-primary text-[60px]" },
+                            { word: "Frontend.", colClass: "text-text text-[60px]" },
                             { word: "Backend.", colClass: "text-text-secondary text-[50px]" },
-                            { word: "Database.", colClass: "text-text-tertiary text-[40px]" },
+                            { word: "Database.", colClass: "text-muted text-[40px]" },
                         ].map(({ word, colClass }, idx) => (
                             <motion.h2
                                 key={word}
