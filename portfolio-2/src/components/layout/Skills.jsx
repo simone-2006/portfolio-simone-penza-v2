@@ -57,7 +57,7 @@ const projects = [
         blurb: "Sito portfolio relizzato interamente con React Vite + Tailwind css. Clicca sull'immagine per aprire la repository GitHub e visualizzare il codice!",
         status: "Online",
         github: "https://github.com/simone-2006/portfolio-simone-penza-v2",
-        image: "https://placehold.co/720x420/ece7dc/23211e?text=01",
+        image: "portfolio_anteprima.png",
     },
     {
         id: "react-task",
@@ -66,7 +66,7 @@ const projects = [
         blurb: "Un semplice progetto React per la gestione delle attività, organizzate in tre stati: Todo, Doing e Done.",
         status: "ONLINE",
         github: "https://github.com/simone-2006/react-task",
-        image: "https://placehold.co/720x420/e3e2dc/23211e?text=02",
+        image: "react_task_anteprima.png",
     },
     {
         id: "flowboard",
@@ -75,7 +75,7 @@ const projects = [
         blurb: "Coming soon...",
         status: "Developing",
         github: "https://github.com/simone-2006/flowboard",
-        image: "https://placehold.co/720x420/ece7dc/111111?text=03",
+        image: "flowboard_anteprima.png",
     },
 ];
 
