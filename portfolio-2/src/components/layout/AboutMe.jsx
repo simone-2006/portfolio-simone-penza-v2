@@ -71,7 +71,7 @@ export default function AboutMe() {
                     <motion.img
                         src="https://placehold.co/400x400"
                         alt=""
-                        className="hover:scale-101 transition-all p-4"
+                        className="transition-all"
                         initial={false}
                         whileHover={{ scale: 1.03, boxShadow: "0px 10px 40px rgba(0,0,0,0.08)" }}
                         transition={{ type: "spring", stiffness: 210, damping: 20 }}

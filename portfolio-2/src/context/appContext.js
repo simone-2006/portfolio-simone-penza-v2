@@ -1,4 +1,5 @@
-import { createContext, useContext } from 'react';
+import { createContext } from 'react';
+import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
 
 const pages = [
     { id: "about", title: "About me" },
@@ -29,3 +30,34 @@ const experiences = [
 ]
 
 export const experiencesContext = createContext(experiences)
+
+const contacts = [
+    {
+        contatti: {
+            mail: "simone.penza06@gmail.com",
+            phone: "+39 370 136 4070",
+        },
+        social: {
+            linkedin: {
+                url: "https://www.linkedin.com/in/simone-penza-604031388/",
+                icon: FaLinkedin,
+                username: "Simone Penza",
+                label: "LinkedIn",
+            },
+            github: {
+                url: "https://github.com/simone-2006",
+                icon: FaGithub,
+                username: "simone-2006",
+                label: "GitHub",
+            },
+            instagram: {
+                url: "https://www.instagram.com/simone.penzaa/",
+                icon: FaInstagram,
+                username: "simone.penzaa",
+                label: "Instagram",
+            },
+        },
+    }
+]
+
+export const contactsContext = createContext(contacts)
