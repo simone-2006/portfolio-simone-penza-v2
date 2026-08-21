@@ -9,7 +9,7 @@ import { ThemeProvider } from "./hooks/theme";
 export default function App() {
   return (
     <ThemeProvider>
-      <div className="bg-primary">
+      <div className="min-w-0 overflow-x-clip bg-primary">
         <Navbar />
         <AboutMe />
         <Skills />

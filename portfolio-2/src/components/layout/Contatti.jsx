@@ -57,14 +57,14 @@ export default function Contatti() {
             </motion.h1>
 
             <motion.div
-                className="flex flex-col justify-between gap-8 p-4 lg:flex-row"
+                className="flex min-w-0 flex-col justify-between gap-8 p-4 lg:flex-row"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={viewportOnce}
                 transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             >
                 <motion.div
-                    className="flex flex-col justify-center"
+                    className="flex min-w-0 flex-col justify-center"
                     initial={{ opacity: 0, x: -36 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={viewportOnce}
@@ -84,7 +84,7 @@ export default function Contatti() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={viewportOnce}
                         transition={{ duration: 0.5, delay: 0.55 }}
-                        className="font-serif text-6xl text-text font-semibold mb-6"
+                        className="font-serif text-5xl sm:text-6xl text-text font-semibold mb-6 break-words"
                     >
                         Contattami
                     </motion.h2>
@@ -157,7 +157,7 @@ export default function Contatti() {
                 </motion.div>
 
                 <motion.div
-                    className="flex flex-col justify-start items-start"
+                    className="flex min-w-0 flex-col justify-start items-start"
                     initial={{ opacity: 0, scale: 0.9, x: 36 }}
                     whileInView={{ opacity: 1, scale: 1, x: 0 }}
                     viewport={viewportOnce}
@@ -177,24 +177,23 @@ export default function Contatti() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={viewportOnce}
                         transition={{ duration: 0.5, delay: 0.7 }}
-                        className="font-serif text-6xl text-text font-semibold mb-6"
+                        className="font-serif text-5xl sm:text-6xl text-text font-semibold mb-6 break-words"
                     >
                         Scarica il mio CV
                     </motion.h2>
-                    <div className="w-full flex items-center gap-8">
-                        <a href="CV_penza_simone.pdf">
+                    <div className="flex w-full min-w-0 flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-8">
+                        <a href="CV_penza_simone.pdf" className="block w-full max-w-[310px] shrink-0">
                             <motion.img
-                                // src="https://placehold.co/310x438"
                                 src="CV_anteprima.png"
                                 alt="CV anteprima"
-                                className="transition-all"
+                                className="h-auto w-full max-w-[310px] transition-all"
                                 initial={false}
                                 whileHover={{ scale: 1.03, boxShadow: "0px 10px 40px rgba(0,0,0,0.08)" }}
                                 transition={{ type: "spring", stiffness: 210, damping: 20 }}
                             />
                         </a>
                         <motion.div
-                            className="flex flex-col gap-2"
+                            className="flex min-w-0 flex-col gap-2"
                             initial={{ opacity: 0, y: 12 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={viewportOnce}

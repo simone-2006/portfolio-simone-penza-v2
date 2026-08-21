@@ -52,7 +52,7 @@ const itemVariants = {
 };
 
 const fieldClass =
-    "mt-1 px-3 py-2 rounded border border-border-color bg-surface text-text focus:outline-none focus:ring-2 focus:ring-muted transition";
+    "mt-1 px-3 py-2 rounded border border-border-color bg-surface text-base text-text focus:outline-none focus:ring-2 focus:ring-muted transition";
 
 export default function ContactForm() {
     const reduceMotion = useReducedMotion();
@@ -82,7 +82,7 @@ export default function ContactForm() {
 
     return (
         <motion.form
-            className="flex flex-col gap-4 max-w-md w-full"
+            className="flex flex-col gap-4 max-w-md w-full min-w-0"
             name="contatto"
             autoComplete="off"
             onSubmit={(e) => {

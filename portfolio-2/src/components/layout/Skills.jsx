@@ -51,27 +51,30 @@ const allSkills = [
 
 const projects = [
     {
-        id: "soon-1",
+        id: "portfolio",
         index: "01",
-        title: "Prossimo drop",
-        blurb: "Qui finirà il primo progetto. Screenshot, stack, link.",
-        status: "Coming soon",
+        title: "Questo sito portfolio",
+        blurb: "Sito portfolio relizzato interamente con React Vite + Tailwind css. Clicca sull'immagine per aprire la repository GitHub e visualizzare il codice!",
+        status: "Online",
+        github: "https://github.com/simone-2006/portfolio-simone-penza-v2",
         image: "https://placehold.co/720x420/ece7dc/23211e?text=01",
     },
     {
-        id: "soon-2",
+        id: "react-task",
         index: "02",
-        title: "In lavorazione",
-        blurb: "Slot pronto. Sostituisci immagine e copy quando spedisci.",
-        status: "WIP",
+        title: "React task",
+        blurb: "Un semplice progetto React per la gestione delle attività, organizzate in tre stati: Todo, Doing e Done.",
+        status: "ONLINE",
+        github: "https://github.com/simone-2006/react-task",
         image: "https://placehold.co/720x420/e3e2dc/23211e?text=02",
     },
     {
-        id: "soon-3",
+        id: "flowboard",
         index: "03",
-        title: "In arrivo",
-        blurb: "Terzo posto in vetrina. Stesso formato, zero rumore.",
-        status: "Soon",
+        title: "Flowboard - in sviluppo",
+        blurb: "Coming soon...",
+        status: "Developing",
+        github: "https://github.com/simone-2006/flowboard",
         image: "https://placehold.co/720x420/ece7dc/111111?text=03",
     },
 ];
@@ -168,6 +171,9 @@ function ProjectCarousel() {
             <div className="relative overflow-hidden">
                 <AnimatePresence initial={false} custom={direction} mode="popLayout">
                     <motion.article
+                        onClick={() => window.open(project.github, "_blank")}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         key={project.id}
                         custom={direction}
                         variants={variants}
@@ -292,7 +298,7 @@ export default function Skills() {
                 transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
             >
                 <motion.div
-                    className="flex flex-col justify-center"
+                    className="flex min-w-0 flex-col justify-center"
                     initial={{ opacity: 0, x: -36 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={viewportOnce}

@@ -1,4 +1,6 @@
-export default function NavbarButton({ active, href, onClick, children }) {
+import { cn } from "../../lib/utils";
+
+export default function NavbarButton({ active, href, onClick, children, className }) {
   return (
     <a
       href={href}
@@ -7,10 +9,13 @@ export default function NavbarButton({ active, href, onClick, children }) {
         onClick?.();
       }}
       aria-current={active ? "true" : undefined}
-      className={`font-sans text-sm font-medium border-b pb-0.5 transition-colors ${active
-        ? "text-text border-text"
-        : "text-muted border-transparent hover:text-text-secondary hover:border-text"
-        }`}
+      className={cn(
+        "font-sans text-sm font-medium border-b pb-0.5 transition-colors",
+        active
+          ? "text-text border-text"
+          : "text-muted border-transparent hover:text-text-secondary hover:border-text",
+        className,
+      )}
     >
       {children}
     </a>

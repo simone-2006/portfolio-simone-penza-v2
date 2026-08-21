@@ -8,15 +8,30 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-height);
   overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   overflow-x: clip;
+  overscroll-behavior-x: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a, button, input, textarea, select {
+  touch-action: manipulation;
 }
 
 .page-section {
   min-height: calc(100svh - var(--header-height));
+  min-width: 0;
   padding: 1rem;
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -88,4 +103,10 @@ body {
 
 *::selection {
   background-color: #9999996e;
+}
+
+nav[aria-label="Primary"] {
+  padding-top: max(1rem, env(safe-area-inset-top));
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
 }
