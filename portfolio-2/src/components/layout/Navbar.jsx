@@ -1,7 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import NavbarButton from "../ui/NavbarButton";
-import { pagesContext } from "../../context/appContext";
-import { motion, useInView } from 'framer-motion';
+
+export const navbarElements = [
+    { id: "about", title: "About me" },
+    { id: "skills", title: "Skills e progetti" },
+    { id: "experience", title: "Experience" },
+    { id: "cv", title: "CV" },
+    { id: "contacts", title: "Contacts" },
+];
 
 export default function Navbar() {
     const [activeId, setActiveId] = useState(navbarElements[0].id);
@@ -46,17 +52,10 @@ export default function Navbar() {
     return (
         <nav
             aria-label="Primary"
-            className="sticky top-0 z-50 border-b border-accent p-4 flex justify-between items-center backdrop-blur-sm bg-primary/80"
+            className="sticky top-0 z-50 border-b border-accent p-4 flex justify-between items-center backdrop-blur-sm"
         >
-            <motion.a href="#about"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-            >
-                <p className="text-sm tracking-wide uppercase font-semibold">
-                    Simone Penza
-                </p>
-            </motion.a>
+            <p className="text-sm tracking-wide uppercase font-semibold">Simone Penza</p>
+
             <div className="flex items-center gap-4">
                 {navbarElements.map((navbarElement) => (
                     <NavbarButton
