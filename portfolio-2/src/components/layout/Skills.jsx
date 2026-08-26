@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ChevronLeft, ChevronRight, Database } from "lucide-react";
 import { pagesContext } from "../../context/appContext";
-import { useContext } from "react";
 
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaPhp, FaPython, FaDocker, FaGitAlt, FaGithub } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
@@ -125,9 +124,12 @@ function SkillRow({ hidden }) {
     );
 }
 
+const AUTOPLAY_MS = 4500;
+
 function ProjectCarousel() {
     const reduceMotion = useReducedMotion();
     const [[index, direction], setPage] = useState([0, 0]);
+    const [paused, setPaused] = useState(false);
     const project = projects[index];
     const variants = reduceMotion ? fadeSlideVariants : slideVariants;
 
@@ -142,6 +144,19 @@ function ProjectCarousel() {
         if (nextIndex === index) return;
         setPage([nextIndex, nextIndex > index ? 1 : -1]);
     };
+
+    useEffect(() => {
+        if (reduceMotion || paused || projects.length < 2) return;
+
+        const timer = window.setInterval(() => {
+            setPage(([current]) => [
+                (current + 1) % projects.length,
+                1,
+            ]);
+        }, AUTOPLAY_MS);
+
+        return () => window.clearInterval(timer);
+    }, [reduceMotion, paused, index]);
 
     const onDragEnd = (_, info) => {
         const swipe = info.offset.x + info.velocity.x * 0.2;
@@ -167,7 +182,15 @@ function ProjectCarousel() {
             aria-label="Progetti"
             tabIndex={0}
             onKeyDown={onKeyDown}
-            className="w-full max-w-xl outline-none touch-pan-y"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            onFocusCapture={() => setPaused(true)}
+            onBlurCapture={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget)) {
+                    setPaused(false);
+                }
+            }}
+            className="w-full min-w-0 max-w-xl outline-none touch-pan-y"
         >
             <div className="mb-3 flex items-end justify-between gap-4">
                 <p className="font-semibold text-muted text-xs uppercase tracking-wide">
