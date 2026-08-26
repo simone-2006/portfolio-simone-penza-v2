@@ -69,14 +69,24 @@ const projects = [
         image: "react_task_anteprima.png",
     },
     {
-        id: "flowboard",
+        id: "flowmoney",
         index: "03",
+        title: "Flowmoney demo",
+        blurb: "Applicazione personale per gestire le uscite. DEMO: solo frontend, senza backend né database. ",
+        status: "Active",
+        github: "https://github.com/simone-2006/flowmoney-demo/tree/main",
+        image: "flowmoney_anteprima.png",
+    },
+    {
+        id: "flowboard",
+        index: "04",
         title: "Flowboard - in sviluppo",
         blurb: "Coming soon...",
         status: "Developing",
         github: "https://github.com/simone-2006/flowboard",
         image: "flowboard_anteprima.png",
     },
+
 ];
 
 const viewportOnce = { once: true, amount: 0.25 };
