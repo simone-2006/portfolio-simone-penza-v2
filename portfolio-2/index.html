@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="it">
 
 <head>
   <meta charset="UTF-8" />
@@ -13,8 +13,12 @@
     rel="stylesheet">
 
   <title>Simone Penza - Portfolio</title>
-
-
+  <script>
+    document.documentElement.classList.toggle(
+      "dark",
+      window.matchMedia("(prefers-color-scheme: dark)").matches,
+    );
+  </script>
 </head>
 
 <body>

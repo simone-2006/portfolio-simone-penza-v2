@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 
 function inviaEmail(nome, mail, message, company) {
     const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-    // console.log(serviceID, templateID, publicKey);
 
     return emailjs.send(
         serviceID,
@@ -20,14 +18,8 @@ function inviaEmail(nome, mail, message, company) {
             company,
             to_email: "simone.penza06@gmail.com",
         },
-        publicKey
-    ).then((response) => {
-        console.log(response);
-        return true;
-    }).catch((error) => {
-        console.log(error);
-        return false;
-    });
+        publicKey,
+    ).then(() => true).catch(() => false);
 }
 
 const viewportOnce = { once: true, amount: 0.25 };
@@ -61,34 +53,35 @@ export default function ContactForm() {
     const [company, setCompany] = useState("");
     const [mail, setMail] = useState("");
     const [message, setMessage] = useState("");
-    // console.log(nome + mail + message)
+    const [sending, setSending] = useState(false);
+    const [status, setStatus] = useState(null);
 
-    const handleSubmit = () => {
-        // console.log(nome + mail + message);
-        if (nome && mail && message) {
-            if (inviaEmail(nome, mail, message, company)) {
-                alert("Messaggio inviato!");
-                setNome("");
-                setCompany("");
-                setMail("");
-                setMessage("");
-            } else {
-                alert("Errore nell'invio del messaggio.");
-            }
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        if (!nome || !mail || !message || sending) return;
+
+        setSending(true);
+        setStatus(null);
+        const ok = await inviaEmail(nome, mail, message, company);
+        setSending(false);
+
+        if (ok) {
+            setNome("");
+            setCompany("");
+            setMail("");
+            setMessage("");
+            setStatus("ok");
         } else {
-            alert("Per favore, completa tutti i campi.");
+            setStatus("error");
         }
     };
 
     return (
         <motion.form
-            className="flex flex-col gap-4 max-w-md w-full min-w-0"
+            className="flex w-full min-w-0 max-w-md flex-col gap-4"
             name="contatto"
             autoComplete="off"
-            onSubmit={(e) => {
-                e.preventDefault();
-                handleSubmit();
-            }}
+            onSubmit={handleSubmit}
             variants={listVariants}
             initial="hidden"
             whileInView="show"
@@ -96,12 +89,12 @@ export default function ContactForm() {
         >
             <motion.label
                 variants={itemVariants}
-                className="flex flex-col text-text-secondary font-medium"
+                className="flex flex-col font-medium text-text-secondary"
             >
-                <div className="flex items-center gap-1">
+                <span className="flex items-center gap-1">
                     Nome
-                    <span className="text-xs items-start flex text-muted">*</span>
-                </div>
+                    <span className="text-xs text-muted">*</span>
+                </span>
                 <input
                     value={nome}
                     onChange={(e) => setNome(e.target.value)}
@@ -109,33 +102,31 @@ export default function ContactForm() {
                     name="nome"
                     required
                     className={fieldClass}
-                    placeholder="Il tuo nome"
+                    placeholder="Mario Rossi"
                 />
             </motion.label>
             <motion.label
                 variants={itemVariants}
-                className="flex flex-col text-text-secondary font-medium"
+                className="flex flex-col font-medium text-text-secondary"
             >
-                <div className="flex items-center gap-1">
-                    Azienda
-                </div>
+                Azienda
                 <input
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
                     type="text"
                     name="company"
                     className={fieldClass}
-                    placeholder="La tua azienda"
+                    placeholder="Opzionale"
                 />
             </motion.label>
             <motion.label
                 variants={itemVariants}
-                className="flex flex-col text-text-secondary font-medium"
+                className="flex flex-col font-medium text-text-secondary"
             >
-                <div className="flex items-center gap-1">
+                <span className="flex items-center gap-1">
                     Email
-                    <span className="text-xs items-start flex text-muted">*</span>
-                </div>
+                    <span className="text-xs text-muted">*</span>
+                </span>
                 <input
                     value={mail}
                     onChange={(e) => setMail(e.target.value)}
@@ -143,23 +134,23 @@ export default function ContactForm() {
                     name="email"
                     required
                     className={fieldClass}
-                    placeholder="La tua email"
+                    placeholder="mario@email.it"
                 />
             </motion.label>
             <motion.label
                 variants={itemVariants}
-                className="flex flex-col text-text-secondary font-medium"
+                className="flex flex-col font-medium text-text-secondary"
             >
-                <div className="flex items-center gap-1">
+                <span className="flex items-center gap-1">
                     Messaggio
-                    <span className="text-xs items-start flex text-muted">*</span>
-                </div>
+                    <span className="text-xs text-muted">*</span>
+                </span>
                 <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     name="messaggio"
                     required
-                    rows={5}
+                    rows={4}
                     className={`${fieldClass} resize-none`}
                     placeholder="Il tuo messaggio"
                 />
@@ -167,16 +158,20 @@ export default function ContactForm() {
 
             <motion.button
                 type="submit"
-                onClick={() => {
-                    handleSubmit();
-                }}
+                disabled={sending}
                 variants={itemVariants}
-                whileTap={reduceMotion ? undefined : { scale: 0.94 }}
-                className="mt-2 inline-block self-start rounded bg-text px-5 py-2 font-semibold text-primary shadow hover:bg-muted-secondary transition cursor-pointer"
+                whileTap={reduceMotion || sending ? undefined : { scale: 0.94 }}
+                className="mt-1 inline-block cursor-pointer self-start rounded bg-text px-5 py-2 font-semibold text-primary transition hover:opacity-80 disabled:cursor-wait disabled:opacity-60"
             >
-                Invia
+                {sending ? "Invio…" : "Invia"}
             </motion.button>
-        </motion.form>
 
+            {status === "ok" ? (
+                <p className="text-sm text-text-secondary">Arrivato, ti rispondo io.</p>
+            ) : null}
+            {status === "error" ? (
+                <p className="text-sm text-muted">Qualcosa è andato storto. Riprova o scrivimi via mail.</p>
+            ) : null}
+        </motion.form>
     );
 }

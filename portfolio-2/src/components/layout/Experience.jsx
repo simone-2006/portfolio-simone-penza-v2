@@ -7,7 +7,7 @@ const listVariants = {
     hidden: {},
     show: {
         transition: {
-            staggerChildren: 0.45,
+            staggerChildren: 0.2,
         },
     },
 };
@@ -31,20 +31,22 @@ export default function Experience() {
             id={navbarElements[2].id}
             className="page-section"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
             <motion.h1
                 className="font-sans tracking-wide uppercase font-semibold text-text"
                 initial={{ opacity: 0, x: -24 }}
-                animate={{ opacity: 1, x: 0 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             >
                 {navbarElements[2].title}
             </motion.h1>
 
             <motion.div
-                className="mt-5 w-full min-w-0 lg:w-[75%]"
+                className="mt-6 w-full min-w-0 max-w-3xl"
                 variants={listVariants}
                 initial="hidden"
                 whileInView="show"

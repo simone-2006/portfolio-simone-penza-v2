@@ -2,7 +2,7 @@ import { createContext } from 'react';
 import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
 
 const pages = [
-    { id: "about", title: "About me" },
+    { id: "about", title: "Chi sono" },
     { id: "skills", title: "Skills e progetti" },
     { id: "experience", title: "Esperienza" },
     { id: "contacts", title: "Contatti & CV" },
@@ -26,7 +26,6 @@ const experiences = [
         title: "IT Technician e Sviluppatore Web (Desio MB)",
         description: "Presso Greenchemicals SRL ricopro il ruolo di IT Technician e Web Developer, contribuendo attivamente alla crescita dell'azienda nel settore informatico. Mi occupo della gestione e del supporto tecnico completo ai dipendenti, intervenendo su problematiche hardware, software e configurazioni di rete, oltre alla configurazione e manutenzione delle infrastrutture IT aziendali. Parallelamente, sono responsabile dello sviluppo di un sistema CRM interno avanzato, progettato per ottimizzare la gestione dei processi aziendali. Il gestionale consente una gestione completa dei clienti, la tracciatura delle visite commerciali con visualizzazione geolocalizzata, un sistema di reminder intelligenti e una sezione dedicata alla ricerca prodotti. Quest'ultima integra dati provenienti dal gestionale aziendale, tra cui quotazioni aggiornate, disponibilita di magazzino, ordini pendenti e stato delle commesse. Lo stack tecnologico utilizzato comprende HTML, PHP, JavaScript, Node.js, Tailwind CSS, SQL Server e Docker. Questa esperienza mi sta permettendo di approfondire concretamente il mondo della programmazione professionale, portandomi a esplorare tecnologie e framework moderni come React e Vite.js. In prospettiva, il mio obiettivo e guidare l'evoluzione del CRM verso un'architettura piu moderna e scalabile, attraverso lo sviluppo di un frontend reattivo e performante basato su React e Vite.js, e l'integrazione di Supabase per una gestione del database piu moderna, sicura ed elegante. Questo rappresenterebbe un significativo miglioramento in termini di performance, manutenibilita e qualita complessiva del sistema."
     },
-
 ]
 
 export const experiencesContext = createContext(experiences)

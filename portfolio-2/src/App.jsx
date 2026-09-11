@@ -15,7 +15,7 @@ export default function App() {
         <Skills />
         <Experience />
         <Contatti />
-        <Footer></Footer>
+        <Footer />
       </div>
     </ThemeProvider>
   );

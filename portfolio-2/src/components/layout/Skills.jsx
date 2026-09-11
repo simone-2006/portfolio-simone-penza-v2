@@ -52,8 +52,8 @@ const projects = [
     {
         id: "portfolio",
         index: "01",
-        title: "Questo sito portfolio",
-        blurb: "Sito portfolio relizzato interamente con React Vite + Tailwind css. Clicca sull'immagine per aprire la repository GitHub e visualizzare il codice!",
+        title: "Questo sito",
+        blurb: "Il portfolio che stai guardando. React, Vite e Tailwind. Clicca per aprire la repo.",
         status: "Online",
         github: "https://github.com/simone-2006/portfolio-simone-penza-v2",
         image: "portfolio_anteprima.png",
@@ -62,30 +62,29 @@ const projects = [
         id: "react-task",
         index: "02",
         title: "React task",
-        blurb: "Un semplice progetto React per la gestione delle attività, organizzate in tre stati: Todo, Doing e Done.",
-        status: "ONLINE",
+        blurb: "Attività in tre colonne: Todo, Doing, Done.",
+        status: "Online",
         github: "https://github.com/simone-2006/react-task",
         image: "react_task_anteprima.png",
     },
     {
         id: "flowmoney",
         index: "03",
-        title: "Flowmoney demo",
-        blurb: "Applicazione personale per gestire le uscite. DEMO: solo frontend, senza backend né database. ",
-        status: "Active",
+        title: "Flowmoney",
+        blurb: "Tengo traccia delle uscite. Per ora solo frontend.",
+        status: "Demo",
         github: "https://github.com/simone-2006/flowmoney-demo/tree/main",
         image: "flowmoney_anteprima.png",
     },
     {
         id: "flowboard",
         index: "04",
-        title: "Flowboard - in sviluppo",
-        blurb: "Coming soon...",
-        status: "Developing",
+        title: "Flowboard",
+        blurb: "Una board per organizzare il lavoro. Ancora in costruzione.",
+        status: "In sviluppo",
         github: "https://github.com/simone-2006/flowboard",
         image: "flowboard_anteprima.png",
     },
-
 ];
 
 const viewportOnce = { once: true, amount: 0.25 };
@@ -204,9 +203,6 @@ function ProjectCarousel() {
             <div className="relative overflow-hidden">
                 <AnimatePresence initial={false} custom={direction} mode="popLayout">
                     <motion.article
-                        onClick={() => window.open(project.github, "_blank")}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         key={project.id}
                         custom={direction}
                         variants={variants}
@@ -220,25 +216,32 @@ function ProjectCarousel() {
                         dragMomentum={false}
                         onDragEnd={onDragEnd}
                         transition={{ type: "spring", bounce: 0.12, visualDuration: 0.4 }}
-                        className="bg-surface"
+                        className="cursor-grab bg-surface active:cursor-grabbing"
                     >
-                        <motion.img
-                            src={project.image}
-                            alt=""
-                            draggable={false}
-                            className="aspect-video w-full object-cover"
-                            whileHover={reduceMotion ? undefined : { scale: 1.02 }}
-                            transition={{ type: "spring", stiffness: 210, damping: 20 }}
-                        />
-                        <div className="flex items-start justify-between gap-4 p-3">
-                            <div>
-                                <p className="font-serif text-2xl text-text">{project.title}</p>
-                                <p className="mt-1 text-sm text-muted">{project.blurb}</p>
+                        <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block"
+                        >
+                            <motion.img
+                                src={project.image}
+                                alt={project.title}
+                                draggable={false}
+                                className="aspect-video w-full object-cover"
+                                whileHover={reduceMotion ? undefined : { scale: 1.02 }}
+                                transition={{ type: "spring", stiffness: 210, damping: 20 }}
+                            />
+                            <div className="flex items-start justify-between gap-4 p-3">
+                                <div>
+                                    <p className="font-serif text-2xl text-text">{project.title}</p>
+                                    <p className="mt-1 text-sm text-muted">{project.blurb}</p>
+                                </div>
+                                <span className="shrink-0 border border-border-color px-2 py-1 text-[11px] uppercase tracking-wide text-text-secondary">
+                                    {project.status}
+                                </span>
                             </div>
-                            <span className="shrink-0 border border-border-color px-2 py-1 text-[11px] uppercase tracking-wide text-text-secondary">
-                                {project.status}
-                            </span>
-                        </div>
+                        </a>
                     </motion.article>
                 </AnimatePresence>
             </div>
@@ -309,7 +312,7 @@ export default function Skills() {
             </motion.h1>
 
             <motion.div
-                className="relative my-8 overflow-hidden"
+                className="relative my-6 overflow-hidden"
                 initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={viewportOnce}
@@ -324,7 +327,7 @@ export default function Skills() {
             </motion.div>
 
             <motion.div
-                className="flex flex-col justify-between gap-8 p-4 lg:flex-row"
+                className="mt-2 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={viewportOnce}
@@ -344,16 +347,15 @@ export default function Skills() {
                         transition={{ duration: 0.5, delay: 0.4 }}
                         className="font-semibold text-muted text-xs"
                     >
-                        Curiosità
+                        Lavoro su
                     </motion.p>
-                    {/* Parole che compaiono una per volta con effetto */}
-                    <div className="flex min-w-0 flex-row flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-border-color pb-0.5">
+                    <h2 className="flex min-w-0 flex-row flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-border-color pb-0.5">
                         {[
                             { word: "Frontend.", colClass: "text-text text-[60px]" },
                             { word: "Backend.", colClass: "text-text-secondary text-[50px]" },
                             { word: "Database.", colClass: "text-muted text-[40px]" },
                         ].map(({ word, colClass }, idx) => (
-                            <motion.h2
+                            <motion.span
                                 key={word}
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -365,11 +367,9 @@ export default function Skills() {
                                 className={`font-serif text-6xl whitespace-nowrap ${colClass}`}
                             >
                                 {word}
-                            </motion.h2>
+                            </motion.span>
                         ))}
-                    </div>
-
-
+                    </h2>
                 </motion.div>
 
                 <motion.div
@@ -379,32 +379,6 @@ export default function Skills() {
                     transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
                 >
                     <ProjectCarousel />
-                </motion.div>
-            </motion.div>
-
-            <motion.div
-                className="flex max-w-[50%] justify-end"
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={viewportOnce}
-                transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
-            >
-                <motion.div
-                    className="max-w-[80%] bg-highlight p-3 rounded-md text-text-secondary"
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={viewportOnce}
-                    transition={{ duration: 0.7, delay: 1.05, ease: "easeOut" }}
-                >
-                    <motion.p
-                        className="italic"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={viewportOnce}
-                        transition={{ duration: 0.7, delay: 1.2 }}
-                    >
-                        Sempre curioso e aperto a imparare cose nuove: mi piace sperimentare, scoprire tecnologie diverse e crescere continuamente.
-                    </motion.p>
                 </motion.div>
             </motion.div>
         </motion.section>

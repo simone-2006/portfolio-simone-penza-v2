@@ -1,21 +1,19 @@
 export default function ExperienceCard({ period, title, description }) {
     return (
         <div className="flex min-w-0">
-            <div className="flex flex-col items-center flex-none w-24 sm:w-30">
-                <span className="text-xs text-muted my-2 uppercase tracking-wide text-center">
+            <div className="flex w-24 flex-none flex-col items-center sm:w-30">
+                <span className="my-2 text-center text-xs uppercase tracking-wide text-muted">
                     {period}
                 </span>
-                <div className="w-3 h-3 rounded-full bg-accent-secondary mb-1" />
+                <div className="mb-1 h-3 w-3 rounded-full bg-accent-secondary" />
                 <div className="w-px grow bg-linear-to-b from-accent-secondary to-border-color" />
             </div>
 
-            <div className="flex min-w-0 flex-col gap-1 px-2 py-7 rounded-lg">
-                <div className="flex items-baseline gap-2">
-                    <h2 className="font-bold text-xl text-text tracking-wide break-words">
-                        {title}
-                    </h2>
-                </div>
-                <p className="text-muted text-sm break-words">{description}</p>
+            <div className="flex min-w-0 flex-col gap-1 px-2 py-4">
+                <h2 className="text-lg font-bold tracking-wide break-words text-text">
+                    {title}
+                </h2>
+                <p className="text-sm break-words text-muted">{description}</p>
             </div>
         </div>
     );
