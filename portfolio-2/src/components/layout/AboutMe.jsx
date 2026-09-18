@@ -1,8 +1,8 @@
-import { pagesContext } from "../../context/appContext";
+import { pagesContext, profileContext } from "../../context/appContext";
 import { useContext, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
-function ProfilePhoto() {
+function ProfilePhoto({ src, alt }) {
     const [missing, setMissing] = useState(false);
 
     return (
@@ -18,12 +18,12 @@ function ProfilePhoto() {
                 </div>
             ) : (
                 <motion.img
-                    src="/SimonePenzaFoto.png"
-                    alt="Simone Penza"
+                    src={src}
+                    alt={alt}
                     width={220}
                     height={293}
                     onError={() => setMissing(true)}
-                    className="aspect-[3/4] w-full object-cover"
+                    className="aspect-[3/4] w-full object-cover object-top"
                     initial={false}
                     whileHover={{ scale: 1.03, boxShadow: "0px 10px 40px rgba(0,0,0,0.08)" }}
                     transition={{ type: "spring", stiffness: 210, damping: 20 }}
@@ -35,16 +35,15 @@ function ProfilePhoto() {
 
 export default function AboutMe() {
     const navbarElements = useContext(pagesContext);
+    const profile = useContext(profileContext);
+    const section = navbarElements[0];
 
-    if (!navbarElements || !Array.isArray(navbarElements) || !navbarElements[0]) {
-        // Fallback UI in case navbarElements is not ready
-        return null;
-    }
+    if (!section || !profile) return null;
 
     return (
         <motion.section
-            key={navbarElements[0].id}
-            id={navbarElements[0].id}
+            key={section.id}
+            id={section.id}
             className="page-section"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -56,7 +55,7 @@ export default function AboutMe() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             >
-                {navbarElements[0].title}
+                {section.title}
             </motion.h1>
 
             <motion.div
@@ -73,15 +72,22 @@ export default function AboutMe() {
                 >
                     <p className="font-semibold text-xs text-muted">Ciao, sono</p>
                     <h2 className="font-serif text-6xl font-semibold leading-[0.95] sm:text-8xl">
-                        <span className="block text-text-secondary">Penza</span>
-                        <span className="block text-text">Simone</span>
+                        <span className="block text-text-secondary">{profile.lastName}</span>
+                        <span className="block text-text">{profile.firstName}</span>
                     </h2>
-                    <p className="mt-6 bg-highlight p-3 rounded-md text-text-secondary italic">
-                        Sviluppatore web. Frontend, backend e IT
+                    <p className="mt-6 rounded-md bg-highlight p-3 text-text-secondary italic">
+                        {profile.role}
+                    </p>
+                    <p className="mt-3 text-sm text-muted">{profile.bio}</p>
+                    <p className="mt-2 text-xs text-muted">
+                        {profile.location} · {profile.languages.join(" · ")}
                     </p>
                 </motion.div>
 
-                <ProfilePhoto />
+                <ProfilePhoto
+                    src={profile.photo}
+                    alt={`${profile.firstName} ${profile.lastName}`}
+                />
             </motion.div>
         </motion.section>
     );

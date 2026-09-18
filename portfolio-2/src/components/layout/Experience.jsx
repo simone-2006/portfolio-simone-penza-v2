@@ -24,11 +24,12 @@ const itemVariants = {
 export default function Experience() {
     const navbarElements = useContext(pagesContext);
     const experiences = useContext(experiencesContext);
+    const section = navbarElements[2];
 
     return (
         <motion.section
-            key={navbarElements[2].id}
-            id={navbarElements[2].id}
+            key={section.id}
+            id={section.id}
             className="page-section"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -42,7 +43,7 @@ export default function Experience() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             >
-                {navbarElements[2].title}
+                {section.title}
             </motion.h1>
 
             <motion.div
@@ -53,11 +54,15 @@ export default function Experience() {
                 viewport={{ once: true, amount: 0.2 }}
             >
                 {experiences.map((experience) => (
-                    <motion.div key={experience.title} variants={itemVariants}>
+                    <motion.div key={`${experience.company}-${experience.title}`} variants={itemVariants}>
                         <ExperienceCard
                             period={experience.period}
+                            kind={experience.kind}
                             title={experience.title}
-                            description={experience.description}
+                            company={experience.company}
+                            location={experience.location}
+                            sections={experience.sections}
+                            stack={experience.stack}
                         />
                     </motion.div>
                 ))}

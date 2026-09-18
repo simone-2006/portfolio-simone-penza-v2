@@ -1,6 +1,6 @@
 import { pagesContext, contactsContext } from "../../context/appContext";
 import { useContext } from "react";
-import { Download, Phone, Mail } from "lucide-react";
+import { Download, Phone, Mail, MapPin } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
 import ContactForm from "../ui/ContactForm";
@@ -28,14 +28,14 @@ const itemVariants = {
 
 export default function Contatti() {
     const navbarElements = useContext(pagesContext);
-    const contacts = useContext(contactsContext);
+    const contact = useContext(contactsContext);
     const reduceMotion = useReducedMotion();
-    const contact = contacts?.[0];
+    const section = navbarElements[3];
 
     return (
         <motion.section
-            key={navbarElements[3].id}
-            id={navbarElements[3].id}
+            key={section.id}
+            id={section.id}
             className="page-section"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -49,7 +49,7 @@ export default function Contatti() {
                 viewport={viewportOnce}
                 transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             >
-                {navbarElements[3].title}
+                {section.title}
             </motion.h1>
 
             <motion.div
@@ -90,20 +90,27 @@ export default function Contatti() {
                             >
                                 <motion.a
                                     variants={itemVariants}
-                                    href={`tel:${contact.contatti.phone.replace(/\s+/g, "")}`}
+                                    href={`tel:${contact.phone.replace(/\s+/g, "")}`}
                                     className="flex items-center gap-2 text-base text-muted transition-colors hover:text-text-secondary"
                                 >
                                     <Phone size={18} />
-                                    <span className="font-medium">{contact.contatti.phone}</span>
+                                    <span className="font-medium">{contact.phone}</span>
                                 </motion.a>
                                 <motion.a
                                     variants={itemVariants}
-                                    href={`mailto:${contact.contatti.mail}`}
+                                    href={`mailto:${contact.mail}`}
                                     className="flex items-center gap-2 text-base text-muted transition-colors hover:text-text-secondary"
                                 >
                                     <Mail size={18} />
-                                    <span className="font-medium break-all">{contact.contatti.mail}</span>
+                                    <span className="font-medium break-all">{contact.mail}</span>
                                 </motion.a>
+                                <motion.p
+                                    variants={itemVariants}
+                                    className="flex items-center gap-2 text-base text-muted"
+                                >
+                                    <MapPin size={18} />
+                                    <span className="font-medium">{contact.location}</span>
+                                </motion.p>
                             </motion.div>
 
                             <motion.div
@@ -147,9 +154,9 @@ export default function Contatti() {
                         Il mio CV
                     </h2>
                     <div className="flex min-w-0 flex-col items-start gap-5 sm:flex-row sm:items-center">
-                        <a href="/CV_penza_simone.pdf" className="block w-full max-w-[240px] shrink-0">
+                        <a href={contact.cv} className="block w-full max-w-[240px] shrink-0">
                             <motion.img
-                                src="CV_anteprima.png"
+                                src={contact.cvPreview}
                                 alt="Anteprima del CV"
                                 className="h-auto w-full"
                                 initial={false}
@@ -168,7 +175,7 @@ export default function Contatti() {
                                 PDF, una pagina.
                             </p>
                             <motion.a
-                                href="/CV_penza_simone.pdf"
+                                href={contact.cv}
                                 download="CV_penza_simone.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"

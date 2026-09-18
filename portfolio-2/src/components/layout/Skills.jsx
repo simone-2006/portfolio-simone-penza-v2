@@ -1,14 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ChevronLeft, ChevronRight, Database } from "lucide-react";
-import { pagesContext } from "../../context/appContext";
+import { ChevronLeft, ChevronRight, Database, Network, Server } from "lucide-react";
+import { pagesContext, projectsContext } from "../../context/appContext";
 
-import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaPhp, FaPython, FaDocker, FaGitAlt, FaGithub } from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaPhp, FaPython, FaDocker, FaGitAlt, FaJava, FaWindows, FaBootstrap, FaMicrosoft } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
-import { BsFiletypeJsx } from "react-icons/bs";
 import { RiTailwindCssFill, RiOpenaiFill } from "react-icons/ri";
 import { DiMysql, DiVisualstudio } from "react-icons/di";
-import { SiXampp, SiPostman } from "react-icons/si";
+import { SiCplusplus } from "react-icons/si";
 import { GoCopilot } from "react-icons/go";
 import { BsClaude } from "react-icons/bs";
 
@@ -29,62 +28,26 @@ const allSkills = [
     { name: "CSS", icon: <FaCss3Alt size={20} />, color: "lightblue" },
     { name: "JavaScript", icon: <IoLogoJavascript size={20} />, color: "#F7DF1E" },
     { name: "React", icon: <FaReact size={20} />, color: "#61DAFB" },
-    { name: "JSX", icon: <BsFiletypeJsx size={20} />, color: "#61DAFB" },
     { name: "Tailwind CSS", icon: <RiTailwindCssFill size={20} />, color: "#06B6D4" },
+    { name: "Bootstrap", icon: <FaBootstrap size={20} />, color: "#7952B3" },
     { name: "Node.js", icon: <FaNodeJs size={20} />, color: "#339933" },
     { name: "PHP", icon: <FaPhp size={20} />, color: "#777BB4" },
     { name: "Python", icon: <FaPython size={20} />, color: "#3776AB" },
+    { name: "Java", icon: <FaJava size={20} />, color: "#007396" },
+    { name: "C++", icon: <SiCplusplus size={20} />, color: "#00599C" },
     { name: "SQL", icon: <Database size={20} />, color: "" },
     { name: "MySQL", icon: <DiMysql size={20} />, color: "#2496ED" },
+    { name: "SQL Server", icon: <Server size={20} />, color: "#CC2927" },
+    { name: "Windows", icon: <FaWindows size={20} />, color: "#0078D6" },
+    { name: "Reti", icon: <Network size={20} />, color: "#8c7851" },
     { name: "Docker", icon: <FaDocker size={20} />, color: "#2496ED" },
     { name: "Git", icon: <FaGitAlt size={20} />, color: "#F05033" },
-    { name: "GitHub", icon: <FaGithub size={20} />, color: "#181717" },
-    { name: "Xampp", icon: <SiXampp size={20} />, color: "#F37623" },
+    { name: "Microsoft 365", icon: <FaMicrosoft size={20} />, color: "#D83B01" },
     { name: "Visual Studio Code", icon: <DiVisualstudio size={20} />, color: "#007ACC" },
-    { name: "Postman", icon: <SiPostman size={20} />, color: "#FF6C37" },
     { name: "Cursor", icon: <CursorIcon />, color: "#000000" },
     { name: "ChatGPT", icon: <RiOpenaiFill size={20} />, color: "#000000" },
     { name: "Claude", icon: <BsClaude size={20} />, color: "#FF6600" },
     { name: "GitHub Copilot", icon: <GoCopilot size={20} />, color: "#181717" },
-];
-
-const projects = [
-    {
-        id: "portfolio",
-        index: "01",
-        title: "Questo sito",
-        blurb: "Il portfolio che stai guardando. React, Vite e Tailwind. Clicca per aprire la repo.",
-        status: "Online",
-        github: "https://github.com/simone-2006/portfolio-simone-penza-v2",
-        image: "portfolio_anteprima.png",
-    },
-    {
-        id: "react-task",
-        index: "02",
-        title: "React task",
-        blurb: "Attività in tre colonne: Todo, Doing, Done.",
-        status: "Online",
-        github: "https://github.com/simone-2006/react-task",
-        image: "react_task_anteprima.png",
-    },
-    {
-        id: "flowmoney",
-        index: "03",
-        title: "Flowmoney",
-        blurb: "Tengo traccia delle uscite. Per ora solo frontend.",
-        status: "Demo",
-        github: "https://github.com/simone-2006/flowmoney-demo/tree/main",
-        image: "flowmoney_anteprima.png",
-    },
-    {
-        id: "flowboard",
-        index: "04",
-        title: "Flowboard",
-        blurb: "Una board per organizzare il lavoro. Ancora in costruzione.",
-        status: "In sviluppo",
-        github: "https://github.com/simone-2006/flowboard",
-        image: "flowboard_anteprima.png",
-    },
 ];
 
 const viewportOnce = { once: true, amount: 0.25 };
@@ -125,12 +88,13 @@ function SkillRow({ hidden }) {
 
 const AUTOPLAY_MS = 4500;
 
-function ProjectCarousel() {
+function ProjectCarousel({ projects }) {
     const reduceMotion = useReducedMotion();
     const [[index, direction], setPage] = useState([0, 0]);
     const [paused, setPaused] = useState(false);
     const project = projects[index];
     const variants = reduceMotion ? fadeSlideVariants : slideVariants;
+    const totalLabel = String(projects.length).padStart(2, "0");
 
     const paginate = (delta) => {
         setPage(([current]) => [
@@ -155,7 +119,7 @@ function ProjectCarousel() {
         }, AUTOPLAY_MS);
 
         return () => window.clearInterval(timer);
-    }, [reduceMotion, paused, index]);
+    }, [reduceMotion, paused, index, projects.length]);
 
     const onDragEnd = (_, info) => {
         const swipe = info.offset.x + info.velocity.x * 0.2;
@@ -196,7 +160,7 @@ function ProjectCarousel() {
                     Progetti
                 </p>
                 <p className="font-sans text-xs text-muted" aria-live="polite">
-                    {project.index} / 0{projects.length}
+                    {project.index} / {totalLabel}
                 </p>
             </div>
 
@@ -224,14 +188,20 @@ function ProjectCarousel() {
                             rel="noopener noreferrer"
                             className="block"
                         >
-                            <motion.img
-                                src={project.image}
-                                alt={project.title}
-                                draggable={false}
-                                className="aspect-video w-full object-cover"
-                                whileHover={reduceMotion ? undefined : { scale: 1.02 }}
-                                transition={{ type: "spring", stiffness: 210, damping: 20 }}
-                            />
+                            {project.image ? (
+                                <motion.img
+                                    src={project.image}
+                                    alt={project.title}
+                                    draggable={false}
+                                    className="aspect-video w-full object-cover"
+                                    whileHover={reduceMotion ? undefined : { scale: 1.02 }}
+                                    transition={{ type: "spring", stiffness: 210, damping: 20 }}
+                                />
+                            ) : (
+                                <div className="flex aspect-video w-full items-center justify-center bg-highlight font-serif text-2xl text-text-secondary">
+                                    {project.title}
+                                </div>
+                            )}
                             <div className="flex items-start justify-between gap-4 p-3">
                                 <div>
                                     <p className="font-serif text-2xl text-text">{project.title}</p>
@@ -288,13 +258,14 @@ function ProjectCarousel() {
 }
 
 export default function Skills() {
-
-    const navbarElements = useContext(pagesContext)
+    const navbarElements = useContext(pagesContext);
+    const projects = useContext(projectsContext);
+    const section = navbarElements[1];
 
     return (
         <motion.section
-            key={navbarElements[1].id}
-            id={navbarElements[1].id}
+            key={section.id}
+            id={section.id}
             className="page-section overflow-x-clip"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -308,7 +279,7 @@ export default function Skills() {
                 viewport={viewportOnce}
                 transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             >
-                {navbarElements[1].title}
+                {section.title}
             </motion.h1>
 
             <motion.div
@@ -351,9 +322,9 @@ export default function Skills() {
                     </motion.p>
                     <h2 className="flex min-w-0 flex-row flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-border-color pb-0.5">
                         {[
-                            { word: "Frontend.", colClass: "text-text text-[60px]" },
-                            { word: "Backend.", colClass: "text-text-secondary text-[50px]" },
-                            { word: "Database.", colClass: "text-muted text-[40px]" },
+                            { word: "Sviluppo.", colClass: "text-text text-[60px]" },
+                            { word: "Database.", colClass: "text-text-secondary text-[50px]" },
+                            { word: "Supporto IT.", colClass: "text-muted text-[40px]" },
                         ].map(({ word, colClass }, idx) => (
                             <motion.span
                                 key={word}
@@ -378,7 +349,7 @@ export default function Skills() {
                     viewport={viewportOnce}
                     transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
                 >
-                    <ProjectCarousel />
+                    <ProjectCarousel projects={projects} />
                 </motion.div>
             </motion.div>
         </motion.section>
