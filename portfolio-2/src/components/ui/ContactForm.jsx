@@ -102,7 +102,7 @@ export default function ContactForm() {
                     name="nome"
                     required
                     className={fieldClass}
-                    placeholder="Mario Rossi"
+                    placeholder="Il tuo nome"
                 />
             </motion.label>
             <motion.label
@@ -134,7 +134,7 @@ export default function ContactForm() {
                     name="email"
                     required
                     className={fieldClass}
-                    placeholder="mario@email.it"
+                    placeholder="example@email.com"
                 />
             </motion.label>
             <motion.label

@@ -32,18 +32,50 @@ select {
   touch-action: manipulation;
 }
 
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.page-gutter,
 .page-section {
-  min-width: 0;
-  padding-block: 3.5rem;
   padding-left: max(1.25rem, env(safe-area-inset-left));
   padding-right: max(1.25rem, env(safe-area-inset-right));
 }
 
+.page-section {
+  min-width: 0;
+  padding-block: 3.5rem;
+}
+
 @media (min-width: 1024px) {
+
+  .page-gutter,
   .page-section {
-    padding-block: 4.5rem;
     padding-inline: 2.5rem;
   }
+
+  .page-section {
+    padding-block: 4.5rem;
+  }
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent-secondary);
+  outline-offset: 3px;
+}
+
+@keyframes boot-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+.boot-caret {
+  animation: boot-caret 1s steps(1) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -51,7 +83,8 @@ select {
     scroll-behavior: auto;
   }
 
-  .animate-marquee {
+  .animate-marquee,
+  .boot-caret {
     animation: none;
   }
 }
@@ -119,6 +152,4 @@ select {
 
 nav[aria-label="Primary"] {
   padding-top: max(1rem, env(safe-area-inset-top));
-  padding-left: max(1rem, env(safe-area-inset-left));
-  padding-right: max(1rem, env(safe-area-inset-right));
 }

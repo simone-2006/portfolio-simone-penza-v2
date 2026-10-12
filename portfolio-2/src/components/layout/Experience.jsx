@@ -37,7 +37,7 @@ export default function Experience() {
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
             <motion.h1
-                className="font-sans tracking-wide uppercase font-semibold text-text"
+                className="font-sans text-sm font-semibold uppercase tracking-wide text-text"
                 initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.2 }}

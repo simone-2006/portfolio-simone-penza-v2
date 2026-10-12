@@ -138,6 +138,17 @@ function ProjectCarousel({ projects }) {
         }
     };
 
+    if (!project) {
+        return (
+            <div className="w-full min-w-0 max-w-xl">
+                <p className="font-semibold text-xs uppercase tracking-wide text-muted">
+                    Progetti
+                </p>
+                <p className="mt-3 text-sm text-muted">Nessun progetto</p>
+            </div>
+        );
+    }
+
     return (
         <div
             role="region"
@@ -156,7 +167,7 @@ function ProjectCarousel({ projects }) {
             className="w-full min-w-0 max-w-xl outline-none touch-pan-y"
         >
             <div className="mb-3 flex items-end justify-between gap-4">
-                <p className="font-semibold text-muted text-xs uppercase tracking-wide">
+                <p className="font-semibold text-xs uppercase tracking-wide text-muted">
                     Progetti
                 </p>
                 <p className="font-sans text-xs text-muted" aria-live="polite">
@@ -194,7 +205,7 @@ function ProjectCarousel({ projects }) {
                                     alt={project.title}
                                     draggable={false}
                                     className="aspect-video w-full object-cover"
-                                    whileHover={reduceMotion ? undefined : { scale: 1.02 }}
+                                    whileHover={reduceMotion ? undefined : { scale: 1.02, boxShadow: "0px 10px 40px rgba(0,0,0,0.08)" }}
                                     transition={{ type: "spring", stiffness: 210, damping: 20 }}
                                 />
                             ) : (
@@ -202,12 +213,12 @@ function ProjectCarousel({ projects }) {
                                     {project.title}
                                 </div>
                             )}
-                            <div className="flex items-start justify-between gap-4 p-3">
-                                <div>
+                            <div className="flex items-start justify-between gap-4 border-b border-border-color py-3">
+                                <div className="min-w-0">
                                     <p className="font-serif text-2xl text-text">{project.title}</p>
                                     <p className="mt-1 text-sm text-muted">{project.blurb}</p>
                                 </div>
-                                <span className="shrink-0 border border-border-color px-2 py-1 text-[11px] uppercase tracking-wide text-text-secondary">
+                                <span className="shrink-0 text-[11px] font-semibold uppercase tracking-wide text-muted">
                                     {project.status}
                                 </span>
                             </div>
@@ -217,27 +228,6 @@ function ProjectCarousel({ projects }) {
             </div>
 
             <div className="mt-3 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                    <motion.button
-                        type="button"
-                        aria-label="Progetto precedente"
-                        onClick={() => paginate(-1)}
-                        whileTap={{ scale: 0.94 }}
-                        className="flex size-10 items-center justify-center border border-border-color bg-surface text-text-secondary hover:text-text"
-                    >
-                        <ChevronLeft size={18} />
-                    </motion.button>
-                    <motion.button
-                        type="button"
-                        aria-label="Progetto successivo"
-                        onClick={() => paginate(1)}
-                        whileTap={{ scale: 0.94 }}
-                        className="flex size-10 items-center justify-center border border-border-color bg-surface text-text-secondary hover:text-text"
-                    >
-                        <ChevronRight size={18} />
-                    </motion.button>
-                </div>
-
                 <div className="flex items-center gap-2" role="tablist" aria-label="Seleziona progetto">
                     {projects.map((item, itemIndex) => (
                         <button
@@ -247,10 +237,29 @@ function ProjectCarousel({ projects }) {
                             aria-label={`Vai a ${item.title}`}
                             aria-selected={itemIndex === index}
                             onClick={() => goTo(itemIndex)}
-                            className={`h-1.5 rounded-full transition-all ${itemIndex === index ? "w-6 bg-text" : "w-1.5 bg-secondary hover:bg-accent"
-                                }`}
+                            className={`h-1.5 rounded-full transition-all ${itemIndex === index ? "w-6 bg-text" : "w-1.5 bg-secondary hover:bg-accent"}`}
                         />
                     ))}
+                </div>
+                <div className="flex items-center gap-2">
+                    <motion.button
+                        type="button"
+                        aria-label="Progetto precedente"
+                        onClick={() => paginate(-1)}
+                        whileTap={{ scale: 0.94 }}
+                        className="flex size-10 items-center justify-center rounded border border-border-color bg-surface text-text-secondary hover:text-text"
+                    >
+                        <ChevronLeft size={18} />
+                    </motion.button>
+                    <motion.button
+                        type="button"
+                        aria-label="Progetto successivo"
+                        onClick={() => paginate(1)}
+                        whileTap={{ scale: 0.94 }}
+                        className="flex size-10 items-center justify-center rounded border border-border-color bg-surface text-text-secondary hover:text-text"
+                    >
+                        <ChevronRight size={18} />
+                    </motion.button>
                 </div>
             </div>
         </div>
@@ -273,7 +282,7 @@ export default function Skills() {
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
             <motion.h1
-                className="font-sans tracking-wide uppercase font-semibold text-text"
+                className="font-sans text-sm font-semibold uppercase tracking-wide text-text"
                 initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={viewportOnce}
@@ -316,7 +325,7 @@ export default function Skills() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={viewportOnce}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="font-semibold text-muted text-xs"
+                        className="text-xs font-semibold uppercase tracking-wide text-muted"
                     >
                         Lavoro su
                     </motion.p>
@@ -335,7 +344,7 @@ export default function Skills() {
                                     duration: 0.5,
                                     delay: 0.55 + idx * 0.5,
                                 }}
-                                className={`font-serif text-6xl whitespace-nowrap ${colClass}`}
+                                className={`font-serif whitespace-nowrap ${colClass}`}
                             >
                                 {word}
                             </motion.span>
@@ -344,6 +353,7 @@ export default function Skills() {
                 </motion.div>
 
                 <motion.div
+                    className="w-full min-w-0 lg:max-w-xl"
                     initial={{ opacity: 0, scale: 0.9, x: 36 }}
                     whileInView={{ opacity: 1, scale: 1, x: 0 }}
                     viewport={viewportOnce}

@@ -166,7 +166,7 @@ export default function Navbar() {
         <nav
             ref={navRef}
             aria-label="Primary"
-            className="sticky top-0 z-50 relative border-b border-accent p-4 flex justify-between items-center backdrop-blur-sm bg-primary/80"
+            className="page-gutter sticky top-0 z-50 flex items-center justify-between border-b border-accent bg-primary/80 py-4 backdrop-blur-sm"
         >
             <motion.a href="#about"
                 initial={{ opacity: 0, y: 10 }}
@@ -198,7 +198,7 @@ export default function Navbar() {
                     type="button"
                     onClick={toggleTheme}
                     aria-label={theme === "light" ? "Attiva tema scuro" : "Attiva tema chiaro"}
-                    className="font-sans text-sm font-medium transition-colors text-muted hover:text-text p-2 -m-2"
+                    className="font-sans text-sm font-medium transition-colors text-muted hover:text-text p-2 -m-2 cursor-pointer"
                 >
                     {theme === "light" ? <Sun size={18} /> : <Moon size={18} />}
                 </button>

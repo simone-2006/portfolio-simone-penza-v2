@@ -43,7 +43,7 @@ export default function Contatti() {
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
             <motion.h1
-                className="font-sans tracking-wide uppercase font-semibold text-text"
+                className="font-sans text-sm font-semibold uppercase tracking-wide text-text"
                 initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={viewportOnce}
@@ -66,7 +66,7 @@ export default function Contatti() {
                     viewport={viewportOnce}
                     transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
                 >
-                    <p className="font-semibold text-muted text-xs">Scrivimi</p>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-muted">Scrivimi</p>
                     <h2 className="mb-5 font-serif text-4xl font-semibold text-text sm:text-5xl">
                         Un messaggio
                     </h2>
@@ -94,7 +94,7 @@ export default function Contatti() {
                                     className="flex items-center gap-2 text-base text-muted transition-colors hover:text-text-secondary"
                                 >
                                     <Phone size={18} />
-                                    <span className="font-medium">{contact.phone}</span>
+                                    <span className="">{contact.phone}</span>
                                 </motion.a>
                                 <motion.a
                                     variants={itemVariants}
@@ -102,14 +102,14 @@ export default function Contatti() {
                                     className="flex items-center gap-2 text-base text-muted transition-colors hover:text-text-secondary"
                                 >
                                     <Mail size={18} />
-                                    <span className="font-medium break-all">{contact.mail}</span>
+                                    <span className=" break-all">{contact.mail}</span>
                                 </motion.a>
                                 <motion.p
                                     variants={itemVariants}
                                     className="flex items-center gap-2 text-base text-muted"
                                 >
                                     <MapPin size={18} />
-                                    <span className="font-medium">{contact.location}</span>
+                                    <span className="">{contact.location}</span>
                                 </motion.p>
                             </motion.div>
 
@@ -149,12 +149,12 @@ export default function Contatti() {
                     viewport={viewportOnce}
                     transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
                 >
-                    <p className="font-semibold text-muted text-xs">Curriculum</p>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-muted">Curriculum</p>
                     <h2 className="mb-5 font-serif text-4xl font-semibold text-text sm:text-5xl">
                         Il mio CV
                     </h2>
                     <div className="flex min-w-0 flex-col items-start gap-5 sm:flex-row sm:items-center">
-                        <a href={contact.cv} className="block w-full max-w-[240px] shrink-0">
+                        <a href={contact.cv} className="block w-full max-w-60 shrink-0">
                             <motion.img
                                 src={contact.cvPreview}
                                 alt="Anteprima del CV"

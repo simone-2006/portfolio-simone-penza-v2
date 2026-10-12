@@ -50,7 +50,7 @@ export default function AboutMe() {
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
             <motion.h1
-                className="font-sans tracking-wide uppercase font-semibold text-text"
+                className="font-sans text-sm font-semibold uppercase tracking-wide text-text"
                 initial={{ opacity: 0, x: -24 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
@@ -70,7 +70,7 @@ export default function AboutMe() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
                 >
-                    <p className="font-semibold text-xs text-muted">Ciao, sono</p>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-muted">Ciao, sono</p>
                     <h2 className="font-serif text-6xl font-semibold leading-[0.95] sm:text-8xl">
                         <span className="block text-text-secondary">{profile.lastName}</span>
                         <span className="block text-text">{profile.firstName}</span>

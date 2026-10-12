@@ -18,6 +18,12 @@
       "dark",
       window.matchMedia("(prefers-color-scheme: dark)").matches,
     );
+
+    const navigation = performance.getEntriesByType("navigation")[0];
+    if (navigation && navigation.type === "reload") {
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      history.replaceState(null, "", location.pathname + location.search + "#about");
+    }
   </script>
 </head>
 
