@@ -6,9 +6,9 @@ const FIRST_NAME = "Simone";
 const NAME_LENGTH = LAST_NAME.length + FIRST_NAME.length;
 
 const STEPS = [
-    { at: 12, label: "host", value: "simone-penza" },
-    { at: 42, label: "stack", value: "react · vite · tailwind" },
-    { at: 74, label: "stato", value: "portfolio" },
+    { at: 10, label: "utente", value: "spenza" },
+    { at: 40, label: "tech", value: "react · vite · tailwindcss" },
+    { at: 70, label: "modalità", value: "portfolio" },
 ];
 
 function statusFor(progress) {
@@ -184,7 +184,7 @@ export default function BootScreen({ onDone }) {
                     <div className="h-px bg-accent" style={{ width: `${shown}%` }} />
                 </div>
                 <div className="mt-3 flex items-center justify-between gap-4">
-                    <p className="text-xs uppercase tracking-wide text-muted">Portfolio locale</p>
+                    <p className="text-xs uppercase tracking-wide text-muted">Portfolio</p>
                     <button
                         type="button"
                         onClick={skip}

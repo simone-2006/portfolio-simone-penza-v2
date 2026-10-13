@@ -137,6 +137,7 @@ export const projects = [
         blurb: "Monitor della LAN: dispositivi, ping, latenza e storico up/down.",
         status: "Locale",
         github: "https://github.com/simone-2006/NMS26",
+        image: "NMS26_anteprima.png"
     },
     {
         id: "ollama-chatbot",
