@@ -166,7 +166,7 @@ export default function Navbar() {
         <nav
             ref={navRef}
             aria-label="Primary"
-            className="page-gutter sticky top-0 z-50 flex items-center justify-between border-b border-accent bg-primary/80 py-4 backdrop-blur-sm"
+            className="page-gutter sticky top-0 z-50 flex items-center justify-between border-b border-border-color/80 bg-primary/75 py-4 backdrop-blur-md"
         >
             <motion.a href="#about"
                 initial={{ opacity: 0, y: 10 }}
@@ -177,7 +177,7 @@ export default function Navbar() {
                     scrollToSection("about");
                 }}
             >
-                <p className="text-sm tracking-wide uppercase font-semibold text-text">
+                <p className="font-display text-sm font-bold tracking-[0.12em] uppercase text-text">
                     Simone Penza
                 </p>
             </motion.a>
@@ -216,7 +216,7 @@ export default function Navbar() {
             {menuOpen ? (
                 <div
                     id="mobile-nav"
-                    className="absolute left-0 right-0 top-full z-50 flex flex-col gap-3 border-b border-accent bg-primary/95 p-4 backdrop-blur-sm lg:hidden"
+                    className="absolute left-0 right-0 top-full z-50 flex flex-col gap-3 border-b border-border-color bg-primary/95 p-4 backdrop-blur-md lg:hidden"
                 >
                     {navbarElements.map((navbarElement) => (
                         <NavbarButton

@@ -17,6 +17,7 @@ export const profile = {
     languages: ["Italiano", "Inglese"],
 };
 
+/** Allineato a LinkedIn (simone-penza-604031388) e CV */
 export const experiences = [
     {
         period: "Ott 2025 — ora",
@@ -38,7 +39,17 @@ export const experiences = [
                 text: "Supporto tecnico ai dipendenti, problemi hardware e software, configurazione delle postazioni e manutenzione dell'infrastruttura IT.",
             },
         ],
-        stack: "PHP, JavaScript, Node.js, HTML, Tailwind CSS, SQL Server, Docker, React, Vite",
+        stack: [
+            "PHP",
+            "JavaScript",
+            "Node.js",
+            "HTML",
+            "Tailwind CSS",
+            "SQL Server",
+            "Docker",
+            "React",
+            "Vite",
+        ],
     },
     {
         period: "Set 2024",
@@ -55,11 +66,15 @@ export const experiences = [
                 title: "Full stack & database",
                 text: "Interfaccia, logica applicativa e integrazione con MySQL, in un contesto di lavoro reale.",
             },
+            {
+                title: "Esperienza professionale",
+                text: "Applicazione delle competenze scolastiche in azienda, con metodologie di sviluppo e best practice.",
+            },
         ],
-        stack: "HTML, CSS, JavaScript, PHP, MySQL",
+        stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
     },
     {
-        period: "2020 — 2025",
+        period: "Set 2020 — Giu 2025",
         kind: "Formazione",
         title: "Diploma in informatica",
         company: "ITIS Pino Hensemberger",
@@ -82,6 +97,7 @@ export const experiences = [
                 text: "Analisi dei requisiti, progettazione di soluzioni informatiche e gestione di progetti.",
             },
         ],
+        stack: ["Java", "C++", "PHP", "JavaScript", "HTML", "CSS", "SQL"],
     },
 ];
 
@@ -137,7 +153,7 @@ export const projects = [
         blurb: "Monitor della LAN: dispositivi, ping, latenza e storico up/down.",
         status: "Locale",
         github: "https://github.com/simone-2006/NMS26",
-        image: "NMS26_anteprima.png"
+        image: "NMS26_anteprima.png",
     },
     {
         id: "ollama-chatbot",

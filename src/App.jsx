@@ -15,7 +15,11 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-w-0 overflow-x-clip bg-primary">
+      <div className="site-atmosphere" aria-hidden="true">
+        <div className="site-aurora site-aurora--a" />
+        <div className="site-aurora site-aurora--b" />
+      </div>
+      <div className="site-content min-w-0 overflow-x-clip bg-transparent">
         <Navbar />
         <AboutMe />
         <Skills />
