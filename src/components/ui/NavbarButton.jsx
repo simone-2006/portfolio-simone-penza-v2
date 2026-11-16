@@ -12,8 +12,8 @@ export default function NavbarButton({ active, href, onClick, children, classNam
       className={cn(
         "font-sans text-sm font-medium border-b pb-0.5 transition-colors",
         active
-          ? "text-text border-signal"
-          : "text-muted border-transparent hover:text-text-secondary hover:border-signal/60",
+          ? "text-text border-text"
+          : "text-muted border-transparent hover:text-text-secondary hover:border-text",
         className,
       )}
     >

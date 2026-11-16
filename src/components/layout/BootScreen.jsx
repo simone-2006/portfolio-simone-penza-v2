@@ -29,7 +29,7 @@ function NameLine({ word, filled, active, tone }) {
             {active ? (
                 <span
                     aria-hidden="true"
-                    className="boot-caret mx-px inline-block h-[0.72em] w-0.5 translate-y-[0.08em] bg-signal"
+                    className="boot-caret mx-px inline-block h-[0.72em] w-0.5 translate-y-[0.08em] bg-accent"
                 />
             ) : null}
             <span className={restTone}>{word.slice(count)}</span>
@@ -127,7 +127,7 @@ export default function BootScreen({ onDone }) {
         >
             <div className="flex items-center justify-between">
                 <p className="text-xs font-semibold uppercase tracking-wide text-muted">Avvio</p>
-                <p className="text-xs tabular-nums tracking-wide text-signal">
+                <p className="text-xs tabular-nums tracking-wide text-accent-secondary">
                     {String(shown).padStart(3, "0")}
                 </p>
             </div>
@@ -150,7 +150,7 @@ export default function BootScreen({ onDone }) {
                             <span className={ready ? "truncate text-text-secondary" : "truncate text-text/20"}>
                                 {step.value}
                             </span>
-                            <span className="text-right text-xs uppercase tracking-wide text-signal">
+                            <span className="text-right text-xs uppercase tracking-wide text-accent-secondary">
                                 {ready ? "ok" : ""}
                             </span>
                         </div>
@@ -162,7 +162,7 @@ export default function BootScreen({ onDone }) {
                 <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted">
                     {statusFor(progress)}
                 </p>
-                <p className="font-display text-6xl font-extrabold leading-[0.95] tracking-tight sm:text-8xl" aria-hidden="true">
+                <p className="font-serif text-6xl font-semibold leading-[0.95] sm:text-8xl" aria-hidden="true">
                     <NameLine
                         word={LAST_NAME}
                         filled={filled}
@@ -181,7 +181,7 @@ export default function BootScreen({ onDone }) {
 
             <div>
                 <div className="h-px bg-border-color">
-                    <div className="h-px bg-signal" style={{ width: `${shown}%` }} />
+                    <div className="h-px bg-accent" style={{ width: `${shown}%` }} />
                 </div>
                 <div className="mt-3 flex items-center justify-between gap-4">
                     <p className="text-xs uppercase tracking-wide text-muted">Portfolio</p>

@@ -17,7 +17,6 @@ export const profile = {
     languages: ["Italiano", "Inglese"],
 };
 
-/** Allineato a LinkedIn (simone-penza-604031388) e CV */
 export const experiences = [
     {
         period: "Ott 2025 — ora",
@@ -39,17 +38,7 @@ export const experiences = [
                 text: "Supporto tecnico ai dipendenti, problemi hardware e software, configurazione delle postazioni e manutenzione dell'infrastruttura IT.",
             },
         ],
-        stack: [
-            "PHP",
-            "JavaScript",
-            "Node.js",
-            "HTML",
-            "Tailwind CSS",
-            "SQL Server",
-            "Docker",
-            "React",
-            "Vite",
-        ],
+        stack: "PHP, JavaScript, Node.js, HTML, Tailwind CSS, SQL Server, Docker, React, Vite",
     },
     {
         period: "Set 2024",
@@ -71,7 +60,7 @@ export const experiences = [
                 text: "Applicazione delle competenze scolastiche in azienda, con metodologie di sviluppo e best practice.",
             },
         ],
-        stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+        stack: "HTML, CSS, JavaScript, PHP, MySQL",
     },
     {
         period: "Set 2020 — Giu 2025",
@@ -97,7 +86,7 @@ export const experiences = [
                 text: "Analisi dei requisiti, progettazione di soluzioni informatiche e gestione di progetti.",
             },
         ],
-        stack: ["Java", "C++", "PHP", "JavaScript", "HTML", "CSS", "SQL"],
+        stack: "Java, C++, PHP, JavaScript, HTML, CSS, SQL",
     },
 ];
 
