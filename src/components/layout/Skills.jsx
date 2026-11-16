@@ -2,9 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ChevronLeft, ChevronRight, Database, Network, Server } from "lucide-react";
 import { pagesContext, projectsContext } from "../../context/appContext";
-import SectionHeading from "../ui/SectionHeading";
 
-import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaPhp, FaPython, FaDocker, FaGitAlt, FaJava, FaWindows, FaMicrosoft } from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaPhp, FaPython, FaDocker, FaGitAlt, FaJava, FaWindows, FaBootstrap, FaMicrosoft } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
 import { RiTailwindCssFill, RiOpenaiFill } from "react-icons/ri";
 import { DiMysql, DiVisualstudio } from "react-icons/di";
@@ -40,7 +39,7 @@ const allSkills = [
     { name: "MySQL", icon: <DiMysql size={20} />, color: "#2496ED" },
     { name: "SQL Server", icon: <Server size={20} />, color: "#CC2927" },
     { name: "Windows", icon: <FaWindows size={20} />, color: "#0078D6" },
-    { name: "Reti", icon: <Network size={20} />, color: "#1f8a7a" },
+    { name: "Reti", icon: <Network size={20} />, color: "#8c7851" },
     { name: "Docker", icon: <FaDocker size={20} />, color: "#2496ED" },
     { name: "Git", icon: <FaGitAlt size={20} />, color: "#F05033" },
     { name: "Microsoft 365", icon: <FaMicrosoft size={20} />, color: "#D83B01" },
@@ -168,15 +167,15 @@ function ProjectCarousel({ projects }) {
             className="w-full min-w-0 max-w-xl outline-none touch-pan-y"
         >
             <div className="mb-3 flex items-end justify-between gap-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+                <p className="font-semibold text-xs uppercase tracking-wide text-muted">
                     Progetti
                 </p>
-                <p className="font-sans text-xs tabular-nums text-muted" aria-live="polite">
+                <p className="font-sans text-xs text-muted" aria-live="polite">
                     {project.index} / {totalLabel}
                 </p>
             </div>
 
-            <div className="relative overflow-hidden border border-border-color bg-surface/80">
+            <div className="relative overflow-hidden">
                 <AnimatePresence initial={false} custom={direction} mode="popLayout">
                     <motion.article
                         key={project.id}
@@ -192,7 +191,7 @@ function ProjectCarousel({ projects }) {
                         dragMomentum={false}
                         onDragEnd={onDragEnd}
                         transition={{ type: "spring", bounce: 0.12, visualDuration: 0.4 }}
-                        className="cursor-grab active:cursor-grabbing"
+                        className="cursor-grab bg-surface active:cursor-grabbing"
                     >
                         <a
                             href={project.github}
@@ -206,22 +205,20 @@ function ProjectCarousel({ projects }) {
                                     alt={project.title}
                                     draggable={false}
                                     className="aspect-video w-full object-cover"
-                                    whileHover={reduceMotion ? undefined : { scale: 1.02 }}
+                                    whileHover={reduceMotion ? undefined : { scale: 1.02, boxShadow: "0px 10px 40px rgba(0,0,0,0.08)" }}
                                     transition={{ type: "spring", stiffness: 210, damping: 20 }}
                                 />
                             ) : (
-                                <div className="flex aspect-video w-full items-center justify-center bg-highlight font-display text-2xl font-semibold text-text-secondary">
+                                <div className="flex aspect-video w-full items-center justify-center bg-highlight font-serif text-2xl text-text-secondary">
                                     {project.title}
                                 </div>
                             )}
-                            <div className="flex items-start justify-between gap-4 border-t border-border-color px-4 py-3">
+                            <div className="flex items-start justify-between gap-4 border-b border-border-color py-3">
                                 <div className="min-w-0">
-                                    <p className="font-display text-2xl font-semibold tracking-tight text-text">
-                                        {project.title}
-                                    </p>
+                                    <p className="font-serif text-2xl text-text">{project.title}</p>
                                     <p className="mt-1 text-sm text-muted">{project.blurb}</p>
                                 </div>
-                                <span className="shrink-0 border border-border-color px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-muted">
+                                <span className="shrink-0 text-[11px] font-semibold uppercase tracking-wide text-muted">
                                     {project.status}
                                 </span>
                             </div>
@@ -231,7 +228,7 @@ function ProjectCarousel({ projects }) {
             </div>
 
             <div className="mt-3 flex items-center justify-between">
-                <div className="flex items-center gap-1.5" role="tablist" aria-label="Seleziona progetto">
+                <div className="flex items-center gap-2" role="tablist" aria-label="Seleziona progetto">
                     {projects.map((item, itemIndex) => (
                         <button
                             key={item.id}
@@ -240,7 +237,7 @@ function ProjectCarousel({ projects }) {
                             aria-label={`Vai a ${item.title}`}
                             aria-selected={itemIndex === index}
                             onClick={() => goTo(itemIndex)}
-                            className={`h-1.5 transition-all ${itemIndex === index ? "w-6 bg-signal" : "w-1.5 bg-secondary hover:bg-accent"}`}
+                            className={`h-1.5 rounded-full transition-all ${itemIndex === index ? "w-6 bg-text" : "w-1.5 bg-secondary hover:bg-accent"}`}
                         />
                     ))}
                 </div>
@@ -250,7 +247,7 @@ function ProjectCarousel({ projects }) {
                         aria-label="Progetto precedente"
                         onClick={() => paginate(-1)}
                         whileTap={{ scale: 0.94 }}
-                        className="flex size-10 items-center justify-center border border-border-color bg-surface text-text-secondary hover:border-signal hover:text-text"
+                        className="flex size-10 items-center justify-center rounded border border-border-color bg-surface text-text-secondary hover:text-text"
                     >
                         <ChevronLeft size={18} />
                     </motion.button>
@@ -259,7 +256,7 @@ function ProjectCarousel({ projects }) {
                         aria-label="Progetto successivo"
                         onClick={() => paginate(1)}
                         whileTap={{ scale: 0.94 }}
-                        className="flex size-10 items-center justify-center border border-border-color bg-surface text-text-secondary hover:border-signal hover:text-text"
+                        className="flex size-10 items-center justify-center rounded border border-border-color bg-surface text-text-secondary hover:text-text"
                     >
                         <ChevronRight size={18} />
                     </motion.button>
@@ -284,75 +281,87 @@ export default function Skills() {
             viewport={viewportOnce}
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
-            <div className="page-shell">
-                <SectionHeading>{section.title}</SectionHeading>
+            <motion.h1
+                className="font-sans text-sm font-semibold uppercase tracking-wide text-text"
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={viewportOnce}
+                transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+            >
+                {section.title}
+            </motion.h1>
 
+            <motion.div
+                className="relative my-6 overflow-hidden"
+                initial={{ opacity: 0, scale: 0.98 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={viewportOnce}
+                transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            >
+                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-linear-to-r from-primary to-transparent" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-linear-to-l from-primary to-transparent" />
+                <div className="flex w-max animate-marquee">
+                    <SkillRow />
+                    <SkillRow hidden />
+                </div>
+            </motion.div>
+
+            <motion.div
+                className="mt-2 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={viewportOnce}
+                transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
+            >
                 <motion.div
-                    className="relative my-8 overflow-hidden border-y border-border-color/70 py-4"
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    className="flex min-w-0 flex-col justify-center"
+                    initial={{ opacity: 0, x: -36 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={viewportOnce}
-                    transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+                    transition={{ duration: 0.7, delay: 0.35, ease: "easeOut" }}
                 >
-                    <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-linear-to-r from-primary to-transparent" />
-                    <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-linear-to-l from-primary to-transparent" />
-                    <div className="flex w-max animate-marquee">
-                        <SkillRow />
-                        <SkillRow hidden />
-                    </div>
-                </motion.div>
-
-                <motion.div
-                    className="mt-2 flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={viewportOnce}
-                    transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-                >
-                    <motion.div
-                        className="flex min-w-0 flex-col justify-center"
-                        initial={{ opacity: 0, x: -28 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={viewportOnce}
-                        transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-                    >
-                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
-                            Lavoro su
-                        </p>
-                        <h2 className="mt-2 flex min-w-0 flex-col gap-1 border-b border-border-color pb-3">
-                            {[
-                                { word: "Sviluppo.", colClass: "text-text text-[clamp(2.4rem,7vw,3.75rem)]" },
-                                { word: "Database.", colClass: "text-text-secondary text-[clamp(2rem,6vw,3.1rem)]" },
-                                { word: "Supporto IT.", colClass: "text-muted text-[clamp(1.6rem,5vw,2.5rem)]" },
-                            ].map(({ word, colClass }, idx) => (
-                                <motion.span
-                                    key={word}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={viewportOnce}
-                                    transition={{
-                                        duration: 0.5,
-                                        delay: 0.4 + idx * 0.12,
-                                    }}
-                                    className={`font-display font-bold tracking-tight whitespace-nowrap ${colClass}`}
-                                >
-                                    {word}
-                                </motion.span>
-                            ))}
-                        </h2>
-                    </motion.div>
-
-                    <motion.div
-                        className="w-full min-w-0 lg:max-w-xl"
-                        initial={{ opacity: 0, y: 24 }}
+                    <motion.p
+                        initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={viewportOnce}
-                        transition={{ duration: 0.7, delay: 0.35, ease: "easeOut" }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                        className="text-xs font-semibold uppercase tracking-wide text-muted"
                     >
-                        <ProjectCarousel projects={projects} />
-                    </motion.div>
+                        Lavoro su
+                    </motion.p>
+                    <h2 className="flex min-w-0 flex-row flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-border-color pb-0.5">
+                        {[
+                            { word: "Sviluppo.", colClass: "text-text text-[60px]" },
+                            { word: "Database.", colClass: "text-text-secondary text-[50px]" },
+                            { word: "Supporto IT.", colClass: "text-muted text-[40px]" },
+                        ].map(({ word, colClass }, idx) => (
+                            <motion.span
+                                key={word}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={viewportOnce}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.55 + idx * 0.5,
+                                }}
+                                className={`font-serif whitespace-nowrap ${colClass}`}
+                            >
+                                {word}
+                            </motion.span>
+                        ))}
+                    </h2>
                 </motion.div>
-            </div>
+
+                <motion.div
+                    className="w-full min-w-0 lg:max-w-xl"
+                    initial={{ opacity: 0, scale: 0.9, x: 36 }}
+                    whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                    viewport={viewportOnce}
+                    transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
+                >
+                    <ProjectCarousel projects={projects} />
+                </motion.div>
+            </motion.div>
         </motion.section>
     );
 }

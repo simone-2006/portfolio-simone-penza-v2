@@ -4,7 +4,6 @@ import { Download, Phone, Mail, MapPin } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
 import ContactForm from "../ui/ContactForm";
-import SectionHeading from "../ui/SectionHeading";
 
 const viewportOnce = { once: true, amount: 0.25 };
 
@@ -43,149 +42,153 @@ export default function Contatti() {
             viewport={viewportOnce}
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
-            <div className="page-shell">
-                <SectionHeading>{section.title}</SectionHeading>
+            <motion.h1
+                className="font-sans text-sm font-semibold uppercase tracking-wide text-text"
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={viewportOnce}
+                transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+            >
+                {section.title}
+            </motion.h1>
+
+            <motion.div
+                className="mt-8 flex min-w-0 flex-col gap-12 lg:flex-row lg:justify-between"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={viewportOnce}
+                transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            >
+                <motion.div
+                    className="flex min-w-0 flex-1 flex-col"
+                    initial={{ opacity: 0, x: -36 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={viewportOnce}
+                    transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+                >
+                    <p className="text-xs font-semibold uppercase tracking-wide text-muted">Scrivimi</p>
+                    <h2 className="mb-5 font-serif text-4xl font-semibold text-text sm:text-5xl">
+                        Un messaggio
+                    </h2>
+
+                    <ContactForm />
+
+                    {contact && (
+                        <motion.div
+                            className="mt-5 rounded-md bg-highlight p-3 text-text-secondary"
+                            initial={{ opacity: 0, y: 24 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={viewportOnce}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                        >
+                            <motion.div
+                                className="flex flex-col gap-2"
+                                variants={listVariants}
+                                initial="hidden"
+                                whileInView="show"
+                                viewport={viewportOnce}
+                            >
+                                <motion.a
+                                    variants={itemVariants}
+                                    href={`tel:${contact.phone.replace(/\s+/g, "")}`}
+                                    className="flex items-center gap-2 text-base text-muted transition-colors hover:text-text-secondary"
+                                >
+                                    <Phone size={18} />
+                                    <span className="">{contact.phone}</span>
+                                </motion.a>
+                                <motion.a
+                                    variants={itemVariants}
+                                    href={`mailto:${contact.mail}`}
+                                    className="flex items-center gap-2 text-base text-muted transition-colors hover:text-text-secondary"
+                                >
+                                    <Mail size={18} />
+                                    <span className=" break-all">{contact.mail}</span>
+                                </motion.a>
+                                <motion.p
+                                    variants={itemVariants}
+                                    className="flex items-center gap-2 text-base text-muted"
+                                >
+                                    <MapPin size={18} />
+                                    <span className="">{contact.location}</span>
+                                </motion.p>
+                            </motion.div>
+
+                            <motion.div
+                                className="mt-3 flex flex-wrap items-center gap-3"
+                                variants={listVariants}
+                                initial="hidden"
+                                whileInView="show"
+                                viewport={viewportOnce}
+                            >
+                                {Object.entries(contact.social).map(([key, social]) => {
+                                    const Icon = social.icon;
+                                    return (
+                                        <motion.a
+                                            href={social.url}
+                                            key={key}
+                                            variants={itemVariants}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 text-base text-muted transition-colors hover:text-text-secondary"
+                                            title={social.label}
+                                        >
+                                            {Icon && <Icon size={18} />}
+                                            <span className="font-medium">{social.username}</span>
+                                        </motion.a>
+                                    );
+                                })}
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </motion.div>
 
                 <motion.div
-                    className="mt-10 flex min-w-0 flex-col gap-14 lg:flex-row lg:justify-between lg:gap-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    className="flex min-w-0 flex-1 flex-col"
+                    initial={{ opacity: 0, scale: 0.9, x: 36 }}
+                    whileInView={{ opacity: 1, scale: 1, x: 0 }}
                     viewport={viewportOnce}
-                    transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+                    transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
                 >
-                    <motion.div
-                        className="flex min-w-0 flex-1 flex-col"
-                        initial={{ opacity: 0, x: -28 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={viewportOnce}
-                        transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
-                    >
-                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
-                            Scrivimi
-                        </p>
-                        <h2 className="mb-5 font-display text-4xl font-bold tracking-tight text-text sm:text-5xl">
-                            Un messaggio
-                        </h2>
-
-                        <ContactForm />
-
-                        {contact && (
-                            <motion.div
-                                className="mt-6 border border-border-color bg-surface/70 p-4 text-text-secondary"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={viewportOnce}
-                                transition={{ duration: 0.55, ease: "easeOut" }}
+                    <p className="text-xs font-semibold uppercase tracking-wide text-muted">Curriculum</p>
+                    <h2 className="mb-5 font-serif text-4xl font-semibold text-text sm:text-5xl">
+                        Il mio CV
+                    </h2>
+                    <div className="flex min-w-0 flex-col items-start gap-5 sm:flex-row sm:items-center">
+                        <a href={contact.cv} className="block w-full max-w-60 shrink-0">
+                            <motion.img
+                                src={contact.cvPreview}
+                                alt="Anteprima del CV"
+                                className="h-auto w-full"
+                                initial={false}
+                                whileHover={{ scale: 1.03, boxShadow: "0px 10px 40px rgba(0,0,0,0.08)" }}
+                                transition={{ type: "spring", stiffness: 210, damping: 20 }}
+                            />
+                        </a>
+                        <motion.div
+                            className="flex min-w-0 flex-col gap-3"
+                            initial={{ opacity: 0, y: 12 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={viewportOnce}
+                            transition={{ duration: 0.7, delay: 0.8, ease: "easeOut" }}
+                        >
+                            <p className="text-sm text-muted">
+                                PDF, una pagina.
+                            </p>
+                            <motion.a
+                                href={contact.cv}
+                                download="CV_penza_simone.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileTap={reduceMotion ? undefined : { scale: 0.94 }}
+                                className="inline-flex cursor-pointer items-center gap-2 self-start rounded bg-text px-5 py-2 font-semibold text-primary transition hover:opacity-80"
                             >
-                                <motion.div
-                                    className="flex flex-col gap-2"
-                                    variants={listVariants}
-                                    initial="hidden"
-                                    whileInView="show"
-                                    viewport={viewportOnce}
-                                >
-                                    <motion.a
-                                        variants={itemVariants}
-                                        href={`tel:${contact.phone.replace(/\s+/g, "")}`}
-                                        className="flex items-center gap-2 text-base text-muted transition-colors hover:text-text"
-                                    >
-                                        <Phone size={18} />
-                                        <span>{contact.phone}</span>
-                                    </motion.a>
-                                    <motion.a
-                                        variants={itemVariants}
-                                        href={`mailto:${contact.mail}`}
-                                        className="flex items-center gap-2 text-base text-muted transition-colors hover:text-text"
-                                    >
-                                        <Mail size={18} />
-                                        <span className="break-all">{contact.mail}</span>
-                                    </motion.a>
-                                    <motion.p
-                                        variants={itemVariants}
-                                        className="flex items-center gap-2 text-base text-muted"
-                                    >
-                                        <MapPin size={18} />
-                                        <span>{contact.location}</span>
-                                    </motion.p>
-                                </motion.div>
-
-                                <motion.div
-                                    className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-border-color pt-3"
-                                    variants={listVariants}
-                                    initial="hidden"
-                                    whileInView="show"
-                                    viewport={viewportOnce}
-                                >
-                                    {Object.entries(contact.social).map(([key, social]) => {
-                                        const Icon = social.icon;
-                                        return (
-                                            <motion.a
-                                                href={social.url}
-                                                key={key}
-                                                variants={itemVariants}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center gap-2 text-sm text-muted transition-colors hover:text-text"
-                                                title={social.label}
-                                            >
-                                                {Icon && <Icon size={18} />}
-                                                <span className="font-medium">{social.username}</span>
-                                            </motion.a>
-                                        );
-                                    })}
-                                </motion.div>
-                            </motion.div>
-                        )}
-                    </motion.div>
-
-                    <motion.div
-                        className="flex min-w-0 flex-1 flex-col"
-                        initial={{ opacity: 0, y: 24 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={viewportOnce}
-                        transition={{ duration: 0.7, delay: 0.35, ease: "easeOut" }}
-                    >
-                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
-                            Curriculum
-                        </p>
-                        <h2 className="mb-5 font-display text-4xl font-bold tracking-tight text-text sm:text-5xl">
-                            Il mio CV
-                        </h2>
-                        <div className="flex min-w-0 flex-col items-start gap-5 sm:flex-row sm:items-center">
-                            <a href={contact.cv} className="block w-full max-w-60 shrink-0">
-                                <motion.img
-                                    src={contact.cvPreview}
-                                    alt="Anteprima del CV"
-                                    className="h-auto w-full border border-border-color"
-                                    initial={false}
-                                    whileHover={{ scale: 1.02 }}
-                                    transition={{ type: "spring", stiffness: 210, damping: 20 }}
-                                />
-                            </a>
-                            <motion.div
-                                className="flex min-w-0 flex-col gap-3"
-                                initial={{ opacity: 0, y: 12 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={viewportOnce}
-                                transition={{ duration: 0.65, delay: 0.5, ease: "easeOut" }}
-                            >
-                                <p className="text-sm text-muted">PDF, una pagina.</p>
-                                <motion.a
-                                    href={contact.cv}
-                                    download="CV_penza_simone.pdf"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    whileTap={reduceMotion ? undefined : { scale: 0.94 }}
-                                    className="inline-flex cursor-pointer items-center gap-2 self-start bg-text px-5 py-2.5 font-semibold text-primary transition hover:opacity-85"
-                                >
-                                    <Download size={18} />
-                                    Scarica
-                                </motion.a>
-                            </motion.div>
-                        </div>
-                    </motion.div>
+                                <Download size={18} />
+                                Scarica
+                            </motion.a>
+                        </motion.div>
+                    </div>
                 </motion.div>
-            </div>
+            </motion.div>
         </motion.section>
     );
 }
