@@ -44,7 +44,7 @@ const itemVariants = {
 };
 
 const fieldClass =
-    "mt-1 px-3 py-2 border border-border-color bg-surface text-base text-text transition focus:border-signal focus:outline-none focus:ring-1 focus:ring-signal";
+    "mt-1 px-3 py-2 rounded border border-border-color bg-surface text-base text-text focus:outline-none focus:ring-2 focus:ring-muted transition";
 
 export default function ContactForm() {
     const reduceMotion = useReducedMotion();
@@ -161,7 +161,7 @@ export default function ContactForm() {
                 disabled={sending}
                 variants={itemVariants}
                 whileTap={reduceMotion || sending ? undefined : { scale: 0.94 }}
-                className="mt-1 inline-block cursor-pointer self-start bg-text px-5 py-2.5 font-semibold text-primary transition hover:opacity-85 disabled:cursor-wait disabled:opacity-60"
+                className="mt-1 inline-block cursor-pointer self-start rounded bg-text px-5 py-2 font-semibold text-primary transition hover:opacity-80 disabled:cursor-wait disabled:opacity-60"
             >
                 {sending ? "Invio…" : "Invia"}
             </motion.button>
