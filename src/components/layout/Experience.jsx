@@ -47,7 +47,7 @@ export default function Experience() {
             </motion.h2>
 
             <motion.div
-                className="mt-6 w-full min-w-0 max-w-3xl"
+                className="mt-10 w-full min-w-0 max-w-3xl space-y-2"
                 variants={listVariants}
                 initial="hidden"
                 whileInView="show"
