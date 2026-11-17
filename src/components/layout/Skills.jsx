@@ -166,7 +166,7 @@ function ProjectCarousel({ projects }) {
             }}
             className="w-full min-w-0 max-w-xl outline-none touch-pan-y"
         >
-            <div className="mb-5 flex items-end justify-between gap-4">
+            <div className="mb-6 flex items-end justify-between gap-4">
                 <p className="font-semibold text-xs uppercase tracking-wide text-muted">
                     Progetti
                 </p>
@@ -213,12 +213,12 @@ function ProjectCarousel({ projects }) {
                                     {project.title}
                                 </div>
                             )}
-                            <div className="flex items-start justify-between gap-5 border-b border-border-color px-1 py-5">
-                                <div className="min-w-0">
+                            <div className="flex items-start justify-between gap-5 border-b border-border-color px-1 py-6">
+                                <div className="min-w-0 space-y-2.5">
                                     <p className="font-serif text-2xl leading-snug text-text">{project.title}</p>
-                                    <p className="mt-2 text-sm leading-relaxed text-muted">{project.blurb}</p>
+                                    <p className="text-sm leading-relaxed text-muted">{project.blurb}</p>
                                 </div>
-                                <span className="shrink-0 pt-1 text-[11px] font-semibold uppercase tracking-wide text-muted">
+                                <span className="shrink-0 pt-1.5 text-[11px] font-semibold uppercase tracking-wide text-muted">
                                     {project.status}
                                 </span>
                             </div>
@@ -227,7 +227,7 @@ function ProjectCarousel({ projects }) {
                 </AnimatePresence>
             </div>
 
-            <div className="mt-5 flex items-center justify-between gap-4">
+            <div className="mt-6 flex items-center justify-between gap-4">
                 <div className="flex items-center gap-2.5" role="tablist" aria-label="Seleziona progetto">
                     {projects.map((item, itemIndex) => (
                         <button
@@ -292,7 +292,7 @@ export default function Skills() {
             </motion.h2>
 
             <motion.div
-                className="relative mt-10 mb-12 overflow-hidden py-2"
+                className="relative mt-12 mb-14 overflow-hidden py-4"
                 initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={viewportOnce}
@@ -307,14 +307,14 @@ export default function Skills() {
             </motion.div>
 
             <motion.div
-                className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16"
+                className="flex flex-col gap-14 lg:flex-row lg:items-center lg:justify-between lg:gap-20"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={viewportOnce}
                 transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
             >
                 <motion.div
-                    className="flex min-w-0 flex-col justify-center gap-3"
+                    className="flex min-w-0 flex-col justify-center gap-5"
                     initial={{ opacity: 0, x: -36 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={viewportOnce}
@@ -329,7 +329,7 @@ export default function Skills() {
                     >
                         Lavoro su
                     </motion.p>
-                    <p className="flex min-w-0 flex-row flex-wrap items-baseline gap-x-5 gap-y-3 border-b border-border-color pb-3">
+                    <p className="flex min-w-0 flex-row flex-wrap items-baseline gap-x-5 gap-y-4 border-b border-border-color pb-5">
                         {[
                             { word: "Sviluppo.", colClass: "text-text text-[60px]" },
                             { word: "Database.", colClass: "text-text-secondary text-[50px]" },
@@ -344,7 +344,7 @@ export default function Skills() {
                                     duration: 0.5,
                                     delay: 0.55 + idx * 0.5,
                                 }}
-                                className={`font-serif leading-none whitespace-nowrap ${colClass}`}
+                                className={`font-serif leading-[1.05] whitespace-nowrap ${colClass}`}
                             >
                                 {word}
                             </motion.span>
