@@ -1,5 +1,20 @@
 import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
+export const siteMeta = {
+    url: "https://www.simonepenza.cloud",
+    title: "Simone Penza — Tecnico IT e sviluppatore web a Lissone (MB)",
+    description:
+        "Simone Penza, tecnico IT e sviluppatore web a Lissone (MB). Applicazioni web, database SQL, supporto informatico e infrastruttura per aziende in Brianza e Monza.",
+    locale: "it_IT",
+    geo: {
+        locality: "Lissone",
+        region: "MB",
+        country: "IT",
+        latitude: 45.6124,
+        longitude: 9.243,
+    },
+};
+
 export const pages = [
     { id: "about", title: "Chi sono" },
     { id: "skills", title: "Skills e progetti" },

@@ -27,9 +27,9 @@ export default function ExperienceCard({
                             {kind}
                         </p>
                     ) : null}
-                    <h2 className="font-serif text-2xl break-words text-text">
+                    <h3 className="font-serif text-2xl break-words text-text">
                         {title}
-                    </h2>
+                    </h3>
                     {place ? (
                         <p className="mt-0.5 text-sm text-text-secondary">{place}</p>
                     ) : null}

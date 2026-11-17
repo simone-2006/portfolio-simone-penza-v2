@@ -156,6 +156,15 @@ export default function ContactForm() {
                 />
             </motion.label>
 
+            <motion.p variants={itemVariants} className="text-xs leading-relaxed text-muted">
+                Inviando il messaggio accetti che i dati siano usati solo per risponderti, come descritto
+                nell’{" "}
+                <a href="#privacy" className="underline underline-offset-2 hover:text-text">
+                    informativa privacy
+                </a>
+                . Il sito non usa cookie di profilazione.
+            </motion.p>
+
             <motion.button
                 type="submit"
                 disabled={sending}

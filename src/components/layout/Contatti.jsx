@@ -42,7 +42,7 @@ export default function Contatti() {
             viewport={viewportOnce}
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
-            <motion.h1
+            <motion.h2
                 className="font-sans text-sm font-semibold uppercase tracking-wide text-text"
                 initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -50,7 +50,7 @@ export default function Contatti() {
                 transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             >
                 {section.title}
-            </motion.h1>
+            </motion.h2>
 
             <motion.div
                 className="mt-8 flex min-w-0 flex-col gap-12 lg:flex-row lg:justify-between"
@@ -67,9 +67,9 @@ export default function Contatti() {
                     transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
                 >
                     <p className="text-xs font-semibold uppercase tracking-wide text-muted">Scrivimi</p>
-                    <h2 className="mb-5 font-serif text-4xl font-semibold text-text sm:text-5xl">
+                    <h3 className="mb-5 font-serif text-4xl font-semibold text-text sm:text-5xl">
                         Un messaggio
-                    </h2>
+                    </h3>
 
                     <ContactForm />
 
@@ -150,9 +150,9 @@ export default function Contatti() {
                     transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
                 >
                     <p className="text-xs font-semibold uppercase tracking-wide text-muted">Curriculum</p>
-                    <h2 className="mb-5 font-serif text-4xl font-semibold text-text sm:text-5xl">
+                    <h3 className="mb-5 font-serif text-4xl font-semibold text-text sm:text-5xl">
                         Il mio CV
-                    </h2>
+                    </h3>
                     <div className="flex min-w-0 flex-col items-start gap-5 sm:flex-row sm:items-center">
                         <a href={contact.cv} className="block w-full max-w-60 shrink-0">
                             <motion.img

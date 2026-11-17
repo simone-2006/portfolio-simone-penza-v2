@@ -7,12 +7,14 @@ import { Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "../../hooks/theme";
 
 
-export default function Navbar() {
+export default function Navbar({ hideSections = false, onHome }) {
     const { theme, toggleTheme } = useTheme();
     const navbarElements = useContext(pagesContext);
-    const [activeId, setActiveId] = useState(
-        () => window.location.hash.slice(1) || navbarElements[0].id,
-    );
+    const [activeId, setActiveId] = useState(() => {
+        const hash = window.location.hash.slice(1);
+        if (!hash || hash === "privacy") return navbarElements[0].id;
+        return hash;
+    });
     const [menuOpen, setMenuOpen] = useState(false);
     const navRef = useRef(null);
     const ignoreScrollRef = useRef(false);
@@ -63,7 +65,7 @@ export default function Navbar() {
     }, [menuOpen]);
 
     const updateActive = useCallback(() => {
-        if (ignoreScrollRef.current) return;
+        if (ignoreScrollRef.current || hideSections) return;
 
         const header = navRef.current?.offsetHeight ?? 56;
         const probe = header + 1;
@@ -86,7 +88,7 @@ export default function Navbar() {
         }
 
         setActiveId(current);
-    }, [navbarElements]);
+    }, [hideSections, navbarElements]);
 
     useEffect(() => {
         let frame = 0;
@@ -112,6 +114,12 @@ export default function Navbar() {
 
     const scrollToSection = useCallback(
         (id, { updateHash = true, behavior = "smooth" } = {}) => {
+            if (hideSections) {
+                onHome?.(id);
+                setMenuOpen(false);
+                return;
+            }
+
             const element = document.getElementById(id);
             if (!element) return;
 
@@ -136,12 +144,12 @@ export default function Navbar() {
             window.addEventListener("scrollend", unlock, { once: true });
             ignoreTimeoutRef.current = window.setTimeout(unlock, 1200);
         },
-        [releaseScrollLock],
+        [hideSections, onHome, releaseScrollLock],
     );
 
     useEffect(() => {
         const id = window.location.hash.slice(1);
-        if (!id || !navbarElements.some((item) => item.id === id)) return;
+        if (!id || id === "privacy" || !navbarElements.some((item) => item.id === id)) return;
 
         const frame = requestAnimationFrame(() => {
             const element = document.getElementById(id);
@@ -154,8 +162,9 @@ export default function Navbar() {
 
     useEffect(() => {
         const onPopState = () => {
-            const id = window.location.hash.slice(1) || navbarElements[0].id;
-            scrollToSection(id, { updateHash: false });
+            const id = window.location.hash.slice(1);
+            if (id === "privacy") return;
+            scrollToSection(id || navbarElements[0].id, { updateHash: false });
         };
 
         window.addEventListener("popstate", onPopState);

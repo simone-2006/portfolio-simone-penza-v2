@@ -281,7 +281,7 @@ export default function Skills() {
             viewport={viewportOnce}
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
-            <motion.h1
+            <motion.h2
                 className="font-sans text-sm font-semibold uppercase tracking-wide text-text"
                 initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -289,7 +289,7 @@ export default function Skills() {
                 transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             >
                 {section.title}
-            </motion.h1>
+            </motion.h2>
 
             <motion.div
                 className="relative my-6 overflow-hidden"
@@ -329,7 +329,7 @@ export default function Skills() {
                     >
                         Lavoro su
                     </motion.p>
-                    <h2 className="flex min-w-0 flex-row flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-border-color pb-0.5">
+                    <p className="flex min-w-0 flex-row flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-border-color pb-0.5">
                         {[
                             { word: "Sviluppo.", colClass: "text-text text-[60px]" },
                             { word: "Database.", colClass: "text-text-secondary text-[50px]" },
@@ -349,7 +349,7 @@ export default function Skills() {
                                 {word}
                             </motion.span>
                         ))}
-                    </h2>
+                    </p>
                 </motion.div>
 
                 <motion.div
