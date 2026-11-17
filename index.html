@@ -25,7 +25,7 @@
   <meta name="language" content="Italian" />
   <meta name="revised" content="2026-11-17" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph: foto reale 1200x630 (Google evita screenshot testuali / logo) -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="Simone Penza" />
@@ -33,23 +33,29 @@
   <meta property="og:title" content="Simone Penza — Tecnico IT e sviluppatore web a Lissone (MB)" />
   <meta property="og:description"
     content="Applicazioni web, database SQL, supporto informatico e infrastruttura. Portfolio di Simone Penza, tecnico IT a Lissone (Brianza)." />
-  <meta property="og:image" content="https://www.simonepenza.cloud/portfolio_anteprima.png" />
-  <meta property="og:image:alt" content="Anteprima del portfolio di Simone Penza" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image" content="https://www.simonepenza.cloud/og-image.jpg" />
+  <meta property="og:image:secure_url" content="https://www.simonepenza.cloud/og-image.jpg" />
+  <meta property="og:image:alt" content="Foto di Simone Penza, tecnico IT e sviluppatore web" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Simone Penza — Tecnico IT e sviluppatore web" />
   <meta name="twitter:description"
     content="Applicazioni web, database e supporto IT a Lissone (MB). Portfolio di Simone Penza." />
-  <meta name="twitter:image" content="https://www.simonepenza.cloud/portfolio_anteprima.png" />
+  <meta name="twitter:image" content="https://www.simonepenza.cloud/og-image.jpg" />
+  <meta name="twitter:image:alt" content="Foto di Simone Penza, tecnico IT e sviluppatore web" />
 
   <meta name="theme-color" content="#f9f9f6" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#23211e" media="(prefers-color-scheme: dark)" />
   <meta name="color-scheme" content="light dark" />
 
-  <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <link rel="icon" type="image/png" sizes="100x100" href="/favicon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
 
   <script type="application/ld+json">
@@ -64,13 +70,43 @@
         "description": "Simone Penza è un tecnico IT e sviluppatore web a Lissone (MB). Applicazioni web, database SQL, supporto informatico e infrastruttura IT per aziende in Brianza e Monza.",
         "inLanguage": "it-IT",
         "dateModified": "2026-11-17",
+        "image": { "@id": "https://www.simonepenza.cloud/#primaryimage" },
         "publisher": { "@id": "https://www.simonepenza.cloud/#person" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.simonepenza.cloud/#webpage",
+        "url": "https://www.simonepenza.cloud/",
+        "name": "Simone Penza — Tecnico IT e sviluppatore web a Lissone (MB)",
+        "isPartOf": { "@id": "https://www.simonepenza.cloud/#website" },
+        "about": { "@id": "https://www.simonepenza.cloud/#person" },
+        "primaryImageOfPage": { "@id": "https://www.simonepenza.cloud/#primaryimage" },
+        "image": { "@id": "https://www.simonepenza.cloud/#primaryimage" },
+        "description": "Simone Penza, tecnico IT e sviluppatore web a Lissone (MB). Applicazioni web, database SQL, supporto informatico e infrastruttura per aziende in Brianza e Monza.",
+        "inLanguage": "it-IT",
+        "dateModified": "2026-11-17"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.simonepenza.cloud/#primaryimage",
+        "url": "https://www.simonepenza.cloud/og-image.jpg",
+        "contentUrl": "https://www.simonepenza.cloud/og-image.jpg",
+        "caption": "Simone Penza — tecnico IT e sviluppatore web a Lissone (MB)",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/jpeg",
+        "representativeOfPage": true
       },
       {
         "@type": "Person",
         "@id": "https://www.simonepenza.cloud/#person",
         "name": "Simone Penza",
         "url": "https://www.simonepenza.cloud/",
+        "image": [
+          "https://www.simonepenza.cloud/SimonePenzaFoto-square.jpg",
+          "https://www.simonepenza.cloud/SimonePenzaFoto.png",
+          "https://www.simonepenza.cloud/og-image.jpg"
+        ],
         "jobTitle": "Tecnico IT e sviluppatore web",
         "description": "Simone Penza è un tecnico IT e sviluppatore web a Lissone (MB). Si occupa di applicazioni web, database SQL, supporto informatico e infrastruttura IT per aziende in Brianza e Monza.",
         "email": "mailto:simone.penza06@gmail.com",
@@ -136,7 +172,11 @@
         "@id": "https://www.simonepenza.cloud/#service",
         "name": "Simone Penza — Servizi IT e sviluppo web",
         "url": "https://www.simonepenza.cloud/",
-        "image": "https://www.simonepenza.cloud/portfolio_anteprima.png",
+        "image": [
+          "https://www.simonepenza.cloud/og-image.jpg",
+          "https://www.simonepenza.cloud/SimonePenzaFoto-square.jpg"
+        ],
+        "logo": "https://www.simonepenza.cloud/favicon-512.png",
         "description": "Sviluppo web, database SQL, supporto tecnico e infrastruttura IT per aziende in Brianza e provincia di Monza e Brianza.",
         "provider": { "@id": "https://www.simonepenza.cloud/#person" },
         "dateModified": "2026-11-17",
@@ -233,6 +273,15 @@
     <main>
       <article>
         <h1>Simone Penza — Tecnico IT e sviluppatore web a Lissone (MB)</h1>
+        <p>
+          <img
+            src="/SimonePenzaFoto.png"
+            alt="Simone Penza, tecnico IT e sviluppatore web a Lissone"
+            width="660"
+            height="880"
+            fetchpriority="high"
+          />
+        </p>
         <p>
           Simone Penza è un tecnico IT e sviluppatore web a Lissone (MB). Si occupa di applicazioni web,
           database SQL, supporto informatico e infrastruttura IT per aziende in Brianza e Monza.
