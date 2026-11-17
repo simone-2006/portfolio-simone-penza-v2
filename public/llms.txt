@@ -1,0 +1,33 @@
+# Simone Penza
+
+> Tecnico IT e sviluppatore web a Lissone (Monza e Brianza, Italia).
+
+## Chi è
+
+Simone Penza è un tecnico IT e sviluppatore web con sede a Lissone (MB). Si occupa di applicazioni web, database SQL, supporto informatico (hardware, software, postazioni) e infrastruttura IT per aziende.
+
+## Cosa fa
+
+- Sviluppo e manutenzione di applicazioni web e CRM interni
+- Progettazione di database SQL e integrazione con gestionali
+- Supporto tecnico ai dipendenti e manutenzione infrastruttura IT
+- Progetti personali: portfolio, task board, dashboard, tool di rete e chat locali
+
+## Dove
+
+- Sede: Lissone, MB (Brianza), Italia
+- Esperienza lavorativa recente: Greenchemicals SRL (Desio, MB), Voome SRL (Brugherio, MB)
+- Formazione: diploma in informatica, ITIS Pino Hensemberger (Monza)
+
+## Contatti
+
+- Sito: https://www.simonepenza.cloud/
+- Email: simone.penza06@gmail.com
+- Telefono: +39 370 136 4070
+- LinkedIn: https://www.linkedin.com/in/simone-penza-604031388/
+- GitHub: https://github.com/simone-2006
+- Privacy: https://www.simonepenza.cloud/#privacy
+
+## Stack
+
+PHP, JavaScript, Node.js, React, Vite, HTML, Tailwind CSS, SQL Server, MySQL, Docker, Java, C++

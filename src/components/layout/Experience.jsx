@@ -36,7 +36,7 @@ export default function Experience() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
-            <motion.h1
+            <motion.h2
                 className="font-sans text-sm font-semibold uppercase tracking-wide text-text"
                 initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -44,7 +44,7 @@ export default function Experience() {
                 transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             >
                 {section.title}
-            </motion.h1>
+            </motion.h2>
 
             <motion.div
                 className="mt-6 w-full min-w-0 max-w-3xl"
