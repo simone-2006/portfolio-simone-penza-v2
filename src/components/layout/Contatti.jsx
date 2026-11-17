@@ -56,7 +56,7 @@ export default function Contatti() {
             </motion.h2>
 
             <motion.div
-                className="mt-12 flex min-w-0 flex-col gap-16 lg:flex-row lg:justify-between lg:gap-20"
+                className="mt-8 flex min-w-0 flex-col gap-12 sm:mt-12 sm:gap-16 lg:flex-row lg:justify-between lg:gap-20"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={viewportOnce}
@@ -70,7 +70,7 @@ export default function Contatti() {
                     transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
                 >
                     <p className="text-xs font-semibold uppercase tracking-wide text-muted">Scrivimi</p>
-                    <h3 className="mt-4 mb-8 font-serif text-4xl font-semibold leading-tight text-text sm:text-5xl">
+                    <h3 className="mt-3 mb-6 font-serif text-3xl font-semibold leading-tight text-text sm:mt-4 sm:mb-8 sm:text-5xl">
                         Un messaggio
                     </h3>
 
@@ -94,27 +94,27 @@ export default function Contatti() {
                                 <motion.a
                                     variants={itemVariants}
                                     href={`tel:${contact.phone.replace(/\s+/g, "")}`}
-                                    className="flex items-center gap-2.5 text-base text-muted transition-colors hover:text-text-secondary"
+                                    className="flex min-w-0 items-center gap-2.5 text-base text-muted transition-colors hover:text-text-secondary"
                                     aria-label={`Telefono ${contact.phone}`}
                                 >
-                                    <Phone size={18} aria-hidden="true" />
-                                    <span>{contact.phone}</span>
+                                    <Phone size={18} className="shrink-0" aria-hidden="true" />
+                                    <span className="min-w-0 break-words">{contact.phone}</span>
                                 </motion.a>
                                 <motion.a
                                     variants={itemVariants}
                                     href={`mailto:${contact.mail}`}
-                                    className="flex items-center gap-2.5 text-base text-muted transition-colors hover:text-text-secondary"
+                                    className="flex min-w-0 items-center gap-2.5 text-base text-muted transition-colors hover:text-text-secondary"
                                     aria-label={`Email ${contact.mail}`}
                                 >
-                                    <Mail size={18} aria-hidden="true" />
-                                    <span className="break-all">{contact.mail}</span>
+                                    <Mail size={18} className="shrink-0" aria-hidden="true" />
+                                    <span className="min-w-0 break-all">{contact.mail}</span>
                                 </motion.a>
                                 <motion.p
                                     variants={itemVariants}
-                                    className="flex items-center gap-2.5 text-base text-muted"
+                                    className="flex min-w-0 items-center gap-2.5 text-base text-muted"
                                 >
-                                    <MapPin size={18} aria-hidden="true" />
-                                    <span>{contact.location}</span>
+                                    <MapPin size={18} className="shrink-0" aria-hidden="true" />
+                                    <span className="min-w-0 break-words">{contact.location}</span>
                                 </motion.p>
                             </motion.div>
 
@@ -155,13 +155,13 @@ export default function Contatti() {
                     transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
                 >
                     <p className="text-xs font-semibold uppercase tracking-wide text-muted">Curriculum</p>
-                    <h3 className="mt-4 mb-8 font-serif text-4xl font-semibold leading-tight text-text sm:text-5xl">
+                    <h3 className="mt-3 mb-6 font-serif text-3xl font-semibold leading-tight text-text sm:mt-4 sm:mb-8 sm:text-5xl">
                         Il mio CV
                     </h3>
-                    <div className="flex min-w-0 flex-col items-start gap-7 sm:flex-row sm:items-center sm:gap-10">
+                    <div className="flex min-w-0 flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-10">
                         <a
                             href={contact.cv}
-                            className="block w-full max-w-60 shrink-0"
+                            className="block w-full max-w-[14rem] shrink-0 sm:max-w-60"
                             aria-label="Apri il curriculum in PDF"
                         >
                             <motion.img
