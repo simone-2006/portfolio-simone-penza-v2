@@ -32,7 +32,10 @@ const sections = [
         title: "2. Dati raccolti",
         body: (
             <>
-                <p>Questo sito raccoglie dati personali solo se li invii tu tramite il form contatti:</p>
+                <p>Questo sito tratta dati in due contesti:</p>
+                <p>
+                    <strong>Form contatti.</strong> Se invii un messaggio, vengono raccolti:
+                </p>
                 <ul className="list-disc space-y-1 pl-5">
                     <li>nome</li>
                     <li>indirizzo email</li>
@@ -40,8 +43,19 @@ const sections = [
                     <li>contenuto del messaggio</li>
                 </ul>
                 <p>
-                    Non vengono raccolti dati di navigazione tramite strumenti di analytics, pixel pubblicitari
-                    o profilazione.
+                    <strong>Statistiche di navigazione.</strong> È attivo{" "}
+                    <a
+                        href="https://vercel.com/docs/analytics"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-2 hover:text-text"
+                    >
+                        Vercel Web Analytics
+                    </a>
+                    , uno strumento cookieless che registra in forma aggregata/anonimizzata
+                    informazioni di utilizzo del sito (ad esempio pagine visitate, referrer,
+                    tipo di dispositivo, browser, sistema operativo e paese). Non usa pixel
+                    pubblicitari né profilazione commerciale.
                 </p>
             </>
         ),
@@ -57,7 +71,11 @@ const sections = [
                     e, se necessario, per legittimo interesse a gestire la comunicazione professionale
                     (art. 6.1.f GDPR).
                 </p>
-                <p>I dati non sono usati per marketing automatico né ceduti a terzi per finalità commerciali.</p>
+                <p>
+                    I dati di Vercel Web Analytics sono trattati per misurare il traffico e migliorare
+                    il sito, sulla base del legittimo interesse del titolare (art. 6.1.f GDPR).
+                    Non sono usati per marketing automatico né per pubblicità personalizzata.
+                </p>
             </>
         ),
     },
@@ -67,8 +85,13 @@ const sections = [
         body: (
             <>
                 <p>
-                    Questo sito <strong>non usa cookie di profilazione, analytics o pubblicità</strong>.
+                    Questo sito <strong>non usa cookie di profilazione o pubblicità</strong>.
                     Non vengono impostati cookie di terze parti al caricamento della pagina.
+                </p>
+                <p>
+                    Vercel Web Analytics è cookieless: non richiede cookie né un banner di consenso
+                    per funzionare. Lo script di misurazione è servito dallo stesso dominio del sito
+                    (`/_vercel/insights/`).
                 </p>
                 <p>
                     Il tema chiaro/scuro segue la preferenza del sistema operativo e resta solo in memoria
@@ -100,9 +123,18 @@ const sections = [
                     all’indirizzo email del titolare. I dati trasmessi sono quelli che inserisci nel form.
                 </p>
                 <p>
-                    Il sito è ospitato su infrastruttura di hosting (Vercel). Possono essere generati log
-                    tecnici di server (indirizzo IP, user-agent, orario) necessari al funzionamento e alla
-                    sicurezza del servizio.
+                    Il sito è ospitato su{" "}
+                    <a
+                        href="https://vercel.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-2 hover:text-text"
+                    >
+                        Vercel
+                    </a>
+                    , che fornisce anche Web Analytics. Possono essere generati log tecnici di server
+                    (indirizzo IP, user-agent, orario) necessari al funzionamento e alla sicurezza del
+                    servizio, oltre alle metriche aggregate di navigazione.
                 </p>
             </>
         ),
@@ -111,10 +143,17 @@ const sections = [
         id: "conservazione",
         title: "6. Conservazione",
         body: (
-            <p>
-                I messaggi ricevuti via form sono conservati nella casella di posta del titolare per il tempo
-                necessario a gestire la richiesta e gli eventuali follow-up, salvo obblighi di legge diversi.
-            </p>
+            <>
+                <p>
+                    I messaggi ricevuti via form sono conservati nella casella di posta del titolare per il tempo
+                    necessario a gestire la richiesta e gli eventuali follow-up, salvo obblighi di legge diversi.
+                </p>
+                <p>
+                    I dati analitici aggregati sono conservati secondo le policy di conservazione di Vercel
+                    Web Analytics e restano disponibili nel pannello Analytics del progetto finché il servizio
+                    rimane attivo.
+                </p>
+            </>
         ),
     },
     {
