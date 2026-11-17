@@ -53,7 +53,7 @@ export default function Contatti() {
             </motion.h2>
 
             <motion.div
-                className="mt-10 flex min-w-0 flex-col gap-14 lg:flex-row lg:justify-between lg:gap-16"
+                className="mt-12 flex min-w-0 flex-col gap-16 lg:flex-row lg:justify-between lg:gap-20"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={viewportOnce}
@@ -67,7 +67,7 @@ export default function Contatti() {
                     transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
                 >
                     <p className="text-xs font-semibold uppercase tracking-wide text-muted">Scrivimi</p>
-                    <h3 className="mt-3 mb-7 font-serif text-4xl font-semibold leading-tight text-text sm:text-5xl">
+                    <h3 className="mt-4 mb-8 font-serif text-4xl font-semibold leading-tight text-text sm:text-5xl">
                         Un messaggio
                     </h3>
 
@@ -75,14 +75,14 @@ export default function Contatti() {
 
                     {contact && (
                         <motion.div
-                            className="mt-8 rounded-md bg-highlight px-4 py-5 text-text-secondary"
+                            className="mt-10 rounded-md bg-highlight px-5 py-6 text-text-secondary"
                             initial={{ opacity: 0, y: 24 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={viewportOnce}
                             transition={{ duration: 0.6, ease: "easeOut" }}
                         >
                             <motion.div
-                                className="flex flex-col gap-3.5"
+                                className="flex flex-col gap-4"
                                 variants={listVariants}
                                 initial="hidden"
                                 whileInView="show"
@@ -114,7 +114,7 @@ export default function Contatti() {
                             </motion.div>
 
                             <motion.div
-                                className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-3"
+                                className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3"
                                 variants={listVariants}
                                 initial="hidden"
                                 whileInView="show"
@@ -150,10 +150,10 @@ export default function Contatti() {
                     transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
                 >
                     <p className="text-xs font-semibold uppercase tracking-wide text-muted">Curriculum</p>
-                    <h3 className="mt-3 mb-7 font-serif text-4xl font-semibold leading-tight text-text sm:text-5xl">
+                    <h3 className="mt-4 mb-8 font-serif text-4xl font-semibold leading-tight text-text sm:text-5xl">
                         Il mio CV
                     </h3>
-                    <div className="flex min-w-0 flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-8">
+                    <div className="flex min-w-0 flex-col items-start gap-7 sm:flex-row sm:items-center sm:gap-10">
                         <a href={contact.cv} className="block w-full max-w-60 shrink-0">
                             <motion.img
                                 src={contact.cvPreview}
