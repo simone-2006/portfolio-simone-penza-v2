@@ -184,12 +184,13 @@ export default function ContactForm() {
                 variants={itemVariants}
                 className="text-xs leading-relaxed text-muted"
             >
-                Inviando il messaggio accetti che i dati siano usati solo per risponderti, come descritto
-                nell’{" "}
+                I dati del form (nome, email, eventuale azienda e messaggio) sono usati solo per
+                risponderti alla richiesta, come descritto nell’{" "}
                 <a href="#privacy" className="underline underline-offset-2 hover:text-text">
                     informativa privacy
                 </a>
-                . Il sito usa Vercel Web Analytics (cookieless) e non usa cookie di profilazione.
+                . Non vengono usati per marketing. Il sito usa Vercel Web Analytics (cookieless) e non
+                usa cookie di profilazione.
             </motion.p>
 
             <motion.button
