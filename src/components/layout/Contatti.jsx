@@ -30,7 +30,7 @@ export default function Contatti() {
     const navbarElements = useContext(pagesContext);
     const contact = useContext(contactsContext);
     const reduceMotion = useReducedMotion();
-    const section = navbarElements[3];
+    const section = navbarElements.find((item) => item.id === "contacts");
 
     return (
         <motion.section

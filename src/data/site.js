@@ -19,6 +19,7 @@ export const pages = [
     { id: "about", title: "Chi sono" },
     { id: "skills", title: "Skills e progetti" },
     { id: "experience", title: "Esperienza" },
+    { id: "faq", title: "FAQ" },
     { id: "contacts", title: "Contatti & CV" },
 ];
 
@@ -27,10 +28,37 @@ export const profile = {
     lastName: "Penza",
     role: "Tecnico IT e sviluppatore web",
     location: "Lissone, MB",
-    bio: "Applicazioni web, database e supporto informatico: postazioni, hardware, software e infrastruttura.",
+    /** Prima risposta utile per utenti e motori generativi (answer-first). */
+    answerFirst:
+        "Simone Penza è un tecnico IT e sviluppatore web a Lissone (MB). Si occupa di applicazioni web, database SQL, supporto informatico e infrastruttura IT per aziende in Brianza e Monza.",
+    bio: "Lavora su applicazioni web e CRM interni, database SQL, postazioni di lavoro, Microsoft 365, reti e manutenzione infrastruttura. Sede a Lissone, esperienza recente a Milano, Desio e Brugherio.",
     photo: "/SimonePenzaFoto.png",
     languages: ["Italiano", "Inglese"],
+    updatedAt: "2026-11-17",
 };
+
+export const faqs = [
+    {
+        question: "Chi è Simone Penza?",
+        answer:
+            "Simone Penza è un tecnico IT e sviluppatore web con sede a Lissone (Monza e Brianza). Sviluppa applicazioni web, gestisce database SQL e offre supporto informatico e infrastruttura IT alle aziende.",
+    },
+    {
+        question: "Dove lavora Simone Penza?",
+        answer:
+            "Ha sede a Lissone (MB) e attualmente lavora come giovane tecnico informatico presso Infopad S.r.l. a Milano. Opera in Brianza, Monza e nell’area milanese.",
+    },
+    {
+        question: "Quali servizi IT e web offre?",
+        answer:
+            "Sviluppo e manutenzione di applicazioni web e CRM, progettazione database SQL, assistenza hardware e software, Microsoft 365, WordPress, reti, VPN e infrastruttura IT.",
+    },
+    {
+        question: "Come si contatta Simone Penza?",
+        answer:
+            "Via email a simone.penza06@gmail.com, telefono +39 370 136 4070, LinkedIn, GitHub o dal form nella sezione Contatti del sito.",
+    },
+];
 
 export const experiences = [
     {
