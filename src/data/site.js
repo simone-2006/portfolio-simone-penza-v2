@@ -34,7 +34,29 @@ export const profile = {
 
 export const experiences = [
     {
-        period: "Ott 2025 — ora",
+        period: "Ott 2026 — ora",
+        kind: "Lavoro",
+        title: "Giovane tecnico informatico",
+        company: "Infopad S.r.l.",
+        location: "Milano (MI)",
+        sections: [
+            {
+                title: "IT support & assistenza tecnica",
+                text: "Supporto tecnico agli utenti e alle aziende, con diagnosi e risoluzione di problematiche hardware e software. Installazione, configurazione e manutenzione di PC, software e postazioni di lavoro.",
+            },
+            {
+                title: "Sistemi & servizi IT",
+                text: "Supporto nella gestione di ambienti Microsoft 365 e account aziendali. Gestione e manutenzione di siti web WordPress e servizi di hosting.",
+            },
+            {
+                title: "Reti & infrastruttura",
+                text: "Supporto nella configurazione e gestione di reti informatiche, connettività e dispositivi di rete.",
+            },
+        ],
+        stack: "Microsoft 365, WordPress, Windows, Reti, VPN",
+    },
+    {
+        period: "Ott 2025 — Ott 2026",
         kind: "Lavoro",
         title: "Tecnico IT e sviluppatore web",
         company: "Greenchemicals SRL",
@@ -42,15 +64,15 @@ export const experiences = [
         sections: [
             {
                 title: "Sviluppo web & software",
-                text: "Sviluppo e manutenzione di un CRM interno per clienti, attività commerciali e processi aziendali.",
+                text: "Sviluppo e manutenzione di applicazioni web e del CRM aziendale interno, con PHP, JavaScript, Node.js, HTML, Tailwind CSS e Docker.",
             },
             {
-                title: "Database e integrazione dati",
-                text: "Progettazione di database SQL e integrazione con il gestionale: quotazioni, magazzino, ordini e commesse. Database per clienti, visite e scadenze del parco macchine.",
+                title: "Database & processi aziendali",
+                text: "Gestione e integrazione di database SQL Server per quotazioni, ordini, magazzino e commesse.",
             },
             {
-                title: "IT support & infrastruttura",
-                text: "Supporto tecnico ai dipendenti, problemi hardware e software, configurazione delle postazioni e manutenzione dell'infrastruttura IT.",
+                title: "Supporto IT",
+                text: "Assistenza tecnica ai dipendenti, configurazione di PC e software, supporto Microsoft 365, SharePoint e reti aziendali.",
             },
         ],
         stack: "PHP, JavaScript, Node.js, HTML, Tailwind CSS, SQL Server, Docker, React, Vite",
@@ -64,7 +86,7 @@ export const experiences = [
         sections: [
             {
                 title: "Sviluppo web",
-                text: "Applicazione web per eseguire codice JavaScript in tempo reale, con gestione utenti.",
+                text: "Applicazione web per l'esecuzione di codice JavaScript in tempo reale, con gestione degli utenti e database MySQL.",
             },
             {
                 title: "Full stack & database",
