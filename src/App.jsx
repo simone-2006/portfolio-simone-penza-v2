@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from "./components/layout/Navbar";
 import AboutMe from "./components/layout/AboutMe";
 import Skills from "./components/layout/Skills";
@@ -73,6 +74,7 @@ export default function App() {
         {booting ? <BootScreen onDone={dismissBoot} /> : null}
       </div>
       {!showPrivacy ? <BackToTop /> : null}
+      <Analytics />
     </ThemeProvider>
   );
 }
