@@ -175,7 +175,7 @@ export default function Navbar({ hideSections = false, onHome }) {
         <nav
             ref={navRef}
             aria-label="Primary"
-            className="page-gutter sticky top-0 z-50 flex items-center justify-between border-b border-accent bg-primary/80 py-4 backdrop-blur-sm"
+            className="page-gutter sticky top-0 z-50 flex items-center justify-between border-b border-accent bg-primary/80 py-5 backdrop-blur-sm"
         >
             <motion.a href="#about"
                 initial={{ opacity: 0, y: 10 }}
@@ -191,7 +191,7 @@ export default function Navbar({ hideSections = false, onHome }) {
                 </p>
             </motion.a>
             <div className="flex items-center gap-4">
-                <div className="hidden lg:flex items-center gap-4">
+                <div className="hidden lg:flex items-center gap-5">
                     {navbarElements.map((navbarElement) => (
                         <NavbarButton
                             key={navbarElement.id}

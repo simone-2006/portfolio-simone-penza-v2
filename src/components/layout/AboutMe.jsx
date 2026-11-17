@@ -59,7 +59,7 @@ export default function AboutMe() {
             </motion.p>
 
             <motion.div
-                className="mt-8 flex min-w-0 flex-col gap-8 lg:flex-row lg:items-end lg:justify-between"
+                className="mt-10 flex min-w-0 flex-col gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-16"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
@@ -71,15 +71,15 @@ export default function AboutMe() {
                     transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
                 >
                     <p className="text-xs font-semibold uppercase tracking-wide text-muted">Ciao, sono</p>
-                    <h1 className="font-serif text-6xl font-semibold leading-[0.95] sm:text-8xl">
+                    <h1 className="mt-3 font-serif text-6xl font-semibold leading-[1.02] sm:text-8xl">
                         <span className="block text-text-secondary">{profile.lastName}</span>
-                        <span className="block text-text">{profile.firstName}</span>
+                        <span className="mt-1 block text-text">{profile.firstName}</span>
                     </h1>
-                    <p className="mt-6 rounded-md bg-highlight p-3 text-text-secondary italic">
+                    <p className="mt-8 rounded-md bg-highlight px-4 py-3.5 text-text-secondary italic">
                         {profile.role}
                     </p>
-                    <p className="mt-3 text-sm text-muted">{profile.bio}</p>
-                    <p className="mt-2 text-xs text-muted">
+                    <p className="mt-5 text-sm leading-relaxed text-muted">{profile.bio}</p>
+                    <p className="mt-4 text-xs leading-relaxed text-muted">
                         {profile.location} · {profile.languages.join(" · ")}
                     </p>
                 </motion.div>

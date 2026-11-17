@@ -18,13 +18,13 @@ function statusFor(progress) {
     return "Pronto";
 }
 
-function NameLine({ word, filled, active, tone }) {
+function NameLine({ word, filled, active, tone, className = "" }) {
     const count = Math.max(0, Math.min(word.length, filled));
     const restTone = tone === "soft" ? "text-text-secondary/25" : "text-text/15";
     const fullTone = tone === "soft" ? "text-text-secondary" : "text-text";
 
     return (
-        <span className={`block ${fullTone}`}>
+        <span className={`block ${fullTone} ${className}`.trim()}>
             {word.slice(0, count)}
             {active ? (
                 <span
@@ -132,7 +132,7 @@ export default function BootScreen({ onDone }) {
                 </p>
             </div>
 
-            <div className="mt-10 flex flex-col gap-2">
+            <div className="mt-10 flex flex-col gap-3">
                 {STEPS.map((step) => {
                     const ready = progress >= step.at;
                     return (
@@ -158,11 +158,11 @@ export default function BootScreen({ onDone }) {
                 })}
             </div>
 
-            <div className="flex flex-1 flex-col justify-center">
-                <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted">
+            <div className="flex flex-1 flex-col justify-center py-6">
+                <p className="mb-4 text-xs font-semibold uppercase tracking-wide text-muted">
                     {statusFor(progress)}
                 </p>
-                <p className="font-serif text-6xl font-semibold leading-[0.95] sm:text-8xl" aria-hidden="true">
+                <p className="font-serif text-6xl font-semibold leading-[1.02] sm:text-8xl" aria-hidden="true">
                     <NameLine
                         word={LAST_NAME}
                         filled={filled}
@@ -174,6 +174,7 @@ export default function BootScreen({ onDone }) {
                         filled={filled - LAST_NAME.length}
                         active={!writingLast}
                         tone="strong"
+                        className="mt-1"
                     />
                 </p>
                 <p className="sr-only">Simone Penza</p>

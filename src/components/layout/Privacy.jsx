@@ -168,29 +168,29 @@ export default function Privacy({ onBack }) {
             transition={{ duration: 0.45, ease: "easeOut" }}
         >
             <p className="text-xs font-semibold uppercase tracking-wide text-muted">Informativa</p>
-            <h1 className="mt-2 font-serif text-4xl font-semibold text-text sm:text-5xl">
+            <h1 className="mt-3 font-serif text-4xl font-semibold leading-tight text-text sm:text-5xl">
                 Privacy e cookie
             </h1>
-            <p className="mt-4 max-w-2xl text-sm text-muted">
+            <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted">
                 Informativa sul trattamento dei dati personali ai sensi del Regolamento (UE) 2016/679 (GDPR)
                 e sulla gestione dei cookie di questo sito.
             </p>
 
-            <div className="mt-10 space-y-8 text-sm leading-relaxed text-text-secondary">
+            <div className="mt-12 space-y-10 text-sm leading-relaxed text-text-secondary">
                 {sections.map((section) => (
                     <section key={section.id} aria-labelledby={`privacy-${section.id}`}>
                         <h2
                             id={`privacy-${section.id}`}
-                            className="mb-3 font-sans text-base font-semibold text-text"
+                            className="mb-4 font-sans text-base font-semibold text-text"
                         >
                             {section.title}
                         </h2>
-                        <div className="space-y-3 text-muted">{section.body}</div>
+                        <div className="space-y-4 text-muted">{section.body}</div>
                     </section>
                 ))}
             </div>
 
-            <p className="mt-12">
+            <p className="mt-14">
                 <button
                     type="button"
                     onClick={onBack}
