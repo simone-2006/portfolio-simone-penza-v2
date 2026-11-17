@@ -36,7 +36,7 @@ function ProfilePhoto({ src, alt }) {
 export default function AboutMe() {
     const navbarElements = useContext(pagesContext);
     const profile = useContext(profileContext);
-    const section = navbarElements[0];
+    const section = navbarElements.find((item) => item.id === "about");
 
     if (!section || !profile) return null;
 
@@ -80,6 +80,10 @@ export default function AboutMe() {
                         </h1>
                     </div>
 
+                    <p className="text-base leading-relaxed text-text-secondary sm:text-[1.05rem]">
+                        {profile.answerFirst}
+                    </p>
+
                     <p className="rounded-md bg-highlight px-5 py-5 text-base leading-relaxed text-text-secondary italic sm:text-[1.05rem]">
                         {profile.role}
                     </p>
@@ -90,6 +94,7 @@ export default function AboutMe() {
                         </p>
                         <p className="text-xs leading-relaxed text-muted">
                             {profile.location} · {profile.languages.join(" · ")}
+                            {profile.updatedAt ? ` · Aggiornato ${profile.updatedAt}` : null}
                         </p>
                     </div>
                 </motion.div>

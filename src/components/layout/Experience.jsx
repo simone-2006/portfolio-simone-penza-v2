@@ -24,7 +24,7 @@ const itemVariants = {
 export default function Experience() {
     const navbarElements = useContext(pagesContext);
     const experiences = useContext(experiencesContext);
-    const section = navbarElements[2];
+    const section = navbarElements.find((item) => item.id === "experience");
 
     return (
         <motion.section

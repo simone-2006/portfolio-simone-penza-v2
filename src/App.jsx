@@ -5,6 +5,7 @@ import AboutMe from "./components/layout/AboutMe";
 import Skills from "./components/layout/Skills";
 import Experience from "./components/layout/Experience";
 import Contatti from "./components/layout/Contatti";
+import Faq from "./components/layout/Faq";
 import Footer from "./components/layout/Footer";
 import BootScreen from "./components/layout/BootScreen";
 import Privacy from "./components/layout/Privacy";
@@ -67,6 +68,7 @@ export default function App() {
             <AboutMe />
             <Skills />
             <Experience />
+            <Faq />
             <Contatti />
           </>
         )}

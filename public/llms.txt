@@ -1,33 +1,31 @@
 # Simone Penza
 
-> Tecnico IT e sviluppatore web a Lissone (Monza e Brianza, Italia).
+> Tecnico IT e sviluppatore web a Lissone (Monza e Brianza, Italia). Sviluppa applicazioni web e database SQL, offre supporto informatico e gestisce infrastruttura IT per aziende in Brianza.
 
-## Chi è
+Ultimo aggiornamento: 2026-11-17
 
-Simone Penza è un tecnico IT e sviluppatore web con sede a Lissone (MB). Si occupa di applicazioni web, database SQL, supporto informatico (hardware, software, postazioni) e infrastruttura IT per aziende.
+Simone Penza lavora come giovane tecnico informatico presso Infopad S.r.l. (Milano). Esperienza precedente: tecnico IT e sviluppatore web presso Greenchemicals SRL (Desio, MB) e sviluppatore web presso Voome SRL (Brugherio, MB). Formazione: diploma in informatica all'ITIS Pino Hensemberger (Monza).
 
-## Cosa fa
+## Link in evidenza
 
-- Sviluppo e manutenzione di applicazioni web e CRM interni
-- Progettazione di database SQL e integrazione con gestionali
-- Supporto tecnico ai dipendenti e manutenzione infrastruttura IT
-- Progetti personali: portfolio, task board, dashboard, tool di rete e chat locali
-
-## Dove
-
-- Sede: Lissone, MB (Brianza), Italia
-- Esperienza lavorativa recente: Infopad S.r.l. (Milano), Greenchemicals SRL (Desio, MB), Voome SRL (Brugherio, MB)
-- Formazione: diploma in informatica, ITIS Pino Hensemberger (Monza)
+- [Chi è Simone Penza](https://www.simonepenza.cloud/index.md): profilo completo in markdown (ruolo, servizi, esperienza, stack)
+- [Home](https://www.simonepenza.cloud/): portfolio web di Simone Penza
+- [Chi sono](https://www.simonepenza.cloud/#about): presentazione e sede a Lissone (MB)
+- [Skills e progetti](https://www.simonepenza.cloud/#skills): competenze e progetti personali
+- [Esperienza](https://www.simonepenza.cloud/#experience): lavoro e formazione
+- [Contatti e CV](https://www.simonepenza.cloud/#contacts): email, telefono e curriculum PDF
+- [Domande frequenti](https://www.simonepenza.cloud/#faq): risposte brevi su ruolo, zona e servizi
 
 ## Contatti
 
-- Sito: https://www.simonepenza.cloud/
-- Email: simone.penza06@gmail.com
-- Telefono: +39 370 136 4070
-- LinkedIn: https://www.linkedin.com/in/simone-penza-604031388/
-- GitHub: https://github.com/simone-2006
-- Privacy: https://www.simonepenza.cloud/#privacy
+- [Email](mailto:simone.penza06@gmail.com): simone.penza06@gmail.com
+- [Telefono](tel:+393701364070): +39 370 136 4070
+- [LinkedIn](https://www.linkedin.com/in/simone-penza-604031388/): profilo professionale
+- [GitHub](https://github.com/simone-2006): codice e repository
+- [Privacy](https://www.simonepenza.cloud/#privacy): informativa privacy
 
-## Stack
+## Optional
 
-PHP, JavaScript, Node.js, React, Vite, HTML, Tailwind CSS, SQL Server, MySQL, Docker, Java, C++
+- [Curriculum PDF](https://www.simonepenza.cloud/CV_penza_simone.pdf): CV scaricabile
+- [Sitemap](https://www.simonepenza.cloud/sitemap.xml): elenco pagine indicizzabili
+- [robots.txt](https://www.simonepenza.cloud/robots.txt): regole di crawling

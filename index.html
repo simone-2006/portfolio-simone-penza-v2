@@ -14,6 +14,8 @@
   <link rel="canonical" href="https://www.simonepenza.cloud/" />
   <link rel="alternate" hreflang="it" href="https://www.simonepenza.cloud/" />
   <link rel="alternate" hreflang="x-default" href="https://www.simonepenza.cloud/" />
+  <link rel="alternate" type="text/markdown" href="https://www.simonepenza.cloud/index.md" title="Versione Markdown" />
+  <link rel="describedby" href="https://www.simonepenza.cloud/llms.txt" />
 
   <!-- Local / GEO -->
   <meta name="geo.region" content="IT-MB" />
@@ -21,6 +23,7 @@
   <meta name="geo.position" content="45.6124;9.2430" />
   <meta name="ICBM" content="45.6124, 9.2430" />
   <meta name="language" content="Italian" />
+  <meta name="revised" content="2026-11-17" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -58,8 +61,9 @@
         "@id": "https://www.simonepenza.cloud/#website",
         "url": "https://www.simonepenza.cloud/",
         "name": "Simone Penza",
-        "description": "Portfolio di Simone Penza, tecnico IT e sviluppatore web a Lissone (MB).",
+        "description": "Simone Penza è un tecnico IT e sviluppatore web a Lissone (MB). Applicazioni web, database SQL, supporto informatico e infrastruttura IT per aziende in Brianza e Monza.",
         "inLanguage": "it-IT",
+        "dateModified": "2026-11-17",
         "publisher": { "@id": "https://www.simonepenza.cloud/#person" }
       },
       {
@@ -68,10 +72,24 @@
         "name": "Simone Penza",
         "url": "https://www.simonepenza.cloud/",
         "jobTitle": "Tecnico IT e sviluppatore web",
-        "description": "Applicazioni web, database e supporto informatico: postazioni, hardware, software e infrastruttura.",
+        "description": "Simone Penza è un tecnico IT e sviluppatore web a Lissone (MB). Si occupa di applicazioni web, database SQL, supporto informatico e infrastruttura IT per aziende in Brianza e Monza.",
         "email": "mailto:simone.penza06@gmail.com",
         "telephone": "+39-370-136-4070",
         "knowsLanguage": ["it", "en"],
+        "knowsAbout": [
+          "sviluppo web",
+          "React",
+          "PHP",
+          "JavaScript",
+          "database SQL",
+          "SQL Server",
+          "MySQL",
+          "supporto informatico",
+          "Microsoft 365",
+          "WordPress",
+          "reti informatiche",
+          "Docker"
+        ],
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Lissone",
@@ -101,6 +119,16 @@
             "addressRegion": "MI",
             "addressCountry": "IT"
           }
+        },
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "ITIS Pino Hensemberger",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Monza",
+            "addressRegion": "MB",
+            "addressCountry": "IT"
+          }
         }
       },
       {
@@ -111,6 +139,7 @@
         "image": "https://www.simonepenza.cloud/portfolio_anteprima.png",
         "description": "Sviluppo web, database SQL, supporto tecnico e infrastruttura IT per aziende in Brianza e provincia di Monza e Brianza.",
         "provider": { "@id": "https://www.simonepenza.cloud/#person" },
+        "dateModified": "2026-11-17",
         "areaServed": [
           {
             "@type": "City",
@@ -138,6 +167,45 @@
         },
         "priceRange": "$$",
         "availableLanguage": ["Italian", "English"]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.simonepenza.cloud/#faqpage",
+        "url": "https://www.simonepenza.cloud/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Chi è Simone Penza?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Simone Penza è un tecnico IT e sviluppatore web con sede a Lissone (Monza e Brianza). Sviluppa applicazioni web, gestisce database SQL e offre supporto informatico e infrastruttura IT alle aziende."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Dove lavora Simone Penza?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ha sede a Lissone (MB) e attualmente lavora come giovane tecnico informatico presso Infopad S.r.l. a Milano. Opera in Brianza, Monza e nell'area milanese."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quali servizi IT e web offre?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sviluppo e manutenzione di applicazioni web e CRM, progettazione database SQL, assistenza hardware e software, Microsoft 365, WordPress, reti, VPN e infrastruttura IT."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Come si contatta Simone Penza?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Via email a simone.penza06@gmail.com, telefono +39 370 136 4070, LinkedIn, GitHub o dal form nella sezione Contatti del sito."
+            }
+          }
+        ]
       }
     ]
   }
@@ -160,7 +228,59 @@
 </head>
 
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <!-- Contenuto statico answer-first per crawler e LLM senza JavaScript; React lo sostituisce al mount. -->
+    <main>
+      <article>
+        <h1>Simone Penza — Tecnico IT e sviluppatore web a Lissone (MB)</h1>
+        <p>
+          Simone Penza è un tecnico IT e sviluppatore web a Lissone (MB). Si occupa di applicazioni web,
+          database SQL, supporto informatico e infrastruttura IT per aziende in Brianza e Monza.
+        </p>
+        <p>
+          Lavora su applicazioni web e CRM interni, database SQL, postazioni di lavoro, Microsoft 365,
+          reti e manutenzione infrastruttura. Sede a Lissone; esperienza recente a Milano (Infopad S.r.l.),
+          Desio (Greenchemicals SRL) e Brugherio (Voome SRL). Formazione: diploma in informatica all'ITIS
+          Pino Hensemberger di Monza.
+        </p>
+        <p>Ultimo aggiornamento: 2026-11-17</p>
+        <section aria-labelledby="static-faq">
+          <h2 id="static-faq">Domande frequenti</h2>
+          <h3>Chi è Simone Penza?</h3>
+          <p>
+            Simone Penza è un tecnico IT e sviluppatore web con sede a Lissone (Monza e Brianza).
+            Sviluppa applicazioni web, gestisce database SQL e offre supporto informatico e infrastruttura IT alle aziende.
+          </p>
+          <h3>Dove lavora Simone Penza?</h3>
+          <p>
+            Ha sede a Lissone (MB) e attualmente lavora come giovane tecnico informatico presso Infopad S.r.l. a Milano.
+            Opera in Brianza, Monza e nell'area milanese.
+          </p>
+          <h3>Quali servizi IT e web offre?</h3>
+          <p>
+            Sviluppo e manutenzione di applicazioni web e CRM, progettazione database SQL, assistenza hardware e software,
+            Microsoft 365, WordPress, reti, VPN e infrastruttura IT.
+          </p>
+          <h3>Come si contatta Simone Penza?</h3>
+          <p>
+            Via email a simone.penza06@gmail.com, telefono +39 370 136 4070, LinkedIn, GitHub
+            o dal form nella sezione Contatti del sito.
+          </p>
+        </section>
+        <nav aria-label="Sezioni del sito">
+          <ul>
+            <li><a href="#about">Chi sono</a></li>
+            <li><a href="#skills">Skills e progetti</a></li>
+            <li><a href="#experience">Esperienza</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contacts">Contatti e CV</a></li>
+            <li><a href="/llms.txt">llms.txt</a></li>
+            <li><a href="/index.md">Versione Markdown</a></li>
+          </ul>
+        </nav>
+      </article>
+    </main>
+  </div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 

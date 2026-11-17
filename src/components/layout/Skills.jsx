@@ -269,7 +269,7 @@ function ProjectCarousel({ projects }) {
 export default function Skills() {
     const navbarElements = useContext(pagesContext);
     const projects = useContext(projectsContext);
-    const section = navbarElements[1];
+    const section = navbarElements.find((item) => item.id === "skills");
 
     return (
         <motion.section

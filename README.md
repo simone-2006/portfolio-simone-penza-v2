@@ -17,7 +17,7 @@ All’apertura compare una schermata di avvio. Il tema segue la preferenza di si
 
 Testi, progetti, esperienze e link stanno in [`src/data/site.js`](src/data/site.js). Per aggiornare il sito basta modificare quel file.
 
-SEO e privacy: meta Open Graph, JSON-LD, `robots.txt`, `sitemap.xml` e `llms.txt` sono in `index.html` / `public/`. I font sono self-hosted. È attivo Vercel Web Analytics (cookieless); l’informativa privacy è su `#privacy` e nel footer.
+SEO e privacy: meta Open Graph, JSON-LD (Person, ProfessionalService, FAQPage), contenuto answer-first statico in `index.html`, `robots.txt`, `sitemap.xml`, `llms.txt` e `index.md` sono in `index.html` / `public/`. I font sono self-hosted. È attivo Vercel Web Analytics (cookieless); l’informativa privacy è su `#privacy` e nel footer.
 
 ## Stack
 
