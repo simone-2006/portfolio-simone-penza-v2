@@ -162,7 +162,7 @@ export default function ContactForm() {
                 <a href="#privacy" className="underline underline-offset-2 hover:text-text">
                     informativa privacy
                 </a>
-                . Il sito non usa cookie di profilazione.
+                . Il sito usa Vercel Web Analytics (cookieless) e non usa cookie di profilazione.
             </motion.p>
 
             <motion.button
