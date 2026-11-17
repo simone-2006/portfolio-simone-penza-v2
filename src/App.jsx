@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Navbar from "./components/layout/Navbar";
 import AboutMe from "./components/layout/AboutMe";
 import Skills from "./components/layout/Skills";
@@ -77,6 +78,7 @@ export default function App() {
       </div>
       {!showPrivacy ? <BackToTop /> : null}
       <Analytics />
+      <SpeedInsights />
     </ThemeProvider>
   );
 }
