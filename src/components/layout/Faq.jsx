@@ -10,12 +10,13 @@ export default function Faq() {
     return (
         <motion.section
             id="faq"
-            className="page-section"
+            className="page-section outline-none"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             aria-labelledby="faq-heading"
+            tabIndex={-1}
         >
             <motion.h2
                 id="faq-heading"

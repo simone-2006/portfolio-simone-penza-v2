@@ -30,13 +30,16 @@ export default function Experience() {
         <motion.section
             key={section.id}
             id={section.id}
-            className="page-section"
+            className="page-section outline-none"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
+            aria-labelledby="experience-heading"
+            tabIndex={-1}
         >
             <motion.h2
+                id="experience-heading"
                 className="font-sans text-sm font-semibold uppercase tracking-wide text-text"
                 initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}

@@ -46,9 +46,9 @@ export default function BackToTop() {
                     exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 14, scale: 0.94 }}
                     transition={{ type: "spring", bounce: 0.18, visualDuration: 0.38 }}
                     whileTap={reduceMotion ? undefined : { scale: 0.94 }}
-                    className="fixed right-[max(1.25rem,env(safe-area-inset-right))] bottom-[max(1.25rem,env(safe-area-inset-bottom))] z-40 flex size-10 cursor-pointer items-center justify-center rounded border border-border-color bg-surface text-text-secondary hover:text-text lg:right-10 lg:bottom-8"
+                    className="fixed right-[max(1.25rem,env(safe-area-inset-right))] bottom-[max(1.25rem,env(safe-area-inset-bottom))] z-40 flex size-11 cursor-pointer items-center justify-center rounded border border-border-color bg-surface text-text-secondary hover:text-text lg:right-10 lg:bottom-8"
                 >
-                    <ArrowUp size={18} />
+                    <ArrowUp size={18} aria-hidden="true" />
                 </motion.button>
             ) : null}
         </AnimatePresence>

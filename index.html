@@ -220,7 +220,7 @@
     const navigation = performance.getEntriesByType("navigation")[0];
     if (navigation && navigation.type === "reload") {
       if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-      if (location.hash !== "#privacy") {
+      if (location.hash !== "#privacy" && location.hash !== "#accessibilita") {
         history.replaceState(null, "", location.pathname + location.search + "#about");
       }
     }
@@ -274,6 +274,8 @@
             <li><a href="#experience">Esperienza</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#contacts">Contatti e CV</a></li>
+            <li><a href="#privacy">Privacy e cookie</a></li>
+            <li><a href="#accessibilita">Accessibilità</a></li>
             <li><a href="/llms.txt">llms.txt</a></li>
             <li><a href="/index.md">Versione Markdown</a></li>
           </ul>

@@ -36,13 +36,16 @@ export default function Contatti() {
         <motion.section
             key={section.id}
             id={section.id}
-            className="page-section"
+            className="page-section outline-none"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={viewportOnce}
             transition={{ duration: 0.8, ease: "easeOut" }}
+            aria-labelledby="contacts-heading"
+            tabIndex={-1}
         >
             <motion.h2
+                id="contacts-heading"
                 className="font-sans text-sm font-semibold uppercase tracking-wide text-text"
                 initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -92,24 +95,26 @@ export default function Contatti() {
                                     variants={itemVariants}
                                     href={`tel:${contact.phone.replace(/\s+/g, "")}`}
                                     className="flex items-center gap-2.5 text-base text-muted transition-colors hover:text-text-secondary"
+                                    aria-label={`Telefono ${contact.phone}`}
                                 >
-                                    <Phone size={18} />
-                                    <span className="">{contact.phone}</span>
+                                    <Phone size={18} aria-hidden="true" />
+                                    <span>{contact.phone}</span>
                                 </motion.a>
                                 <motion.a
                                     variants={itemVariants}
                                     href={`mailto:${contact.mail}`}
                                     className="flex items-center gap-2.5 text-base text-muted transition-colors hover:text-text-secondary"
+                                    aria-label={`Email ${contact.mail}`}
                                 >
-                                    <Mail size={18} />
-                                    <span className=" break-all">{contact.mail}</span>
+                                    <Mail size={18} aria-hidden="true" />
+                                    <span className="break-all">{contact.mail}</span>
                                 </motion.a>
                                 <motion.p
                                     variants={itemVariants}
                                     className="flex items-center gap-2.5 text-base text-muted"
                                 >
-                                    <MapPin size={18} />
-                                    <span className="">{contact.location}</span>
+                                    <MapPin size={18} aria-hidden="true" />
+                                    <span>{contact.location}</span>
                                 </motion.p>
                             </motion.div>
 
@@ -130,9 +135,9 @@ export default function Contatti() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="flex items-center gap-2 text-base text-muted transition-colors hover:text-text-secondary"
-                                            title={social.label}
+                                            aria-label={`${social.label}: ${social.username} (si apre in una nuova scheda)`}
                                         >
-                                            {Icon && <Icon size={18} />}
+                                            {Icon && <Icon size={18} aria-hidden="true" />}
                                             <span className="font-medium">{social.username}</span>
                                         </motion.a>
                                     );
@@ -154,10 +159,14 @@ export default function Contatti() {
                         Il mio CV
                     </h3>
                     <div className="flex min-w-0 flex-col items-start gap-7 sm:flex-row sm:items-center sm:gap-10">
-                        <a href={contact.cv} className="block w-full max-w-60 shrink-0">
+                        <a
+                            href={contact.cv}
+                            className="block w-full max-w-60 shrink-0"
+                            aria-label="Apri il curriculum in PDF"
+                        >
                             <motion.img
                                 src={contact.cvPreview}
-                                alt="Anteprima del CV"
+                                alt="Anteprima del curriculum di Simone Penza"
                                 className="h-auto w-full"
                                 initial={false}
                                 whileHover={{ scale: 1.03, boxShadow: "0px 10px 40px rgba(0,0,0,0.08)" }}
@@ -180,10 +189,11 @@ export default function Contatti() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileTap={reduceMotion ? undefined : { scale: 0.94 }}
-                                className="inline-flex cursor-pointer items-center gap-2 self-start rounded bg-text px-5 py-2 font-semibold text-primary transition hover:opacity-80"
+                                className="inline-flex min-h-11 cursor-pointer items-center gap-2 self-start rounded bg-text px-5 py-2 font-semibold text-primary transition hover:opacity-80"
                             >
-                                <Download size={18} />
-                                Scarica
+                                <Download size={18} aria-hidden="true" />
+                                Scarica CV
+                                <span className="sr-only"> (PDF, si apre in una nuova scheda)</span>
                             </motion.a>
                         </motion.div>
                     </div>

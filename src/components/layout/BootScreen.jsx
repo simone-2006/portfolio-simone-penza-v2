@@ -43,10 +43,15 @@ export default function BootScreen({ onDone }) {
     const [leaving, setLeaving] = useState(false);
     const finished = useRef(false);
     const onDoneRef = useRef(onDone);
+    const skipRef = useRef(null);
 
     useEffect(() => {
         onDoneRef.current = onDone;
     }, [onDone]);
+
+    useEffect(() => {
+        skipRef.current?.focus({ preventScroll: true });
+    }, []);
 
     const finish = useCallback(() => {
         if (finished.current) return;
@@ -121,18 +126,27 @@ export default function BootScreen({ onDone }) {
             initial={false}
             animate={{ opacity: leaving ? 0 : 1 }}
             transition={{ duration: reduceMotion ? 0.2 : 0.45, ease: "easeOut" }}
-            role="status"
-            aria-live="polite"
-            aria-label={`Caricamento, ${shown} per cento`}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="boot-title"
+            aria-describedby="boot-progress"
         >
             <div className="flex items-center justify-between">
-                <p className="text-xs font-semibold uppercase tracking-wide text-muted">Avvio</p>
-                <p className="text-xs tabular-nums tracking-wide text-accent-secondary">
+                <p id="boot-title" className="text-xs font-semibold uppercase tracking-wide text-muted">
+                    Avvio
+                </p>
+                <p
+                    id="boot-progress"
+                    className="text-xs tabular-nums tracking-wide text-text-secondary"
+                    aria-live="polite"
+                    aria-atomic="true"
+                >
                     {String(shown).padStart(3, "0")}
+                    <span className="sr-only"> per cento</span>
                 </p>
             </div>
 
-            <div className="mt-10 flex flex-col gap-3">
+            <div className="mt-10 flex flex-col gap-3" aria-hidden="true">
                 {STEPS.map((step) => {
                     const ready = progress >= step.at;
                     return (
@@ -141,7 +155,6 @@ export default function BootScreen({ onDone }) {
                             className="grid grid-cols-[0.5rem_4.5rem_minmax(0,1fr)_2rem] items-center gap-3 text-sm"
                         >
                             <span
-                                aria-hidden="true"
                                 className={`size-2 rounded-full ${ready ? "bg-[#2f9e62]" : "bg-[#d64545]"}`}
                             />
                             <span className="text-xs font-semibold uppercase tracking-wide text-muted">
@@ -150,8 +163,8 @@ export default function BootScreen({ onDone }) {
                             <span className={ready ? "truncate text-text-secondary" : "truncate text-text/20"}>
                                 {step.value}
                             </span>
-                            <span className="text-right text-xs uppercase tracking-wide text-accent-secondary">
-                                {ready ? "ok" : ""}
+                            <span className="text-right text-xs uppercase tracking-wide text-text-secondary">
+                                {ready ? "ok" : "…"}
                             </span>
                         </div>
                     );
@@ -181,17 +194,25 @@ export default function BootScreen({ onDone }) {
             </div>
 
             <div>
-                <div className="h-px bg-border-color">
+                <div
+                    className="h-px bg-border-color"
+                    role="progressbar"
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-valuenow={shown}
+                    aria-label="Caricamento portfolio"
+                >
                     <div className="h-px bg-accent" style={{ width: `${shown}%` }} />
                 </div>
                 <div className="mt-3 flex items-center justify-between gap-4">
                     <p className="text-xs uppercase tracking-wide text-muted">Portfolio</p>
                     <button
+                        ref={skipRef}
                         type="button"
                         onClick={skip}
-                        className="text-xs font-semibold uppercase tracking-wide text-muted hover:text-text"
+                        className="min-h-11 px-2 text-xs font-semibold uppercase tracking-wide text-muted hover:text-text"
                     >
-                        Salta
+                        Salta introduzione
                     </button>
                 </div>
             </div>

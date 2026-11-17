@@ -16,8 +16,8 @@ export default function ExperienceCard({
                 <span className="my-4 px-1 text-center text-xs leading-snug uppercase tracking-wide text-muted">
                     {period}
                 </span>
-                <div className="mb-2 h-3 w-3 rounded-full bg-accent-secondary" />
-                <div className="w-px grow bg-linear-to-b from-accent-secondary to-border-color" />
+                <div aria-hidden="true" className="mb-2 h-3 w-3 rounded-full bg-accent-secondary" />
+                <div aria-hidden="true" className="w-px grow bg-linear-to-b from-accent-secondary to-border-color" />
             </div>
 
             <div className="flex min-w-0 flex-col gap-5 px-3 py-7 sm:gap-6 sm:px-5">

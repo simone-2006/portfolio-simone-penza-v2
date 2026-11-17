@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useId, useRef, useState } from "react";
 import NavbarButton from "../ui/NavbarButton";
 import { pagesContext } from "../../context/appContext";
 import { motion } from "motion/react";
@@ -10,13 +10,16 @@ import { useTheme } from "../../hooks/theme";
 export default function Navbar({ hideSections = false, onHome }) {
     const { theme, toggleTheme } = useTheme();
     const navbarElements = useContext(pagesContext);
+    const mobileNavId = useId();
     const [activeId, setActiveId] = useState(() => {
         const hash = window.location.hash.slice(1);
-        if (!hash || hash === "privacy") return navbarElements[0].id;
+        if (!hash || hash === "privacy" || hash === "accessibilita") return navbarElements[0].id;
         return hash;
     });
     const [menuOpen, setMenuOpen] = useState(false);
     const navRef = useRef(null);
+    const menuButtonRef = useRef(null);
+    const mobileNavRef = useRef(null);
     const ignoreScrollRef = useRef(false);
     const ignoreTimeoutRef = useRef(0);
 
@@ -49,9 +52,32 @@ export default function Navbar({ hideSections = false, onHome }) {
     useEffect(() => {
         if (!menuOpen) return;
 
+        const menu = mobileNavRef.current;
+        const focusable = menu?.querySelectorAll("a[href], button:not([disabled])");
+        focusable?.[0]?.focus();
+
         const onKeyDown = (event) => {
-            if (event.key === "Escape") setMenuOpen(false);
+            if (event.key === "Escape") {
+                setMenuOpen(false);
+                menuButtonRef.current?.focus();
+                return;
+            }
+
+            if (event.key !== "Tab" || !focusable?.length) return;
+
+            const items = Array.from(focusable);
+            const first = items[0];
+            const last = items[items.length - 1];
+
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
         };
+
         const onPointerDown = (event) => {
             if (!navRef.current?.contains(event.target)) setMenuOpen(false);
         };
@@ -131,7 +157,11 @@ export default function Navbar({ hideSections = false, onHome }) {
                 history.pushState(null, "", `#${id}`);
             }
 
-            element.scrollIntoView({ behavior, block: "start" });
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            element.scrollIntoView({
+                behavior: reduceMotion ? "auto" : behavior,
+                block: "start",
+            });
 
             const unlock = () => {
                 window.removeEventListener("scrollend", unlock);
@@ -149,7 +179,7 @@ export default function Navbar({ hideSections = false, onHome }) {
 
     useEffect(() => {
         const id = window.location.hash.slice(1);
-        if (!id || id === "privacy" || !navbarElements.some((item) => item.id === id)) return;
+        if (!id || id === "privacy" || id === "accessibilita" || !navbarElements.some((item) => item.id === id)) return;
 
         const frame = requestAnimationFrame(() => {
             const element = document.getElementById(id);
@@ -163,7 +193,7 @@ export default function Navbar({ hideSections = false, onHome }) {
     useEffect(() => {
         const onPopState = () => {
             const id = window.location.hash.slice(1);
-            if (id === "privacy") return;
+            if (id === "privacy" || id === "accessibilita") return;
             scrollToSection(id || navbarElements[0].id, { updateHash: false });
         };
 
@@ -174,7 +204,7 @@ export default function Navbar({ hideSections = false, onHome }) {
     return (
         <nav
             ref={navRef}
-            aria-label="Primary"
+            aria-label="Navigazione principale"
             className="page-gutter sticky top-0 z-50 flex items-center justify-between border-b border-accent bg-primary/80 py-5 backdrop-blur-sm"
         >
             <motion.a href="#about"
@@ -207,24 +237,31 @@ export default function Navbar({ hideSections = false, onHome }) {
                     type="button"
                     onClick={toggleTheme}
                     aria-label={theme === "light" ? "Attiva tema scuro" : "Attiva tema chiaro"}
-                    className="font-sans text-sm font-medium transition-colors text-muted hover:text-text p-2 -m-2 cursor-pointer"
+                    aria-pressed={theme === "dark"}
+                    className="font-sans text-sm font-medium transition-colors text-muted hover:text-text p-2 -m-2 min-h-11 min-w-11 inline-flex items-center justify-center cursor-pointer"
                 >
-                    {theme === "light" ? <Sun size={18} /> : <Moon size={18} />}
+                    {theme === "light" ? <Sun size={18} aria-hidden="true" /> : <Moon size={18} aria-hidden="true" />}
                 </button>
                 <button
+                    ref={menuButtonRef}
                     type="button"
-                    className="lg:hidden p-2 -m-2 text-muted hover:text-text"
+                    className="lg:hidden p-2 -m-2 min-h-11 min-w-11 inline-flex items-center justify-center text-muted hover:text-text"
                     aria-expanded={menuOpen}
-                    aria-controls="mobile-nav"
+                    aria-controls={mobileNavId}
+                    aria-haspopup="true"
                     aria-label={menuOpen ? "Chiudi menu" : "Apri menu"}
                     onClick={() => setMenuOpen((open) => !open)}
                 >
-                    {menuOpen ? <X size={18} /> : <Menu size={18} />}
+                    {menuOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
                 </button>
             </div>
             {menuOpen ? (
                 <div
-                    id="mobile-nav"
+                    id={mobileNavId}
+                    ref={mobileNavRef}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Menu di navigazione"
                     className="absolute left-0 right-0 top-full z-50 flex flex-col gap-3 border-b border-accent bg-primary/95 p-4 backdrop-blur-sm lg:hidden"
                 >
                     {navbarElements.map((navbarElement) => (
@@ -232,7 +269,7 @@ export default function Navbar({ hideSections = false, onHome }) {
                             key={navbarElement.id}
                             href={`#${navbarElement.id}`}
                             active={activeId === navbarElement.id}
-                            className="w-fit py-1"
+                            className="w-fit py-2"
                             onClick={() => scrollToSection(navbarElement.id)}
                         >
                             {navbarElement.title}
