@@ -67,7 +67,7 @@ const fadeSlideVariants = {
 function SkillChip({ skill }) {
     return (
         <span className="flex shrink-0 items-center gap-2 text-text-secondary hover:text-text transition-colors">
-            <span style={{ color: skill.color }}>{skill.icon}</span>
+            <span aria-hidden="true" style={{ color: skill.color }}>{skill.icon}</span>
             <span>{skill.name}</span>
         </span>
     );
@@ -202,7 +202,7 @@ function ProjectCarousel({ projects }) {
                             {project.image ? (
                                 <motion.img
                                     src={project.image}
-                                    alt={project.title}
+                                    alt={`Anteprima del progetto ${project.title}`}
                                     draggable={false}
                                     className="aspect-video w-full object-cover"
                                     whileHover={reduceMotion ? undefined : { scale: 1.02, boxShadow: "0px 10px 40px rgba(0,0,0,0.08)" }}
@@ -215,7 +215,10 @@ function ProjectCarousel({ projects }) {
                             )}
                             <div className="flex items-start justify-between gap-5 border-b border-border-color px-1 py-6">
                                 <div className="min-w-0 space-y-2.5">
-                                    <p className="font-serif text-2xl leading-snug text-text">{project.title}</p>
+                                    <p className="font-serif text-2xl leading-snug text-text">
+                                        {project.title}
+                                        <span className="sr-only"> (si apre in una nuova scheda)</span>
+                                    </p>
                                     <p className="text-sm leading-relaxed text-muted">{project.blurb}</p>
                                 </div>
                                 <span className="shrink-0 pt-1.5 text-[11px] font-semibold uppercase tracking-wide text-muted">
@@ -228,17 +231,21 @@ function ProjectCarousel({ projects }) {
             </div>
 
             <div className="mt-6 flex items-center justify-between gap-4">
-                <div className="flex items-center gap-2.5" role="tablist" aria-label="Seleziona progetto">
+                <div className="flex items-center gap-1" role="group" aria-label="Seleziona progetto">
                     {projects.map((item, itemIndex) => (
                         <button
                             key={item.id}
                             type="button"
-                            role="tab"
                             aria-label={`Vai a ${item.title}`}
-                            aria-selected={itemIndex === index}
+                            aria-current={itemIndex === index ? "true" : undefined}
                             onClick={() => goTo(itemIndex)}
-                            className={`h-1.5 rounded-full transition-all ${itemIndex === index ? "w-6 bg-text" : "w-1.5 bg-secondary hover:bg-accent"}`}
-                        />
+                            className="inline-flex min-h-11 min-w-11 items-center justify-center"
+                        >
+                            <span
+                                aria-hidden="true"
+                                className={`block h-1.5 rounded-full transition-all ${itemIndex === index ? "w-6 bg-text" : "w-1.5 bg-secondary hover:bg-accent"}`}
+                            />
+                        </button>
                     ))}
                 </div>
                 <div className="flex items-center gap-2">
@@ -247,18 +254,18 @@ function ProjectCarousel({ projects }) {
                         aria-label="Progetto precedente"
                         onClick={() => paginate(-1)}
                         whileTap={{ scale: 0.94 }}
-                        className="flex size-10 items-center justify-center rounded border border-border-color bg-surface text-text-secondary hover:text-text"
+                        className="flex size-11 items-center justify-center rounded border border-border-color bg-surface text-text-secondary hover:text-text"
                     >
-                        <ChevronLeft size={18} />
+                        <ChevronLeft size={18} aria-hidden="true" />
                     </motion.button>
                     <motion.button
                         type="button"
                         aria-label="Progetto successivo"
                         onClick={() => paginate(1)}
                         whileTap={{ scale: 0.94 }}
-                        className="flex size-10 items-center justify-center rounded border border-border-color bg-surface text-text-secondary hover:text-text"
+                        className="flex size-11 items-center justify-center rounded border border-border-color bg-surface text-text-secondary hover:text-text"
                     >
-                        <ChevronRight size={18} />
+                        <ChevronRight size={18} aria-hidden="true" />
                     </motion.button>
                 </div>
             </div>
@@ -275,13 +282,16 @@ export default function Skills() {
         <motion.section
             key={section.id}
             id={section.id}
-            className="page-section overflow-x-clip"
+            className="page-section overflow-x-clip outline-none"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={viewportOnce}
             transition={{ duration: 0.8, ease: "easeOut" }}
+            aria-labelledby="skills-heading"
+            tabIndex={-1}
         >
             <motion.h2
+                id="skills-heading"
                 className="font-sans text-sm font-semibold uppercase tracking-wide text-text"
                 initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}

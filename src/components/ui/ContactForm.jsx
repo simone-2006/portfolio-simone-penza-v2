@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
 import emailjs from "@emailjs/browser";
@@ -44,10 +44,23 @@ const itemVariants = {
 };
 
 const fieldClass =
-    "mt-2.5 px-4 py-3 rounded border border-border-color bg-surface text-base text-text focus:outline-none focus:ring-2 focus:ring-muted transition";
+    "mt-2.5 px-4 py-3 rounded border border-border-color bg-surface text-base text-text focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-primary transition";
+
+function RequiredMark() {
+    return (
+        <>
+            <span aria-hidden="true" className="text-xs text-muted">
+                *
+            </span>
+            <span className="sr-only"> (obbligatorio)</span>
+        </>
+    );
+}
 
 export default function ContactForm() {
     const reduceMotion = useReducedMotion();
+    const statusId = useId();
+    const privacyNoteId = useId();
 
     const [nome, setNome] = useState("");
     const [company, setCompany] = useState("");
@@ -80,12 +93,13 @@ export default function ContactForm() {
         <motion.form
             className="flex w-full min-w-0 max-w-md flex-col gap-6"
             name="contatto"
-            autoComplete="off"
+            noValidate={false}
             onSubmit={handleSubmit}
             variants={listVariants}
             initial="hidden"
             whileInView="show"
             viewport={viewportOnce}
+            aria-describedby={privacyNoteId}
         >
             <motion.label
                 variants={itemVariants}
@@ -93,14 +107,16 @@ export default function ContactForm() {
             >
                 <span className="flex items-center gap-1">
                     Nome
-                    <span className="text-xs text-muted">*</span>
+                    <RequiredMark />
                 </span>
                 <input
                     value={nome}
                     onChange={(e) => setNome(e.target.value)}
                     type="text"
                     name="nome"
+                    autoComplete="name"
                     required
+                    aria-required="true"
                     className={fieldClass}
                     placeholder="Il tuo nome"
                 />
@@ -110,11 +126,13 @@ export default function ContactForm() {
                 className="flex flex-col font-medium text-text-secondary"
             >
                 Azienda
+                <span className="sr-only"> (opzionale)</span>
                 <input
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
                     type="text"
                     name="company"
+                    autoComplete="organization"
                     className={fieldClass}
                     placeholder="Opzionale"
                 />
@@ -125,14 +143,17 @@ export default function ContactForm() {
             >
                 <span className="flex items-center gap-1">
                     Email
-                    <span className="text-xs text-muted">*</span>
+                    <RequiredMark />
                 </span>
                 <input
                     value={mail}
                     onChange={(e) => setMail(e.target.value)}
                     type="email"
                     name="email"
+                    autoComplete="email"
+                    inputMode="email"
                     required
+                    aria-required="true"
                     className={fieldClass}
                     placeholder="example@email.com"
                 />
@@ -143,20 +164,26 @@ export default function ContactForm() {
             >
                 <span className="flex items-center gap-1">
                     Messaggio
-                    <span className="text-xs text-muted">*</span>
+                    <RequiredMark />
                 </span>
                 <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     name="messaggio"
+                    autoComplete="off"
                     required
+                    aria-required="true"
                     rows={4}
                     className={`${fieldClass} resize-none`}
                     placeholder="Il tuo messaggio"
                 />
             </motion.label>
 
-            <motion.p variants={itemVariants} className="text-xs leading-relaxed text-muted">
+            <motion.p
+                id={privacyNoteId}
+                variants={itemVariants}
+                className="text-xs leading-relaxed text-muted"
+            >
                 Inviando il messaggio accetti che i dati siano usati solo per risponderti, come descritto
                 nell’{" "}
                 <a href="#privacy" className="underline underline-offset-2 hover:text-text">
@@ -168,19 +195,30 @@ export default function ContactForm() {
             <motion.button
                 type="submit"
                 disabled={sending}
+                aria-busy={sending || undefined}
                 variants={itemVariants}
                 whileTap={reduceMotion || sending ? undefined : { scale: 0.94 }}
-                className="mt-1 inline-block cursor-pointer self-start rounded bg-text px-5 py-2.5 font-semibold text-primary transition hover:opacity-80 disabled:cursor-wait disabled:opacity-60"
+                className="mt-1 inline-block min-h-11 cursor-pointer self-start rounded bg-text px-5 py-2.5 font-semibold text-primary transition hover:opacity-80 disabled:cursor-wait disabled:opacity-60"
             >
                 {sending ? "Invio…" : "Invia"}
             </motion.button>
 
-            {status === "ok" ? (
-                <p className="text-sm text-text-secondary">Arrivato, ti rispondo io.</p>
-            ) : null}
-            {status === "error" ? (
-                <p className="text-sm text-muted">Qualcosa è andato storto. Riprova o scrivimi via mail.</p>
-            ) : null}
+            <div
+                id={statusId}
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+                className="min-h-5"
+            >
+                {status === "ok" ? (
+                    <p className="text-sm text-text-secondary">Arrivato, ti rispondo io.</p>
+                ) : null}
+                {status === "error" ? (
+                    <p className="text-sm text-muted" role="alert">
+                        Qualcosa è andato storto. Riprova o scrivimi via mail.
+                    </p>
+                ) : null}
+            </div>
         </motion.form>
     );
 }

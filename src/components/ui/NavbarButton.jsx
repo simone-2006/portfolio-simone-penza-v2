@@ -8,7 +8,7 @@ export default function NavbarButton({ active, href, onClick, children, classNam
         event.preventDefault();
         onClick?.();
       }}
-      aria-current={active ? "true" : undefined}
+      aria-current={active ? "page" : undefined}
       className={cn(
         "font-sans text-sm font-medium border-b pb-0.5 transition-colors",
         active

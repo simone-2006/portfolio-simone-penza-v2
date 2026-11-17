@@ -32,7 +32,8 @@
   --color-muted: #5c5c5c;
 
   --color-accent: #bfa181;
-  --color-accent-secondary: #8c7851;
+  /* Darkened for WCAG AA contrast on light backgrounds (~4.6:1 vs #f9f9f6) */
+  --color-accent-secondary: #7a6846;
   --color-border-color: #e2e0d9;
 
   --color-surface: #fffefb;
@@ -54,7 +55,8 @@
     --color-muted: #b8b8b8;
 
     --color-accent: #bfa181;
-    --color-accent-secondary: #8c7851;
+    /* Lightened for WCAG AA contrast on dark backgrounds (~4.6:1 vs #23211e) */
+    --color-accent-secondary: #c4a574;
     --color-border-color: #39352e;
 
     --color-surface: #282623;
@@ -96,7 +98,35 @@
   }
 
   a:focus-visible,
-  button:focus-visible {
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  summary:focus-visible,
+  [tabindex]:not([tabindex="-1"]):focus-visible {
+    outline: 2px solid var(--color-accent-secondary);
+    outline-offset: 3px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    z-index: 100;
+    transform: translateY(-120%);
+    border-radius: 0.25rem;
+    background-color: var(--color-text);
+    color: var(--color-primary);
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.15s ease;
+  }
+
+  .skip-link:focus,
+  .skip-link:focus-visible {
+    transform: translateY(0.75rem);
     outline: 2px solid var(--color-accent-secondary);
     outline-offset: 3px;
   }
@@ -105,7 +135,7 @@
     background-color: #9999996e;
   }
 
-  nav[aria-label="Primary"] {
+  nav[aria-label="Navigazione principale"] {
     padding-top: max(1rem, env(safe-area-inset-top));
   }
 }

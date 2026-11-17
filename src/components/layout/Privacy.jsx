@@ -201,10 +201,11 @@ export default function Privacy({ onBack }) {
     return (
         <motion.main
             id="privacy"
-            className="page-section mx-auto min-h-[70vh] max-w-3xl"
+            className="page-section mx-auto min-h-[70vh] max-w-3xl outline-none"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, ease: "easeOut" }}
+            tabIndex={-1}
         >
             <p className="text-xs font-semibold uppercase tracking-wide text-muted">Informativa</p>
             <h1 className="mt-4 font-serif text-4xl font-semibold leading-tight text-text sm:text-5xl">

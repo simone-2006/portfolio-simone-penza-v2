@@ -44,10 +44,12 @@ export default function AboutMe() {
         <motion.section
             key={section.id}
             id={section.id}
-            className="page-section"
+            className="page-section outline-none"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
+            aria-labelledby="about-heading"
+            tabIndex={-1}
         >
             <motion.p
                 className="font-sans text-sm font-semibold uppercase tracking-wide text-text"
@@ -74,7 +76,10 @@ export default function AboutMe() {
                         <p className="text-xs font-semibold uppercase tracking-wide text-muted">
                             Ciao, sono
                         </p>
-                        <h1 className="font-serif text-6xl font-semibold leading-[1.1] sm:text-8xl sm:leading-[1.08]">
+                        <h1
+                            id="about-heading"
+                            className="font-serif text-6xl font-semibold leading-[1.1] sm:text-8xl sm:leading-[1.08]"
+                        >
                             <span className="block text-text-secondary">{profile.lastName}</span>
                             <span className="mt-2 block text-text sm:mt-3">{profile.firstName}</span>
                         </h1>
