@@ -217,6 +217,38 @@ export const projects = [
         status: "Locale",
         github: "https://github.com/simone-2006/ollama-chatbot",
     },
+    {
+        id: "contacts-simone",
+        index: "08",
+        title: "Contacts Simone",
+        blurb: "Pagina contatti collegata a un QR code, da aprire al volo.",
+        status: "Online",
+        github: "https://github.com/simone-2006/contacts-simone",
+    },
+    {
+        id: "ticketing-easy",
+        index: "09",
+        title: "Ticketing Easy",
+        blurb: "Help desk: le email diventano ticket. React, TypeScript ed Express.",
+        status: "Demo",
+        github: "https://github.com/simone-2006/ticketing-easy",
+    },
+    {
+        id: "nexo-erp",
+        index: "10",
+        title: "Nexo ERP",
+        blurb: "Piattaforma operativa: CRM, ordini, magazzino e acquisti. Next.js e PostgreSQL.",
+        status: "In sviluppo",
+        github: "https://github.com/simone-2006/Nexo-ERP",
+    },
+    {
+        id: "family-plan",
+        index: "11",
+        title: "Family Plan",
+        blurb: "Planner di famiglia: calendario, attività e liste condivise. PWA senza account.",
+        status: "Demo",
+        github: "https://github.com/simone-2006/family-plan",
+    },
 ];
 
 export const contact = {
