@@ -166,7 +166,7 @@ export default function Contatti() {
                         >
                             <motion.img
                                 src={contact.cvPreview}
-                                alt="Anteprima del curriculum di Simone Penza"
+                                alt="Anteprima del mio curriculum"
                                 className="h-auto w-full"
                                 initial={false}
                                 whileHover={{ scale: 1.03, boxShadow: "0px 10px 40px rgba(0,0,0,0.08)" }}

@@ -1,17 +1,17 @@
 # Simone Penza — Tecnico IT e sviluppatore web a Lissone (MB)
 
-**Risposta breve:** Simone Penza è un tecnico IT e sviluppatore web con sede a Lissone (Monza e Brianza, Italia). Si occupa di applicazioni web, database SQL, supporto informatico (hardware, software, postazioni) e infrastruttura IT per aziende in Brianza e provincia di Monza.
+**Risposta breve:** Sono un tecnico IT e sviluppatore web con sede a Lissone (Monza e Brianza, Italia). Mi occupo di applicazioni web, database SQL, supporto informatico (hardware, software, postazioni) e infrastruttura IT per aziende in Brianza e provincia di Monza.
 
 Ultimo aggiornamento: 2026-11-18
 
-## Cosa fa
+## Cosa faccio
 
-- Sviluppo e manutenzione di applicazioni web e CRM interni (PHP, JavaScript, Node.js, React, Vite, Tailwind CSS, Docker)
-- Progettazione e integrazione di database SQL (SQL Server, MySQL) con gestionali aziendali
-- Supporto tecnico agli utenti: diagnosi hardware/software, Microsoft 365, WordPress, reti e VPN
-- Manutenzione di infrastruttura IT e postazioni di lavoro
+- Sviluppo e mantengo applicazioni web e CRM interni (PHP, JavaScript, Node.js, React, Vite, Tailwind CSS, Docker)
+- Progetto e integro database SQL (SQL Server, MySQL) con gestionali aziendali
+- Offro supporto tecnico agli utenti: diagnosi hardware/software, Microsoft 365, WordPress, reti e VPN
+- Mantengo infrastruttura IT e postazioni di lavoro
 
-## Dove opera
+## Dove opero
 
 - Sede: Lissone (MB), Brianza, Italia
 - Zona: Monza e Brianza, Milano e dintorni
@@ -57,14 +57,14 @@ Diploma in informatica: programmazione (Java, C++, PHP, JavaScript), database SQ
 
 ## Domande frequenti
 
-**Chi è Simone Penza?**
-Tecnico IT e sviluppatore web a Lissone (MB), specializzato in applicazioni web, database SQL e supporto informatico per aziende.
+**Chi sono?**
+Sono un tecnico IT e sviluppatore web a Lissone (MB). Sviluppo applicazioni web, gestisco database SQL e offro supporto informatico per aziende.
 
-**Dove lavora Simone Penza?**
-Ha sede a Lissone (Brianza) e attualmente lavora presso Infopad S.r.l. a Milano. Opera in Monza e Brianza e nell’area milanese.
+**Dove lavoro?**
+Ho sede a Lissone (Brianza) e attualmente lavoro presso Infopad S.r.l. a Milano. Opero in Monza e Brianza e nell’area milanese.
 
-**Quali servizi offre?**
+**Quali servizi offro?**
 Sviluppo web, database SQL, assistenza tecnica hardware/software, Microsoft 365, WordPress, reti e infrastruttura IT.
 
-**Come contattarlo?**
+**Come contattarmi?**
 Via email (simone.penza06@gmail.com), telefono (+39 370 136 4070), LinkedIn o il form sul sito.

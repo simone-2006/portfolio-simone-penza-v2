@@ -4,7 +4,7 @@ export const siteMeta = {
     url: "https://www.simonepenza.cloud",
     title: "Simone Penza — Tecnico IT e sviluppatore web a Lissone (MB)",
     description:
-        "Simone Penza, tecnico IT e sviluppatore web a Lissone (MB). Applicazioni web, database SQL, supporto informatico e infrastruttura per aziende in Brianza e Monza.",
+        "Sono Simone Penza, tecnico IT e sviluppatore web a Lissone (MB). Mi occupo di applicazioni web, database SQL, supporto informatico e infrastruttura per aziende in Brianza e Monza.",
     locale: "it_IT",
     geo: {
         locality: "Lissone",
@@ -30,30 +30,30 @@ export const profile = {
     location: "Lissone, MB",
     /** Prima risposta utile per utenti e motori generativi (answer-first). */
     answerFirst:
-        "Simone Penza è un tecnico IT e sviluppatore web a Lissone (MB). Si occupa di applicazioni web, database SQL, supporto informatico e infrastruttura IT per aziende in Brianza e Monza.",
-    bio: "Lavora su applicazioni web e CRM interni, database SQL, postazioni di lavoro, Microsoft 365, reti e manutenzione infrastruttura. Sede a Lissone, esperienza recente a Milano, Desio e Brugherio.",
+        "Sono un tecnico IT e sviluppatore web a Lissone (MB). Mi occupo di applicazioni web, database SQL, supporto informatico e infrastruttura IT per aziende in Brianza e Monza.",
+    bio: "Lavoro su applicazioni web e CRM interni, database SQL, postazioni di lavoro, Microsoft 365, reti e manutenzione infrastruttura. Ho sede a Lissone; esperienza recente a Milano, Desio e Brugherio.",
     languages: ["Italiano", "Inglese"],
     updatedAt: "2026-11-18",
 };
 
 export const faqs = [
     {
-        question: "Chi è Simone Penza?",
+        question: "Chi sono?",
         answer:
-            "Simone Penza è un tecnico IT e sviluppatore web con sede a Lissone (Monza e Brianza). Sviluppa applicazioni web, gestisce database SQL e offre supporto informatico e infrastruttura IT alle aziende.",
+            "Sono un tecnico IT e sviluppatore web con sede a Lissone (Monza e Brianza). Sviluppo applicazioni web, gestisco database SQL e offro supporto informatico e infrastruttura IT alle aziende.",
     },
     {
-        question: "Dove lavora Simone Penza?",
+        question: "Dove lavoro?",
         answer:
-            "Ha sede a Lissone (MB) e attualmente lavora come tecnico informatico e siti web presso Infopad S.r.l. a Milano. Opera in Brianza, Monza e nell’area milanese.",
+            "Ho sede a Lissone (MB) e attualmente lavoro come tecnico informatico e siti web presso Infopad S.r.l. a Milano. Opero in Brianza, Monza e nell’area milanese.",
     },
     {
-        question: "Quali servizi IT e web offre?",
+        question: "Quali servizi IT e web offro?",
         answer:
-            "Sviluppo e manutenzione di applicazioni web e CRM, progettazione database SQL, assistenza hardware e software, Microsoft 365, WordPress, reti, VPN e infrastruttura IT.",
+            "Sviluppo e mantengo applicazioni web e CRM, progetto database SQL, offro assistenza hardware e software, Microsoft 365, WordPress, reti, VPN e infrastruttura IT.",
     },
     {
-        question: "Come si contatta Simone Penza?",
+        question: "Come contattarmi?",
         answer:
             "Via email a simone.penza06@gmail.com, telefono +39 370 136 4070, LinkedIn, GitHub o dal form nella sezione Contatti del sito.",
     },
@@ -69,15 +69,15 @@ export const experiences = [
         sections: [
             {
                 title: "IT support & assistenza tecnica",
-                text: "Supporto tecnico agli utenti e alle aziende, con diagnosi e risoluzione di problematiche hardware e software. Installazione, configurazione e manutenzione di PC, software e postazioni di lavoro.",
+                text: "Supporto gli utenti e le aziende: diagnostico e risolvo problemi hardware e software. Installo, configuro e mantengo PC, software e postazioni di lavoro.",
             },
             {
                 title: "Sistemi & servizi IT",
-                text: "Supporto nella gestione di ambienti Microsoft 365 e account aziendali. Gestione e manutenzione di siti web WordPress e servizi di hosting.",
+                text: "Supporto la gestione di ambienti Microsoft 365 e account aziendali. Gestisco e mantengo siti web WordPress e servizi di hosting.",
             },
             {
                 title: "Reti & infrastruttura",
-                text: "Supporto nella configurazione e gestione di reti informatiche, connettività e dispositivi di rete.",
+                text: "Supporto la configurazione e la gestione di reti informatiche, connettività e dispositivi di rete.",
             },
         ],
         stack: "Microsoft 365, WordPress, Windows, Reti, VPN",
@@ -91,15 +91,15 @@ export const experiences = [
         sections: [
             {
                 title: "Sviluppo web & software",
-                text: "Sviluppo e manutenzione di applicazioni web e del CRM aziendale interno, con PHP, JavaScript, Node.js, HTML, Tailwind CSS e Docker.",
+                text: "Ho sviluppato e mantenuto applicazioni web e il CRM aziendale interno, con PHP, JavaScript, Node.js, HTML, Tailwind CSS e Docker.",
             },
             {
                 title: "Database & processi aziendali",
-                text: "Gestione e integrazione di database SQL Server per quotazioni, ordini, magazzino e commesse.",
+                text: "Ho gestito e integrato database SQL Server per quotazioni, ordini, magazzino e commesse.",
             },
             {
                 title: "Supporto IT",
-                text: "Assistenza tecnica ai dipendenti, configurazione di PC e software, supporto Microsoft 365, SharePoint e reti aziendali.",
+                text: "Ho assistito i dipendenti, configurato PC e software, e supportato Microsoft 365, SharePoint e reti aziendali.",
             },
         ],
         stack: "PHP, JavaScript, Node.js, HTML, Tailwind CSS, SQL Server, Docker, React, Vite",
@@ -113,15 +113,15 @@ export const experiences = [
         sections: [
             {
                 title: "Sviluppo web",
-                text: "Applicazione web per l'esecuzione di codice JavaScript in tempo reale, con gestione degli utenti e database MySQL.",
+                text: "Ho realizzato un’applicazione web per l’esecuzione di codice JavaScript in tempo reale, con gestione degli utenti e database MySQL.",
             },
             {
                 title: "Full stack & database",
-                text: "Interfaccia, logica applicativa e integrazione con MySQL, in un contesto di lavoro reale.",
+                text: "Mi sono occupato di interfaccia, logica applicativa e integrazione con MySQL, in un contesto di lavoro reale.",
             },
             {
                 title: "Esperienza professionale",
-                text: "Applicazione delle competenze scolastiche in azienda, con metodologie di sviluppo e best practice.",
+                text: "Ho applicato le competenze scolastiche in azienda, con metodologie di sviluppo e best practice.",
             },
         ],
         stack: "HTML, CSS, JavaScript, PHP, MySQL",
@@ -135,19 +135,19 @@ export const experiences = [
         sections: [
             {
                 title: "Programmazione & sviluppo",
-                text: "Applicazioni software e web con Java, C++, PHP, JavaScript, HTML e CSS.",
+                text: "Ho sviluppato applicazioni software e web con Java, C++, PHP, JavaScript, HTML e CSS.",
             },
             {
                 title: "Database",
-                text: "Progettazione, gestione e interrogazione di database relazionali con SQL.",
+                text: "Ho progettato, gestito e interrogato database relazionali con SQL.",
             },
             {
                 title: "Sistemi & reti",
-                text: "Configurazione e gestione di reti e sistemi informatici, con analisi e risoluzione di problemi tecnici.",
+                text: "Ho configurato e gestito reti e sistemi informatici, analizzando e risolvendo problemi tecnici.",
             },
             {
                 title: "Progettazione",
-                text: "Analisi dei requisiti, progettazione di soluzioni informatiche e gestione di progetti.",
+                text: "Ho analizzato i requisiti, progettato soluzioni informatiche e gestito progetti.",
             },
         ],
         stack: "Java, C++, PHP, JavaScript, HTML, CSS, SQL",
@@ -159,7 +159,7 @@ export const projects = [
         id: "portfolio",
         index: "01",
         title: "Questo sito",
-        blurb: "Il portfolio che stai guardando. React, Vite e Tailwind.",
+        blurb: "Il mio portfolio: quello che stai guardando. React, Vite e Tailwind.",
         status: "Online",
         github: "https://github.com/simone-2006/portfolio-simone-penza-v2",
         image: "portfolio_anteprima.png",
@@ -168,7 +168,7 @@ export const projects = [
         id: "react-task",
         index: "02",
         title: "React task",
-        blurb: "Attività in tre colonne: Todo, Doing, Done.",
+        blurb: "Organizzo le attività in tre colonne: Todo, Doing, Done.",
         status: "Online",
         github: "https://github.com/simone-2006/react-task",
         image: "react_task_anteprima.png",
@@ -186,7 +186,7 @@ export const projects = [
         id: "demo-dashboard-auto",
         index: "04",
         title: "Dashboard auto",
-        blurb: "Parco macchine aziendale: scadenze e gestione su database SQL con Docker.",
+        blurb: "Gestisco scadenze e parco macchine aziendale su database SQL con Docker.",
         status: "Demo",
         github: "https://github.com/simone-2006/demo-dashboard-auto",
         image: "demo_dashboard_auto_anteprima.png",
@@ -203,7 +203,7 @@ export const projects = [
         id: "nms26",
         index: "06",
         title: "NMS26",
-        blurb: "Monitor della LAN: dispositivi, ping, latenza e storico up/down.",
+        blurb: "Monitoro la LAN: dispositivi, ping, latenza e storico up/down.",
         status: "Locale",
         github: "https://github.com/simone-2006/NMS26",
         image: "NMS26_anteprima.png",
@@ -212,7 +212,7 @@ export const projects = [
         id: "ollama-chatbot",
         index: "07",
         title: "Ollama chatbot",
-        blurb: "Chat con un modello Ollama in locale. React e Vite.",
+        blurb: "Chatto con un modello Ollama in locale. React e Vite.",
         status: "Locale",
         github: "https://github.com/simone-2006/ollama-chatbot",
     },
@@ -220,7 +220,7 @@ export const projects = [
         id: "contacts-simone",
         index: "08",
         title: "Contacts Simone",
-        blurb: "Pagina contatti collegata a un QR code, da aprire al volo.",
+        blurb: "Ho creato una pagina contatti collegata a un QR code, da aprire al volo.",
         status: "Online",
         github: "https://github.com/simone-2006/contacts-simone",
     },
@@ -228,7 +228,7 @@ export const projects = [
         id: "ticketing-easy",
         index: "09",
         title: "Ticketing Easy",
-        blurb: "Help desk: le email diventano ticket. React, TypeScript ed Express.",
+        blurb: "Trasformo le email in ticket di help desk. React, TypeScript ed Express.",
         status: "Demo",
         github: "https://github.com/simone-2006/ticketing-easy",
     },
@@ -236,7 +236,7 @@ export const projects = [
         id: "nexo-erp",
         index: "10",
         title: "Nexo ERP",
-        blurb: "Piattaforma operativa: CRM, ordini, magazzino e acquisti. Next.js e PostgreSQL.",
+        blurb: "Sto costruendo una piattaforma operativa: CRM, ordini, magazzino e acquisti. Next.js e PostgreSQL.",
         status: "In sviluppo",
         github: "https://github.com/simone-2006/Nexo-ERP",
     },
@@ -244,7 +244,7 @@ export const projects = [
         id: "family-plan",
         index: "11",
         title: "Family Plan",
-        blurb: "Planner di famiglia: calendario, attività e liste condivise. PWA senza account.",
+        blurb: "Ho realizzato un planner di famiglia: calendario, attività e liste condivise. PWA senza account.",
         status: "Demo",
         github: "https://github.com/simone-2006/family-plan",
     },
