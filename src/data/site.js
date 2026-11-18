@@ -34,7 +34,7 @@ export const profile = {
     bio: "Lavora su applicazioni web e CRM interni, database SQL, postazioni di lavoro, Microsoft 365, reti e manutenzione infrastruttura. Sede a Lissone, esperienza recente a Milano, Desio e Brugherio.",
     photo: "/SimonePenzaFoto.png",
     languages: ["Italiano", "Inglese"],
-    updatedAt: "2026-11-17",
+    updatedAt: "2026-11-18",
 };
 
 export const faqs = [
@@ -46,7 +46,7 @@ export const faqs = [
     {
         question: "Dove lavora Simone Penza?",
         answer:
-            "Ha sede a Lissone (MB) e attualmente lavora come giovane tecnico informatico presso Infopad S.r.l. a Milano. Opera in Brianza, Monza e nell’area milanese.",
+            "Ha sede a Lissone (MB) e attualmente lavora come tecnico informatico e siti web presso Infopad S.r.l. a Milano. Opera in Brianza, Monza e nell’area milanese.",
     },
     {
         question: "Quali servizi IT e web offre?",
@@ -64,7 +64,7 @@ export const experiences = [
     {
         period: "Ott 2026 — ora",
         kind: "Lavoro",
-        title: "Giovane tecnico informatico",
+        title: "Tecnico informatico e siti web",
         company: "Infopad S.r.l.",
         location: "Milano (MI)",
         sections: [
