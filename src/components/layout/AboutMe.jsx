@@ -1,37 +1,6 @@
 import { pagesContext, profileContext } from "../../context/appContext";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { motion } from "motion/react";
-
-function ProfilePhoto({ src, alt }) {
-    const [missing, setMissing] = useState(false);
-
-    return (
-        <motion.div
-            className="mx-auto w-[min(160px,42vw)] shrink-0 sm:mx-0 sm:w-[200px] lg:w-[220px]"
-            initial={{ opacity: 0, scale: 0.9, x: 36 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
-        >
-            {missing ? (
-                <div className="flex aspect-[3/4] w-full items-center justify-center bg-highlight font-serif text-4xl text-text-secondary">
-                    SP
-                </div>
-            ) : (
-                <motion.img
-                    src={src}
-                    alt={alt}
-                    width={220}
-                    height={293}
-                    onError={() => setMissing(true)}
-                    className="aspect-[3/4] w-full object-cover object-top"
-                    initial={false}
-                    whileHover={{ scale: 1.03, boxShadow: "0px 10px 40px rgba(0,0,0,0.08)" }}
-                    transition={{ type: "spring", stiffness: 210, damping: 20 }}
-                />
-            )}
-        </motion.div>
-    );
-}
 
 export default function AboutMe() {
     const navbarElements = useContext(pagesContext);
@@ -61,13 +30,13 @@ export default function AboutMe() {
             </motion.p>
 
             <motion.div
-                className="mt-8 flex min-w-0 flex-col gap-8 sm:mt-12 sm:gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-20"
+                className="mt-8 flex min-w-0 flex-col gap-8 sm:mt-12 sm:gap-10"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             >
                 <motion.div
-                    className="flex min-w-0 max-w-xl flex-col gap-6 sm:gap-8"
+                    className="flex min-w-0 max-w-3xl flex-col gap-6 sm:gap-8"
                     initial={{ opacity: 0, x: -36 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
@@ -83,13 +52,6 @@ export default function AboutMe() {
                             <span className="block text-text-secondary">{profile.lastName}</span>
                             <span className="mt-1.5 block text-text sm:mt-3">{profile.firstName}</span>
                         </h1>
-                    </div>
-
-                    <div className="lg:hidden">
-                        <ProfilePhoto
-                            src={profile.photo}
-                            alt={`${profile.firstName} ${profile.lastName}`}
-                        />
                     </div>
 
                     <p className="text-base leading-relaxed text-text-secondary sm:text-[1.05rem]">
@@ -110,13 +72,6 @@ export default function AboutMe() {
                         </p>
                     </div>
                 </motion.div>
-
-                <div className="hidden lg:block">
-                    <ProfilePhoto
-                        src={profile.photo}
-                        alt={`${profile.firstName} ${profile.lastName}`}
-                    />
-                </div>
             </motion.div>
         </motion.section>
     );
