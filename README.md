@@ -8,7 +8,7 @@ Repository: [simone-2006/portfolio-simone-penza-v2](https://github.com/simone-20
 
 | Sezione | Contenuto |
 | --- | --- |
-| Chi sono | Ruolo, bio e foto |
+| Chi sono | Ruolo e bio |
 | Skills e progetti | Competenze e carosello dei progetti, con link al codice |
 | Esperienza | Lavoro e formazione |
 | Contatti & CV | Mail, telefono, social, form e curriculum in PDF |

@@ -32,7 +32,6 @@ export const profile = {
     answerFirst:
         "Simone Penza è un tecnico IT e sviluppatore web a Lissone (MB). Si occupa di applicazioni web, database SQL, supporto informatico e infrastruttura IT per aziende in Brianza e Monza.",
     bio: "Lavora su applicazioni web e CRM interni, database SQL, postazioni di lavoro, Microsoft 365, reti e manutenzione infrastruttura. Sede a Lissone, esperienza recente a Milano, Desio e Brugherio.",
-    photo: "/SimonePenzaFoto.png",
     languages: ["Italiano", "Inglese"],
     updatedAt: "2026-11-18",
 };
