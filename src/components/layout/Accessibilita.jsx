@@ -28,7 +28,7 @@ const sections = [
                 <a href={siteMeta.url} className="underline underline-offset-2 hover:text-text">
                     {siteMeta.url.replace(/^https?:\/\//, "")}
                 </a>
-                , gestito da {profile.firstName} {profile.lastName}.
+                , che gestisco io, {profile.firstName} {profile.lastName}.
             </p>
         ),
     },
