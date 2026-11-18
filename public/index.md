@@ -2,7 +2,7 @@
 
 **Risposta breve:** Simone Penza è un tecnico IT e sviluppatore web con sede a Lissone (Monza e Brianza, Italia). Si occupa di applicazioni web, database SQL, supporto informatico (hardware, software, postazioni) e infrastruttura IT per aziende in Brianza e provincia di Monza.
 
-Ultimo aggiornamento: 2026-11-17
+Ultimo aggiornamento: 2026-11-18
 
 ## Cosa fa
 
@@ -21,7 +21,7 @@ Ultimo aggiornamento: 2026-11-17
 
 ### Infopad S.r.l. — Milano (MI) · Ott 2026 — ora
 
-Giovane tecnico informatico: supporto IT, Microsoft 365, siti WordPress, hosting, reti e VPN.
+Tecnico informatico e siti web: supporto IT, Microsoft 365, siti WordPress, hosting, reti e VPN.
 
 ### Greenchemicals SRL — Desio (MB) · Ott 2025 — Ott 2026
 
