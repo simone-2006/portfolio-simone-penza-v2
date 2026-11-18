@@ -7,7 +7,7 @@ function ProfilePhoto({ src, alt }) {
 
     return (
         <motion.div
-            className="w-[180px] shrink-0 sm:w-[220px]"
+            className="mx-auto w-[min(160px,42vw)] shrink-0 sm:mx-0 sm:w-[200px] lg:w-[220px]"
             initial={{ opacity: 0, scale: 0.9, x: 36 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
@@ -61,13 +61,13 @@ export default function AboutMe() {
             </motion.p>
 
             <motion.div
-                className="mt-12 flex min-w-0 flex-col gap-12 lg:flex-row lg:items-end lg:justify-between lg:gap-20"
+                className="mt-8 flex min-w-0 flex-col gap-8 sm:mt-12 sm:gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-20"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             >
                 <motion.div
-                    className="flex min-w-0 max-w-xl flex-col gap-8"
+                    className="flex min-w-0 max-w-xl flex-col gap-6 sm:gap-8"
                     initial={{ opacity: 0, x: -36 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
@@ -78,18 +78,25 @@ export default function AboutMe() {
                         </p>
                         <h1
                             id="about-heading"
-                            className="font-serif text-6xl font-semibold leading-[1.1] sm:text-8xl sm:leading-[1.08]"
+                            className="display-name font-serif font-semibold"
                         >
                             <span className="block text-text-secondary">{profile.lastName}</span>
-                            <span className="mt-2 block text-text sm:mt-3">{profile.firstName}</span>
+                            <span className="mt-1.5 block text-text sm:mt-3">{profile.firstName}</span>
                         </h1>
+                    </div>
+
+                    <div className="lg:hidden">
+                        <ProfilePhoto
+                            src={profile.photo}
+                            alt={`${profile.firstName} ${profile.lastName}`}
+                        />
                     </div>
 
                     <p className="text-base leading-relaxed text-text-secondary sm:text-[1.05rem]">
                         {profile.answerFirst}
                     </p>
 
-                    <p className="rounded-md bg-highlight px-5 py-5 text-base leading-relaxed text-text-secondary italic sm:text-[1.05rem]">
+                    <p className="rounded-md bg-highlight px-4 py-4 text-base leading-relaxed text-text-secondary italic sm:px-5 sm:py-5 sm:text-[1.05rem]">
                         {profile.role}
                     </p>
 
@@ -104,10 +111,12 @@ export default function AboutMe() {
                     </div>
                 </motion.div>
 
-                <ProfilePhoto
-                    src={profile.photo}
-                    alt={`${profile.firstName} ${profile.lastName}`}
-                />
+                <div className="hidden lg:block">
+                    <ProfilePhoto
+                        src={profile.photo}
+                        alt={`${profile.firstName} ${profile.lastName}`}
+                    />
+                </div>
             </motion.div>
         </motion.section>
     );

@@ -208,7 +208,7 @@ export default function Privacy({ onBack }) {
             tabIndex={-1}
         >
             <p className="text-xs font-semibold uppercase tracking-wide text-muted">Informativa</p>
-            <h1 className="mt-4 font-serif text-4xl font-semibold leading-tight text-text sm:text-5xl">
+            <h1 className="mt-4 font-serif text-3xl font-semibold leading-tight text-text sm:text-5xl">
                 Privacy e cookie
             </h1>
             <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted">

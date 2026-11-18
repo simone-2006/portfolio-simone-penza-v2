@@ -122,7 +122,7 @@ export default function BootScreen({ onDone }) {
 
     return (
         <motion.div
-            className={`page-gutter fixed inset-0 z-[80] flex flex-col bg-primary py-8 ${leaving ? "pointer-events-none" : ""}`}
+            className={`page-gutter fixed inset-0 z-[80] flex flex-col bg-primary py-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:py-8 ${leaving ? "pointer-events-none" : ""}`}
             initial={false}
             animate={{ opacity: leaving ? 0 : 1 }}
             transition={{ duration: reduceMotion ? 0.2 : 0.45, ease: "easeOut" }}
@@ -146,24 +146,24 @@ export default function BootScreen({ onDone }) {
                 </p>
             </div>
 
-            <div className="mt-10 flex flex-col gap-3" aria-hidden="true">
+            <div className="mt-6 flex flex-col gap-2.5 sm:mt-10 sm:gap-3" aria-hidden="true">
                 {STEPS.map((step) => {
                     const ready = progress >= step.at;
                     return (
                         <div
                             key={step.label}
-                            className="grid grid-cols-[0.5rem_4.5rem_minmax(0,1fr)_2rem] items-center gap-3 text-sm"
+                            className="grid grid-cols-[0.5rem_minmax(3.5rem,4.5rem)_minmax(0,1fr)_1.5rem] items-center gap-2 text-sm sm:gap-3"
                         >
                             <span
                                 className={`size-2 rounded-full ${ready ? "bg-[#2f9e62]" : "bg-[#d64545]"}`}
                             />
-                            <span className="text-xs font-semibold uppercase tracking-wide text-muted">
+                            <span className="text-[11px] font-semibold uppercase tracking-wide text-muted sm:text-xs">
                                 {step.label}
                             </span>
                             <span className={ready ? "truncate text-text-secondary" : "truncate text-text/20"}>
                                 {step.value}
                             </span>
-                            <span className="text-right text-xs uppercase tracking-wide text-text-secondary">
+                            <span className="text-right text-[11px] uppercase tracking-wide text-text-secondary sm:text-xs">
                                 {ready ? "ok" : "…"}
                             </span>
                         </div>
@@ -171,11 +171,11 @@ export default function BootScreen({ onDone }) {
                 })}
             </div>
 
-            <div className="flex flex-1 flex-col justify-center py-6">
-                <p className="mb-4 text-xs font-semibold uppercase tracking-wide text-muted">
+            <div className="flex flex-1 flex-col justify-center py-4 sm:py-6">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted sm:mb-4">
                     {statusFor(progress)}
                 </p>
-                <p className="font-serif text-6xl font-semibold leading-[1.02] sm:text-8xl" aria-hidden="true">
+                <p className="display-name font-serif font-semibold" aria-hidden="true">
                     <NameLine
                         word={LAST_NAME}
                         filled={filled}

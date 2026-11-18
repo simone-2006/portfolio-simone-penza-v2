@@ -11,8 +11,13 @@ export default function ExperienceCard({
     const place = [company, location].filter(Boolean).join(" · ");
 
     return (
-        <div className="flex min-w-0">
-            <div className="flex w-24 flex-none flex-col items-center sm:w-30">
+        <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:gap-0">
+            <div className="flex items-center gap-3 sm:hidden">
+                <span className="text-xs uppercase tracking-wide text-muted">{period}</span>
+                <div aria-hidden="true" className="h-px min-w-0 flex-1 bg-border-color" />
+            </div>
+
+            <div className="hidden w-24 flex-none flex-col items-center sm:flex sm:w-30">
                 <span className="my-4 px-1 text-center text-xs leading-snug uppercase tracking-wide text-muted">
                     {period}
                 </span>
@@ -20,14 +25,14 @@ export default function ExperienceCard({
                 <div aria-hidden="true" className="w-px grow bg-linear-to-b from-accent-secondary to-border-color" />
             </div>
 
-            <div className="flex min-w-0 flex-col gap-5 px-3 py-7 sm:gap-6 sm:px-5">
+            <div className="flex min-w-0 flex-col gap-5 border-l border-accent-secondary/40 py-1 pl-4 sm:border-l-0 sm:gap-6 sm:px-5 sm:py-7">
                 <div className="space-y-2">
                     {kind ? (
                         <p className="text-[11px] font-semibold uppercase tracking-wide text-muted">
                             {kind}
                         </p>
                     ) : null}
-                    <h3 className="font-serif text-2xl leading-snug break-words text-text">
+                    <h3 className="font-serif text-xl leading-snug break-words text-text sm:text-2xl">
                         {title}
                     </h3>
                     {place ? (
@@ -51,7 +56,7 @@ export default function ExperienceCard({
                 ) : null}
 
                 {stack ? (
-                    <p className="pt-1 text-xs leading-relaxed text-muted">{stack}</p>
+                    <p className="pt-1 text-xs leading-relaxed break-words text-muted">{stack}</p>
                 ) : null}
             </div>
         </div>

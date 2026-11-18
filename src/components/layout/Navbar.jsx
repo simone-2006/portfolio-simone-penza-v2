@@ -205,7 +205,7 @@ export default function Navbar({ hideSections = false, onHome }) {
         <nav
             ref={navRef}
             aria-label="Navigazione principale"
-            className="page-gutter sticky top-0 z-50 flex items-center justify-between border-b border-accent bg-primary/80 py-5 backdrop-blur-sm"
+            className={`page-gutter sticky top-0 z-50 flex items-center justify-between border-b border-accent py-3 backdrop-blur-sm sm:py-5 ${menuOpen ? "bg-primary" : "bg-primary/80"}`}
         >
             <motion.a href="#about"
                 initial={{ opacity: 0, y: 10 }}
@@ -262,7 +262,7 @@ export default function Navbar({ hideSections = false, onHome }) {
                     role="dialog"
                     aria-modal="true"
                     aria-label="Menu di navigazione"
-                    className="absolute left-0 right-0 top-full z-50 flex flex-col gap-3 border-b border-accent bg-primary/95 p-4 backdrop-blur-sm lg:hidden"
+                    className="absolute left-0 right-0 top-full z-50 flex max-h-[min(70vh,calc(100dvh-var(--header-height)))] flex-col gap-1 overflow-y-auto border-b border-accent bg-primary px-4 py-3 shadow-sm lg:hidden"
                 >
                     {navbarElements.map((navbarElement) => (
                         <NavbarButton

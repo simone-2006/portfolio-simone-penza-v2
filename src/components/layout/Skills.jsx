@@ -76,7 +76,7 @@ function SkillChip({ skill }) {
 function SkillRow({ hidden }) {
     return (
         <div
-            className="flex shrink-0 items-center gap-10 pr-10"
+            className="flex shrink-0 items-center gap-6 pr-6 text-sm sm:gap-10 sm:pr-10 sm:text-base"
             aria-hidden={hidden || undefined}
         >
             {allSkills.map((skill) => (
@@ -213,15 +213,15 @@ function ProjectCarousel({ projects }) {
                                     {project.title}
                                 </div>
                             )}
-                            <div className="flex items-start justify-between gap-5 border-b border-border-color px-1 py-6">
+                            <div className="flex items-start justify-between gap-3 border-b border-border-color px-1 py-5 sm:gap-5 sm:py-6">
                                 <div className="min-w-0 space-y-2.5">
-                                    <p className="font-serif text-2xl leading-snug text-text">
+                                    <p className="font-serif text-xl leading-snug text-text sm:text-2xl">
                                         {project.title}
                                         <span className="sr-only"> (si apre in una nuova scheda)</span>
                                     </p>
                                     <p className="text-sm leading-relaxed text-muted">{project.blurb}</p>
                                 </div>
-                                <span className="shrink-0 pt-1.5 text-[11px] font-semibold uppercase tracking-wide text-muted">
+                                <span className="shrink-0 pt-1 text-[11px] font-semibold uppercase tracking-wide text-muted">
                                     {project.status}
                                 </span>
                             </div>
@@ -230,8 +230,8 @@ function ProjectCarousel({ projects }) {
                 </AnimatePresence>
             </div>
 
-            <div className="mt-6 flex items-center justify-between gap-4">
-                <div className="flex items-center gap-1" role="group" aria-label="Seleziona progetto">
+            <div className="mt-6 flex items-center justify-between gap-3 sm:gap-4">
+                <div className="-mx-1 flex min-w-0 flex-1 items-center overflow-x-auto px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="group" aria-label="Seleziona progetto">
                     {projects.map((item, itemIndex) => (
                         <button
                             key={item.id}
@@ -239,7 +239,7 @@ function ProjectCarousel({ projects }) {
                             aria-label={`Vai a ${item.title}`}
                             aria-current={itemIndex === index ? "true" : undefined}
                             onClick={() => goTo(itemIndex)}
-                            className="inline-flex min-h-11 min-w-11 items-center justify-center"
+                            className="inline-flex size-11 shrink-0 items-center justify-center"
                         >
                             <span
                                 aria-hidden="true"
@@ -302,14 +302,14 @@ export default function Skills() {
             </motion.h2>
 
             <motion.div
-                className="relative mt-12 mb-14 overflow-hidden py-4"
+                className="relative mt-8 mb-10 overflow-hidden py-3 sm:mt-12 sm:mb-14 sm:py-4"
                 initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={viewportOnce}
                 transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             >
-                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-linear-to-r from-primary to-transparent" />
-                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-linear-to-l from-primary to-transparent" />
+                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-linear-to-r from-primary to-transparent sm:w-16" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-linear-to-l from-primary to-transparent sm:w-16" />
                 <div className="flex w-max animate-marquee">
                     <SkillRow />
                     <SkillRow hidden />
@@ -317,7 +317,7 @@ export default function Skills() {
             </motion.div>
 
             <motion.div
-                className="flex flex-col gap-14 lg:flex-row lg:items-center lg:justify-between lg:gap-20"
+                className="flex flex-col gap-10 sm:gap-14 lg:flex-row lg:items-center lg:justify-between lg:gap-20"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={viewportOnce}
@@ -339,11 +339,11 @@ export default function Skills() {
                     >
                         Lavoro su
                     </motion.p>
-                    <p className="flex min-w-0 flex-row flex-wrap items-baseline gap-x-5 gap-y-4 border-b border-border-color pb-5">
+                    <p className="flex min-w-0 flex-col items-start gap-y-1 border-b border-border-color pb-5 sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-5 sm:gap-y-3">
                         {[
-                            { word: "Sviluppo.", colClass: "text-text text-[60px]" },
-                            { word: "Database.", colClass: "text-text-secondary text-[50px]" },
-                            { word: "Supporto IT.", colClass: "text-muted text-[40px]" },
+                            { word: "Sviluppo.", colClass: "text-text text-[clamp(2.25rem,9vw,3.75rem)]" },
+                            { word: "Database.", colClass: "text-text-secondary text-[clamp(1.9rem,7.5vw,3.125rem)]" },
+                            { word: "Supporto IT.", colClass: "text-muted text-[clamp(1.6rem,6.5vw,2.5rem)]" },
                         ].map(({ word, colClass }, idx) => (
                             <motion.span
                                 key={word}
@@ -354,7 +354,7 @@ export default function Skills() {
                                     duration: 0.5,
                                     delay: 0.55 + idx * 0.5,
                                 }}
-                                className={`font-serif leading-[1.05] whitespace-nowrap ${colClass}`}
+                                className={`font-serif leading-[1.08] sm:whitespace-nowrap ${colClass}`}
                             >
                                 {word}
                             </motion.span>

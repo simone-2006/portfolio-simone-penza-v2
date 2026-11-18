@@ -52,7 +52,7 @@ export default function Faq() {
                             ease: "easeOut",
                         }}
                     >
-                        <dt className="font-serif text-xl font-semibold leading-snug text-text sm:text-2xl">
+                        <dt className="font-serif text-lg font-semibold leading-snug text-text sm:text-2xl">
                             {item.question}
                         </dt>
                         <dd className="mt-3 text-sm leading-relaxed text-muted sm:text-[0.95rem]">

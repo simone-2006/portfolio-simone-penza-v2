@@ -143,13 +143,36 @@
 @layer components {
   .page-gutter,
   .page-section {
-    padding-left: max(1.25rem, env(safe-area-inset-left));
-    padding-right: max(1.25rem, env(safe-area-inset-right));
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
   }
 
   .page-section {
     min-width: 0;
-    padding-block: 5.5rem;
+    padding-block: 4rem;
+  }
+
+  @media (min-width: 480px) {
+    .page-gutter,
+    .page-section {
+      padding-left: max(1.25rem, env(safe-area-inset-left));
+      padding-right: max(1.25rem, env(safe-area-inset-right));
+    }
+
+    .page-section {
+      padding-block: 5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .page-gutter,
+    .page-section {
+      padding-inline: 2rem;
+    }
+
+    .page-section {
+      padding-block: 6rem;
+    }
   }
 
   @media (min-width: 1024px) {
@@ -161,6 +184,11 @@
     .page-section {
       padding-block: 7.5rem;
     }
+  }
+
+  .display-name {
+    font-size: clamp(2.75rem, 11vw, 6rem);
+    line-height: 1.08;
   }
 
   .boot-caret {
